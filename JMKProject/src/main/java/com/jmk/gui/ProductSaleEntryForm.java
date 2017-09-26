@@ -1151,7 +1151,6 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                 customerAccount.setSecurityMoney(Double.parseDouble(txtTotalSecurityMoney.getText()));
                 customerAccount.setTransactionType(TransactionType.TRANSACTION_TYPE_PURCHASE);
 
-                
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "Somthing went wrong,please check all value and try again");
             }
