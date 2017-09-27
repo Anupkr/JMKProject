@@ -89,6 +89,10 @@ public class ContainerAccount {
     public void setBalance(int balance) {
         this.balance = balance;
     }
-    
+
+    @Override
+    public String toString() {
+        return "ContainerAccount{" + "id=" + id + ", transactionId=" + transactionId + ", customerId=" + customerId + ", containerId=" + containerId + ", credit=" + credit + ", debit=" + debit + ", securityMoneyPerQty=" + securityMoneyPerQty + ", totalSecurityMoney=" + totalSecurityMoney + ", balance=" + balance + '}';
+    }
 
 }

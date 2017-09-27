@@ -39,4 +39,9 @@ public class SQLConstant {
 
     public static final String SQL_INSERT_SALE_ITEMS = "insert into sale_Items (transaction_id, item_id, weight, price) VALUES (?, ?, ?, ?)";
 
+    public static final String SQL_SELECT_RECENT_PAYMENT_TRANSACTION = "select transaction_id,customer_id,"
+            + "product_amount,security_money,coolie_amount,"
+            + "debit_amount,credit_amount,transaction_type,description,current_balance,transaction_date FROM customer_account where customer_id=? and  "
+            + "transaction_id>(select max(transaction_id) from customer_account where customer_id=? and transaction_type='PURCHASED')";
+
 }

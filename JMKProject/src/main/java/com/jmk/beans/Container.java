@@ -53,4 +53,10 @@ public class Container implements Serializable {
 		this.securityMoney = securityMoney;
 	}
 
+    @Override
+    public String toString() {
+        return "Container{" + "containerId=" + containerId + ", name=" + name + ", securityMoney=" + securityMoney + '}';
+    }
+        
+
 }

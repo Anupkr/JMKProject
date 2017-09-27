@@ -75,10 +75,12 @@ public class CustomerAccountDAOImpl implements CustomerAccountDAO {
         }, customerId);
     }
 
+    @Override
     public List<CustomerAccount> getAllTransaction(Date from) {
         return null;
     }
 
+    @Override
     public List<CustomerAccount> getAllTransaction(Date from, Date to) {
         return null;
     }
@@ -90,5 +92,29 @@ public class CustomerAccountDAOImpl implements CustomerAccountDAO {
     @Override
     public Double getBalance(Long customerId) {
         return jdbcTemplate.queryForObject(SQLConstant.SQL_SELECT_CURRENT_BALANCE, Double.class, customerId);
+
+    }
+
+    @Override
+    public List<CustomerAccount> getRecentPyamentTransaction(Long customerId) {
+
+        return jdbcTemplate.query(SQLConstant.SQL_SELECT_RECENT_PAYMENT_TRANSACTION, (ResultSet rs, int rowNum) -> {
+            CustomerAccount customerAccount = new CustomerAccount();
+            //transaction_id,customer_id,product_amount,security_money,coolie_amount,
+            //debit_amount,credit_amount,transaction_type,description,current_balance,transaction_date
+            customerAccount.setTransactionId(rs.getLong(1));
+            customerAccount.setCustomerId(rs.getLong(2));
+            customerAccount.setProductAmount(rs.getDouble(3));
+            
+            customerAccount.setSecurityMoney(rs.getDouble(4));
+            customerAccount.setCoolieAmount(rs.getDouble(5));
+            customerAccount.setDebitAmount(rs.getDouble(6));
+            customerAccount.setCreditAmount(rs.getDouble(7));
+            customerAccount.setTransactionType(rs.getString(8));
+            customerAccount.setDescription(rs.getString(9));
+            customerAccount.setCurrentBalance(rs.getDouble(10));
+            customerAccount.setDate(rs.getDate(11));
+            return customerAccount;
+        }, customerId, customerId);
     }
 }

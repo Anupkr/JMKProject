@@ -44,4 +44,13 @@ public interface CustomerAccountService {
      * @return current balance if amount
      */
     public Double getBalance(Long customerId);
+
+    /**
+     * This method fetch all transaction from last purchase
+     *
+     * @param customerId
+     * @return List of CustomerAccount
+     */
+    public List<CustomerAccount> getRecentPyamentTransaction(Long customerId);
+
 }

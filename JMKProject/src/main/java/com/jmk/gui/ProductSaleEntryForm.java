@@ -16,6 +16,7 @@ import com.jmk.dao.ContainerDAO;
 import com.jmk.service.CustomerAccountService;
 import com.jmk.service.CustomerService;
 import com.jmk.service.ItemService;
+import com.jmk.util.StatusMessage;
 import com.jmk.util.TransactionType;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -897,6 +898,22 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
             customerAccount.setCustomerId(customer.getCustomerId());
 
             txtCurrentBalance.setText(customer.getCustomerAccount().getCurrentBalance() + "");
+
+            List<CustomerAccount> list = customerAccountService.getRecentPyamentTransaction(customer.getCustomerId());
+
+            if (list != null) {
+
+                DefaultTableModel tableModemModel = (DefaultTableModel) jTable2.getModel();
+                tableModemModel.setRowCount(list.size());
+                for (int i = 0; i < list.size(); i++) {
+                    CustomerAccount ca = list.get(i);
+                    jTable2.setValueAt(ca.getDate(), i, 0);
+                    jTable2.setValueAt(ca.getCreditAmount(), i, 1);
+                    jTable2.setValueAt(ca.getDebitAmount(), i, 2);
+                    jTable2.setValueAt(ca.getTransactionType(), i, 3);
+                    jTable2.setValueAt(ca.getDescription(), i, 4);
+                }
+            }
         }
     }//GEN-LAST:event_cmbCustomerActionPerformed
 
@@ -1049,6 +1066,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                     containerAccount.setDebit(0);
                     containerAccount.setCredit(Integer.parseInt(txtQty.getText()));
                     containerAccount.setSecurityMoneyPerQty((int) container.getSecurityMoney());
+                    containerAccount.setContainerId(container.getContainerId());
 
                     //add into containerAccountList
                     containerAccount.setCustomerId(customerAccount.getCustomerId());
@@ -1150,6 +1168,15 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                 customerAccount.setProductAmount(Double.parseDouble(txtTotalItemAmount.getText()));
                 customerAccount.setSecurityMoney(Double.parseDouble(txtTotalSecurityMoney.getText()));
                 customerAccount.setTransactionType(TransactionType.TRANSACTION_TYPE_PURCHASE);
+
+                String message = customerAccountService.saveSale(customerAccount);
+                if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(message)) {
+                    JOptionPane.showMessageDialog(rootPane, "Successfully Saved", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, message, "Failed", JOptionPane.ERROR_MESSAGE);
+                }
+                System.out.println(customerAccount);
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "Somthing went wrong,please check all value and try again");

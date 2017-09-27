@@ -7,7 +7,6 @@ package com.jmk.gui;
 
 import com.jmk.Test;
 import com.jmk.beans.Customer;
-import com.jmk.beans.CustomerAccount;
 import com.jmk.beans.User;
 import com.jmk.service.CustomerAccountService;
 import com.jmk.service.CustomerService;
@@ -71,11 +70,14 @@ public class CustomerListForm extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(226, 31, 1));
 
         jTextField1.setBackground(new java.awt.Color(226, 31, 1));
-        jTextField1.setForeground(new java.awt.Color(254, 254, 254));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setToolTipText("Enter Customer Name,Address or Mobile number");
         jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField1KeyReleased(evt);
@@ -228,6 +230,8 @@ public class CustomerListForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        customerList = customerService.getAllCustomer();
+
         showInTable();
 
     }//GEN-LAST:event_formWindowOpened
@@ -236,7 +240,6 @@ public class CustomerListForm extends javax.swing.JDialog {
             @Override
             public void run() {
                 String text = jTextField1.getText().toLowerCase();
-                customerList = customerService.getAllCustomer();
                 if (customerList != null) {
 
                     DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
@@ -246,10 +249,10 @@ public class CustomerListForm extends javax.swing.JDialog {
                         User user = customer.getUser();
                         if (text != null) {
                             if (customer.getName().toLowerCase().contains(text) || user.getAddress().toLowerCase().contains(text) || user.getMobile1().contains(text) || user.getMobile2().contains(text)) {
-                                defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), null});
+                                defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance()});
                             }
                         } else {
-                            defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), null});
+                            defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance()});
                         }
                     }
                 }
@@ -264,7 +267,7 @@ public class CustomerListForm extends javax.swing.JDialog {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         int index = jTable1.getSelectedRow();
-        
+
         if (index != -1) {
             Long customerId = Long.parseLong(jTable1.getValueAt(index, 0).toString());
 
@@ -291,6 +294,10 @@ public class CustomerListForm extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
         }
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

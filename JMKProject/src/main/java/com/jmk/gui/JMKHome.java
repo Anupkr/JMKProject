@@ -6,7 +6,6 @@
 package com.jmk.gui;
 
 import com.jmk.Test;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -25,9 +24,9 @@ public class JMKHome extends javax.swing.JFrame {
      */
     public JMKHome() {
         initComponents();
-//        setSize(Toolkit.getDefaultToolkit().getScreenSize());
-        setLocationRelativeTo(null);
+        
         new Timer(1000, new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
 
                 Date date = new Date();

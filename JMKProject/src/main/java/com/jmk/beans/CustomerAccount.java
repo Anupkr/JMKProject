@@ -190,11 +190,7 @@ public class CustomerAccount implements Serializable {
         this.currentBalance = currentBalance;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerAccount{" + "transactionId=" + transactionId + ", customerId=" + customerId + ", productAmount=" + productAmount + ", securityMoney=" + securityMoney + ", coolieAmount=" + coolieAmount + ", debitAmount=" + debitAmount + ", creditAmount=" + creditAmount + ", transactionType=" + transactionType + ", description=" + description + ", currentBalance=" + currentBalance + '}';
-    }
-
+ 
     public Date getDate() {
         return date;
     }
@@ -203,4 +199,10 @@ public class CustomerAccount implements Serializable {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "CustomerAccount{" + "transactionId=" + transactionId + ", customerId=" + customerId + ", productAmount=" + productAmount + ", securityMoney=" + securityMoney + ", coolieAmount=" + coolieAmount + ", debitAmount=" + debitAmount + ", creditAmount=" + creditAmount + ", transactionType=" + transactionType + ", description=" + description + ", currentBalance=" + currentBalance + ", date=" + date + ", itemSaleList=" + itemSaleList + ", containerAccountList=" + containerAccountList + '}';
+    }
+
+    
 }

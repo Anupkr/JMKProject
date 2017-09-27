@@ -10,6 +10,9 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <context:component-scan base-package="com.jmk"></context:component-scan>
     
     <context:annotation-config />
+   
+    
+    
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -28,4 +31,5 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    
 </beans>
