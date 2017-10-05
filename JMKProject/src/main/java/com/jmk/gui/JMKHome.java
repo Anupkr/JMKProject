@@ -24,7 +24,7 @@ public class JMKHome extends javax.swing.JFrame {
      */
     public JMKHome() {
         initComponents();
-        
+
         new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -318,7 +318,7 @@ public class JMKHome extends javax.swing.JFrame {
 //        CustomerRegistrationForm customerRegistrationForm=new CustomerRegistrationForm(this, rootPaneCheckingEnabled);
         CustomerRegistrationForm customerRegistrationForm
                 = Test.getBean(CustomerRegistrationForm.class);
-
+        customerRegistrationForm.setModal(true);
         customerRegistrationForm.setLocationRelativeTo(this);
         customerRegistrationForm.setVisible(true);
 
@@ -327,7 +327,9 @@ public class JMKHome extends javax.swing.JFrame {
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
 
         CustomerPaymentForm customerPaymentForm = Test.getBean(CustomerPaymentForm.class);
+        customerPaymentForm.setModal(true);
         customerPaymentForm.setLocationRelativeTo(this);
+
         customerPaymentForm.setVisible(true);
 
     }//GEN-LAST:event_jLabel13MouseClicked
@@ -335,9 +337,9 @@ public class JMKHome extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
 
-        CustomerListForm customerListForm
-                = Test.getBean(CustomerListForm.class);
+        CustomerListForm customerListForm = Test.getBean(CustomerListForm.class);
         customerListForm.setLocationRelativeTo(this);
+        customerListForm.setModal(true);
         customerListForm.setVisible(true);
 
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -345,7 +347,7 @@ public class JMKHome extends javax.swing.JFrame {
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
 
         ProductSaleEntryForm productSaleEntryForm = Test.getBean(ProductSaleEntryForm.class);
-//        productSaleEntryForm.setModal(true);
+        productSaleEntryForm.setModal(true);
         productSaleEntryForm.setLocationRelativeTo(this);
         productSaleEntryForm.setVisible(true);
 

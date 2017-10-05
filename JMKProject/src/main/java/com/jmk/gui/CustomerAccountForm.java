@@ -3,9 +3,23 @@ package com.jmk.gui;
 import com.jmk.beans.Customer;
 import com.jmk.beans.CustomerAccount;
 import com.jmk.service.CustomerAccountService;
+import com.jmk.util.PrintDialogUtil;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JRViewer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -219,6 +233,11 @@ jPanel1Layout.setHorizontalGroup(
     jPanel2.setBackground(new java.awt.Color(226, 18, 32));
 
     jButton1.setText("Print");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton1ActionPerformed(evt);
+        }
+    });
 
     jButton2.setText("Edit");
 
@@ -331,6 +350,29 @@ jPanel1Layout.setHorizontalGroup(
             }
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(customerAccountList, false);
+
+            Map parameters = new HashMap();
+
+            JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/jasper/customer_account.jrxml"));
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(
+                    jasperReport, parameters, beanCollectionDataSource);
+
+            JRViewer jRViewer = new JRViewer(jasperPrint);
+            PrintDialogUtil pdu = new PrintDialogUtil(this, true, jRViewer);
+
+        } catch (JRException ex) {
+            Logger.getLogger(CustomerAccountForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo dateChooserCombo1;

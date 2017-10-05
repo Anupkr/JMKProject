@@ -778,6 +778,11 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     });
 
     jButton6.setText("Reset");
+    jButton6.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton6ActionPerformed(evt);
+        }
+    });
 
     jButton7.setText("Print Bill");
 
@@ -888,6 +893,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
 
     private void cmbCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCustomerActionPerformed
 
+        reset();
         int index = cmbCustomer.getSelectedIndex();
         if (index != -1) {
             Customer customer = customerList.get(index);
@@ -1184,12 +1190,51 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
+        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure?") == JOptionPane.YES_OPTION) {
+            reset();
+        }
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     private void changeFocusGainedBackgroundColor(JComponent component) {
         component.setBackground(Color.cyan);
     }
 
     private void changeFocusLostBackgroundColor(JComponent component) {
         component.setBackground(Color.white);
+    }
+
+    private void reset() {
+        
+        
+        ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
+        ((DefaultTableModel) jTable2.getModel()).setRowCount(0);
+
+        String empty = "";
+        txtWeight.setText(empty);
+
+        txtRate.setText(empty);
+        txtAmount.setText(empty);
+        txtSecMoney.setText(empty);
+        txtCoolie.setText(empty);
+        txtQty.setText(empty);
+        txtTotalAmount.setText(empty);
+        txtTotalItemAmount.setText(empty);
+        txtTotalSecurityMoney.setText(empty);
+        txtGrossAmount.setText(empty);
+        txtAddress.setText(empty);
+        txtCurrentBalance.setText(empty);
+        txtCustomerName.setText(empty);
+        txtMobile.setText(empty);
+        
+       
+        
+        
+        
+        
+        
     }
 
 

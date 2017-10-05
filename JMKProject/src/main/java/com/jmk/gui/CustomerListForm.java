@@ -10,12 +10,32 @@ import com.jmk.beans.Customer;
 import com.jmk.beans.User;
 import com.jmk.service.CustomerAccountService;
 import com.jmk.service.CustomerService;
+import com.jmk.util.PrintDialogUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JRDesignViewer;
+import net.sf.jasperreports.view.JRViewer;
+import net.sf.jasperreports.view.JasperViewer;
+import org.jfree.ui.about.AboutDialog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -59,6 +79,7 @@ public class CustomerListForm extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -176,6 +197,16 @@ public class CustomerListForm extends javax.swing.JDialog {
         jLabel7.setText("Granter Details");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        jLabel8.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Print All");
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,7 +218,8 @@ public class CustomerListForm extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
                 .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
@@ -203,6 +235,8 @@ public class CustomerListForm extends javax.swing.JDialog {
                 .addComponent(jLabel6)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel7)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -230,9 +264,15 @@ public class CustomerListForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        customerList = customerService.getAllCustomer();
+        new Thread() {
+            @Override
+            public void run() {
+                customerList = customerService.getAllCustomer();
+                showInTable();
 
-        showInTable();
+            }
+
+        }.start();
 
     }//GEN-LAST:event_formWindowOpened
     private void showInTable() {
@@ -287,6 +327,7 @@ public class CustomerListForm extends javax.swing.JDialog {
                 System.out.println(customer);
                 CustomerAccountForm customerAccountForm = Test.getBean(CustomerAccountForm.class);
                 customerAccountForm.setCustomer(customer);
+                customerAccountForm.setModal(true);
                 customerAccountForm.setLocationRelativeTo(this);
                 customerAccountForm.setVisible(true);
             }
@@ -299,6 +340,48 @@ public class CustomerListForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+
+//        String sourceFileName = getClass().getResource("/jasper/customer_list.jasper").getFile();
+        try {
+
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            List<Customer> listToPrint = new ArrayList<>();
+
+            if (model.getRowCount() > 0) {
+
+                for (int i = 0; i < model.getRowCount(); i++) {
+
+                    int id = Integer.parseInt(jTable1.getValueAt(i, 0).toString());
+                    Customer c = new Customer();
+                    c.setCustomerId(id);
+
+                    listToPrint.add(customerList.get(customerList.indexOf(c)));
+
+                }
+
+                JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(listToPrint, false);
+
+                Map parameters = new HashMap();
+
+                JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/jasper/customer_list.jrxml"));
+
+                JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+                JasperPrint jasperPrint = JasperFillManager.fillReport(
+                        jasperReport, parameters, beanCollectionDataSource);
+
+                JRViewer jRViewer = new JRViewer(jasperPrint);
+                PrintDialogUtil pdu = new PrintDialogUtil(this, true, jRViewer);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "There is no data to print", "Empty Data", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (JRException ex) {
+            Logger.getLogger(CustomerListForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jLabel8MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -307,6 +390,7 @@ public class CustomerListForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
