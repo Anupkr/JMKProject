@@ -6,6 +6,7 @@
 package com.jmk.service;
 
 import com.jmk.beans.CustomerAccount;
+import com.jmk.beans.DueContainer;
 import java.util.Date;
 import java.util.List;
 
@@ -53,4 +54,7 @@ public interface CustomerAccountService {
      */
     public List<CustomerAccount> getRecentPyamentTransaction(Long customerId);
 
+    public String payAmount(CustomerAccount customerAccount);
+
+   
 }

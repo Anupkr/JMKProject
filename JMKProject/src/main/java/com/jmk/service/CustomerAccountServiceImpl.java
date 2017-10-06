@@ -7,6 +7,7 @@ package com.jmk.service;
 
 import com.jmk.beans.ContainerAccount;
 import com.jmk.beans.CustomerAccount;
+import com.jmk.beans.DueContainer;
 import com.jmk.beans.ItemSale;
 import com.jmk.dao.ContainerAccountDAO;
 import com.jmk.dao.CustomerAccountDAO;
@@ -72,9 +73,7 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
 
                     }
                     System.out.println(itemSaleList);
-
                     itemSaleDAO.saveItems(itemSaleList);
-
                     List<ContainerAccount> containerAccountList = customerAccount.getContainerAccountList();
 
                     for (int i = 0; i < containerAccountList.size(); i++) {
@@ -98,6 +97,7 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
             message = "Account details required";
         }
         return message;
+
     }
 
     @Override
@@ -124,4 +124,22 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
             return null;
         }
     }
+
+    @Override
+    public String payAmount(CustomerAccount customerAccount) {
+
+        String message = StatusMessage.STATUS_FAILED;
+        try {
+            Integer count = customerAccountDAO.saveSale(customerAccount);
+            if (count != null && count > 0) {
+                message = StatusMessage.STATUS_SUCCESS;
+            }
+        } catch (DataAccessException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return message;
+    }
+
 }

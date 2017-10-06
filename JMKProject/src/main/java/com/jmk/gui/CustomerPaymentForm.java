@@ -7,6 +7,7 @@ import com.jmk.service.CustomerService;
 import com.jmk.util.MessageLabel;
 import com.jmk.util.StatusMessage;
 import com.jmk.util.TransactionType;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
 public class CustomerPaymentForm extends javax.swing.JDialog {
 
     @Autowired
@@ -105,6 +107,14 @@ public class CustomerPaymentForm extends javax.swing.JDialog {
         cmbCustomerList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCustomerListActionPerformed(evt);
+            }
+        });
+        cmbCustomerList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmbCustomerListKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cmbCustomerListKeyReleased(evt);
             }
         });
 
@@ -283,8 +293,8 @@ public class CustomerPaymentForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        System.out.println(customerService
-        );
+
+        cmbCustomerList.addItem("--Select Customer--");
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -307,7 +317,7 @@ public class CustomerPaymentForm extends javax.swing.JDialog {
                 if (JOptionPane.showConfirmDialog(rootPane, MessageLabel.MESSAGE_SURE, "Confirmation", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     int index = cmbCustomerList.getSelectedIndex();
                     if (index != -1) {
-                        Customer customer = customerList.get(index);
+                        Customer customer = customerList.get(index - 1);
                         long customerId = customer.getCustomerId();
                         CustomerAccount customerAccount = new CustomerAccount();
 
@@ -331,7 +341,7 @@ public class CustomerPaymentForm extends javax.swing.JDialog {
                         //call dao method to save ammount
                         System.out.println(customerAccount);
 
-                        String message = customerAccountService.saveSale(customerAccount);
+                        String message = customerAccountService.payAmount(customerAccount);
 
                         if (message.equalsIgnoreCase(StatusMessage.STATUS_SUCCESS)) {
 
@@ -343,6 +353,10 @@ public class CustomerPaymentForm extends javax.swing.JDialog {
                             txtMobileNumber.setText("");
                             cmbCustomerList.requestFocus();
                             cmbPaymentType.setSelectedIndex(0);
+
+                            //updat the current balance in the list
+                            customerAccount.setCurrentBalance(currentBalance);
+                            customerList.get(index - 1).setCustomerAccount(customerAccount);
 
                         }
                         JOptionPane.showMessageDialog(rootPane, message);
@@ -361,30 +375,47 @@ public class CustomerPaymentForm extends javax.swing.JDialog {
 
     private void cmbCustomerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCustomerListActionPerformed
 
-        int index = cmbCustomerList.getSelectedIndex();
-        System.out.println(customerList);
-        if (index != -1) {
 
-            Customer customer = customerList.get(index);
-            System.out.println(customer);
-            //get currentbalance of selected customer
-            Double currentBalance = customerAccountService.getBalance(customer.getCustomerId());
-            if (currentBalance == null) {
-                currentBalance = 0.0;
-            }
-
-            txtCurrentBalance.setText(String.valueOf(currentBalance));
-            txtCustomerName.setText(customer.getName());
-            txtAddress.setText(customer.getUser().getAddress());
-            txtMobileNumber.setText(customer.getUser().getMobile1());
-            txtAmmount.setText("");
-            txtAmmount.requestFocus();
-        }
     }//GEN-LAST:event_cmbCustomerListActionPerformed
 
     private void txtCurrentBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurrentBalanceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCurrentBalanceActionPerformed
+
+    private void cmbCustomerListKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCustomerListKeyTyped
+
+    }//GEN-LAST:event_cmbCustomerListKeyTyped
+
+    private void cmbCustomerListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCustomerListKeyReleased
+        System.out.println(evt.getKeyCode());
+        if (KeyEvent.VK_ENTER == evt.getKeyCode()) {
+            int index = cmbCustomerList.getSelectedIndex();
+
+            if (index > 0) {
+
+                Customer customer = customerList.get(index - 1);
+                System.out.println(customer);
+                //get currentbalance of selected customer
+
+                CustomerAccount account = customer.getCustomerAccount();
+                Double currentBalance = account.getCurrentBalance();
+
+                txtCurrentBalance.setText(String.valueOf(currentBalance));
+                txtCustomerName.setText(customer.getName());
+                txtAddress.setText(customer.getUser().getAddress());
+                txtMobileNumber.setText(customer.getUser().getMobile1());
+                txtAmmount.setText("");
+                txtAmmount.requestFocus();
+            } else {
+                String empty = "";
+                txtCurrentBalance.setText(empty);
+                txtCustomerName.setText(empty);
+                txtAddress.setText(empty);
+                txtMobileNumber.setText(empty);
+                txtAmmount.setText(empty);
+            }
+        }
+    }//GEN-LAST:event_cmbCustomerListKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

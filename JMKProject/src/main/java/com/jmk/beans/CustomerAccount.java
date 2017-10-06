@@ -24,14 +24,12 @@ public class CustomerAccount implements Serializable {
     private String transactionType;
     private String description;
     private double currentBalance;
-    
+
     private Date date;
     private List<ItemSale> itemSaleList;
 
     private List<ContainerAccount> containerAccountList;
-    
-    
-    
+
     public List<ContainerAccount> getContainerAccountList() {
         return containerAccountList;
     }
@@ -39,8 +37,6 @@ public class CustomerAccount implements Serializable {
     public void setContainerAccountList(List<ContainerAccount> containerAccountList) {
         this.containerAccountList = containerAccountList;
     }
-
-    
 
     public List<ItemSale> getItemSaleList() {
         return itemSaleList;
@@ -190,7 +186,6 @@ public class CustomerAccount implements Serializable {
         this.currentBalance = currentBalance;
     }
 
- 
     public Date getDate() {
         return date;
     }
@@ -204,5 +199,4 @@ public class CustomerAccount implements Serializable {
         return "CustomerAccount{" + "transactionId=" + transactionId + ", customerId=" + customerId + ", productAmount=" + productAmount + ", securityMoney=" + securityMoney + ", coolieAmount=" + coolieAmount + ", debitAmount=" + debitAmount + ", creditAmount=" + creditAmount + ", transactionType=" + transactionType + ", description=" + description + ", currentBalance=" + currentBalance + ", date=" + date + ", itemSaleList=" + itemSaleList + ", containerAccountList=" + containerAccountList + '}';
     }
 
-    
 }

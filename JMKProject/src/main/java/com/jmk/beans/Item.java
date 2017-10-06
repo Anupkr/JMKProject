@@ -10,6 +10,8 @@ import java.io.Serializable;
 public class Item implements Serializable {
 
     private int itemId;
+    private String itemName;
+    private int containerId;
 
     public int getItemId() {
         return itemId;
@@ -27,14 +29,12 @@ public class Item implements Serializable {
         this.itemName = itemName;
     }
 
-    public boolean isStatus() {
-        return status;
+    public int getContainerId() {
+        return containerId;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setContainerId(int containerId) {
+        this.containerId = containerId;
     }
-    private String itemName;
-    private boolean status;
 
 }

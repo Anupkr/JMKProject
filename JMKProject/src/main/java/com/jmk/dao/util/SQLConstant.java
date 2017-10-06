@@ -44,4 +44,7 @@ public class SQLConstant {
             + "debit_amount,credit_amount,transaction_type,description,current_balance,transaction_date FROM customer_account where customer_id=? and  "
             + "transaction_id>(select max(transaction_id) from customer_account where customer_id=? and transaction_type='PURCHASED')";
 
+    public static final String SQL_SELECT_ALL_DUE_CONTAINER_BY_CUSTOMER_ID
+            = "select d.*,c.container_name from (select container_id,sum(credit),sum(debit),sec_money from container_account where customer_id=? group by container_id,sec_money) d join containers c on c.container_id=d.container_id ";
+
 }
