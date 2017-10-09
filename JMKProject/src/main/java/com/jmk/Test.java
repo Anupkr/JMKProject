@@ -23,6 +23,8 @@ public class Test {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getLookAndFeel());
+
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {

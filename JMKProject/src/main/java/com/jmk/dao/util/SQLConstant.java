@@ -32,7 +32,7 @@ public class SQLConstant {
     public static final String SQL_INSERT_ACCOUNT_TRANSACTION = "insert into customer_account(customer_id,product_amount,security_money,coolie_amount,debit_amount,credit_amount,transaction_type,description,current_balance)values(?,?,?,?,?,?,?,?,?)";
     public static final String SQL_SELECT_CURRENT_BALANCE = "select current_balance from customer_account  where customer_id=? order by transaction_id desc limit 1";
 
-    public static final String SQL_SELECT_TRANSACTION_BY_CUSTOMER_ID = "SELECT transaction_id,customer_id,product_amount,security_money,coolie_amount,debit_amount,credit_amount,transaction_type,description,current_balance,transaction_date FROM customer_account where customer_id=?";
+    public static final String SQL_SELECT_TRANSACTION_BY_CUSTOMER_ID = "SELECT transaction_id,customer_id,product_amount,security_money,coolie_amount,debit_amount,credit_amount,transaction_type,description,current_balance,transaction_date FROM customer_account where customer_id=? order by transaction_id";
     public static final String SQL_SELECT_ALL_ITEMS = "select item_id,item_name from items order by item_name";
 
     public static final String SQL_INSERT_CONTAINER_ACCOUNT = "insert into container_account  (transaction_id,customer_id, container_id, credit, debit, sec_money,current_balance) VALUES ( ?, ?, ?, ?, ?, ?, ?)";

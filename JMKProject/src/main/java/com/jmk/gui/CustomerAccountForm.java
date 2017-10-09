@@ -4,6 +4,7 @@ import com.jmk.beans.Customer;
 import com.jmk.beans.CustomerAccount;
 import com.jmk.service.CustomerAccountService;
 import com.jmk.util.PrintDialogUtil;
+import com.jmk.util.TransactionType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -241,7 +242,12 @@ jPanel1Layout.setHorizontalGroup(
 
     jButton2.setText("Edit");
 
-    jButton3.setText("Show Product Bill");
+    jButton3.setText("Show Bill");
+    jButton3.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton3ActionPerformed(evt);
+        }
+    });
 
     jButton4.setText("Delete");
 
@@ -265,7 +271,7 @@ jPanel1Layout.setHorizontalGroup(
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -334,7 +340,7 @@ jPanel1Layout.setHorizontalGroup(
             DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
             defaultTableModel.setRowCount(0);
             if (customerAccountList != null) {
-                for (CustomerAccount customerAccount : customerAccountList) {
+                customerAccountList.stream().forEach((customerAccount) -> {
                     defaultTableModel.addRow(new Object[]{
                         customerAccount.getDate(),
                         customerAccount.getProductAmount(),
@@ -344,7 +350,7 @@ jPanel1Layout.setHorizontalGroup(
                         customerAccount.getCreditAmount(),
                         customerAccount.getTransactionType(), customerAccount.getCurrentBalance(),
                         customerAccount.getDescription()});
-                }
+                });
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Account details not found");
             }
@@ -371,8 +377,28 @@ jPanel1Layout.setHorizontalGroup(
             Logger.getLogger(CustomerAccountForm.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        int index = jTable1.getSelectedRow();
+        if (index != -1) {
+
+            CustomerAccount account = customerAccountList.get(index);
+            System.out.println(account);
+
+            String transactionType = account.getTransactionType();
+            if (TransactionType.TRANSACTION_TYPE_PURCHASE.equalsIgnoreCase(transactionType)) {
+                long transactionId = account.getTransactionId();
+                
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "There is no bill to show on selected row,please select a valid row", "Empty Bill", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
