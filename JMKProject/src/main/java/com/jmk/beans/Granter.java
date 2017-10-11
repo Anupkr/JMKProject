@@ -66,4 +66,8 @@ public class Granter implements Serializable {
         this.customerList = customerList;
     }
 
+    public void setGranterId(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

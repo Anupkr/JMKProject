@@ -10,20 +10,27 @@ import com.jmk.service.ContainerService;
 import com.jmk.util.StatusMessage;
 import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author anup
  */
-public class AddContainerForm extends javax.swing.JDialog
-{
-    @Autowired ContainerService containerService;
+@Component
+@Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+public class AddContainerForm extends javax.swing.JDialog {
+
+    @Autowired
+    ContainerService containerService;
+
     /**
      * Creates new form AddContainerForm
      */
-    public AddContainerForm(java.awt.Frame parent, boolean modal)
-    {
-        super(parent, modal);
+    public AddContainerForm() {
+
         initComponents();
     }
 
@@ -141,73 +148,20 @@ public class AddContainerForm extends javax.swing.JDialog
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        String containername=txtContainerName.getText();
-        double securitymoney=Double.parseDouble(txtSecurityMoney.getText());
-        Container container=new Container();
+        String containername = txtContainerName.getText();
+        double securitymoney = Double.parseDouble(txtSecurityMoney.getText());
+        Container container = new Container();
         container.setName(containername);
         container.setSecurityMoney(securitymoney);
         String message = containerService.createContainer(container);
         System.out.println(message);
-        if(message.equalsIgnoreCase(StatusMessage.STATUS_SUCCESS)){
-            JOptionPane.showMessageDialog(rootPane, "New Container Added Succsessfully","Succsess",JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        if (message.equalsIgnoreCase(StatusMessage.STATUS_SUCCESS)) {
+            JOptionPane.showMessageDialog(rootPane, "New Container Added Succsessfully", "Succsess", JOptionPane.INFORMATION_MESSAGE);
+        } else {
             JOptionPane.showMessageDialog(rootPane, message);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[])
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(AddContainerForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(AddContainerForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(AddContainerForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(AddContainerForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                AddContainerForm dialog = new AddContainerForm(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e)
-                    {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

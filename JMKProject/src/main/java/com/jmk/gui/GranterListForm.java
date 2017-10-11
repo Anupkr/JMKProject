@@ -5,11 +5,9 @@
  */
 package com.jmk.gui;
 
-import com.jmk.Test;
-import com.jmk.beans.Customer;
+import com.jmk.beans.Granter;
 import com.jmk.beans.User;
-import com.jmk.service.CustomerAccountService;
-import com.jmk.service.CustomerService;
+import com.jmk.service.GranterService;
 import com.jmk.util.PrintDialogUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JRException;
@@ -28,33 +25,27 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JRDesignViewer;
 import net.sf.jasperreports.view.JRViewer;
-import net.sf.jasperreports.view.JasperViewer;
-import org.jfree.ui.about.AboutDialog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 /**
  *
  * @author mulayam
  */
-
 @Component
 @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class CustomerListForm extends javax.swing.JDialog {
+
+public class GranterListForm extends javax.swing.JDialog {
 
     @Autowired
-    private CustomerService customerService;
-    @Autowired
-    private CustomerAccountService customerAccountService;
+    private GranterService granterService;
 
-    private List<Customer> customerList;
+    private List<Granter> granterList;
 
-    public CustomerListForm() {
+    public GranterListForm() {
         initComponents();
     }
 
@@ -76,9 +67,6 @@ public class CustomerListForm extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -141,14 +129,14 @@ public class CustomerListForm extends javax.swing.JDialog {
 
             },
             new String [] {
-                "CustomerID", "Customer Name", "Address", "Mobile1", "Mobile2", "Current Balance"
+                "GranterID", "Name", "Address", "Mobile1", "Mobile2", "ID Type", "ID Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -167,7 +155,8 @@ public class CustomerListForm extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Account Information");
+        jLabel3.setText("Customers List");
+        jLabel3.setToolTipText("Show the list of all customer list of select granter");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -180,24 +169,10 @@ public class CustomerListForm extends javax.swing.JDialog {
         jLabel4.setText("Update Infomation");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel5.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Search By Address");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel6.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Container Account");
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel7.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Granter Details");
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jLabel8.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Print All");
+        jLabel8.setToolTipText("Print Granter List");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -214,11 +189,8 @@ public class CustomerListForm extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel8))
-                .addGap(25, 25, 25))
+                .addGap(38, 38, 38))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,13 +199,7 @@ public class CustomerListForm extends javax.swing.JDialog {
                 .addComponent(jLabel3)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel4)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel5)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel6)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel7)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -265,8 +231,8 @@ public class CustomerListForm extends javax.swing.JDialog {
         new Thread() {
             @Override
             public void run() {
-                customerList = customerService.getAllCustomer();
-                showInTable();
+                //granterList = granterService.getAllGranter();
+               // showInTable();
 
             }
 
@@ -278,19 +244,36 @@ public class CustomerListForm extends javax.swing.JDialog {
             @Override
             public void run() {
                 String text = jTextField1.getText().toLowerCase();
-                if (customerList != null) {
+                if (granterList != null) {
 
                     DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
                     defaultTableModel.setRowCount(0);
 
-                    for (Customer customer : customerList) {
-                        User user = customer.getUser();
+                    for (Granter granter : granterList) {
+                        User user = granter.getUser();
                         if (text != null) {
-                            if (customer.getName().toLowerCase().contains(text) || user.getAddress().toLowerCase().contains(text) || user.getMobile1().contains(text) || user.getMobile2().contains(text)) {
-                                defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance()});
+                            if (granter.getName().toLowerCase().contains(text) || user.getAddress().toLowerCase().contains(text) || user.getMobile1().contains(text) || user.getMobile2().contains(text)) {
+                                defaultTableModel.addRow(new Object[]{
+                                    granter.getGranterId(),
+                                    granter.getName(),
+                                    user.getAddress(),
+                                    user.getMobile1(),
+                                    user.getMobile2(),
+                                    granter.getIdType(),
+                                    granter.getIdNumber()
+                                });
                             }
                         } else {
-                            defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance()});
+                            defaultTableModel.addRow(new Object[]{
+                                granter.getGranterId(),
+                                granter.getName(),
+                                user.getAddress(),
+                                user.getMobile1(),
+                                user.getMobile2(),
+                                granter.getIdType(),
+                                granter.getIdNumber()
+                            });
+
                         }
                     }
                 }
@@ -303,58 +286,27 @@ public class CustomerListForm extends javax.swing.JDialog {
 
     }//GEN-LAST:event_jTextField1KeyReleased
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        int index = jTable1.getSelectedRow();
-
-        if (index != -1) {
-            Long customerId = Long.parseLong(jTable1.getValueAt(index, 0).toString());
-
-            //create customer object
-            Customer customer = new Customer();
-
-            //set selected customerid to customer
-            customer.setCustomerId(customerId);
-
-            //get index from customerList of id {customerId}
-            index = customerList.indexOf(customer);
-            System.out.println(customer);
-
-            System.out.println(index);
-            if (index != -1) {
-                customer = customerList.get(index);
-                System.out.println(customer);
-                CustomerAccountForm customerAccountForm = Test.getBean(CustomerAccountForm.class);
-                customerAccountForm.setCustomer(customer);
-                customerAccountForm.setModal(true);
-                customerAccountForm.setLocationRelativeTo(this);
-                customerAccountForm.setVisible(true);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
-        }
-    }//GEN-LAST:event_jLabel3MouseClicked
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
 
-//        String sourceFileName = getClass().getResource("/jasper/customer_list.jasper").getFile();
+        //        String sourceFileName = getClass().getResource("/jasper/customer_list.jasper").getFile();
         try {
 
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            List<Customer> listToPrint = new ArrayList<>();
+            List<Granter> listToPrint = new ArrayList<>();
 
             if (model.getRowCount() > 0) {
 
                 for (int i = 0; i < model.getRowCount(); i++) {
 
                     int id = Integer.parseInt(jTable1.getValueAt(i, 0).toString());
-                    Customer c = new Customer();
-                    c.setCustomerId(id);
+                    Granter granter = new Granter();
+                    granter.setGranterId(id);
 
-                    listToPrint.add(customerList.get(customerList.indexOf(c)));
+                    listToPrint.add(granterList.get(granterList.indexOf(granter)));
 
                 }
 
@@ -375,19 +327,27 @@ public class CustomerListForm extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "There is no data to print", "Empty Data", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (JRException ex) {
-            Logger.getLogger(CustomerListForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GranterListForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        int index = jTable1.getSelectedRow();
+
+        if (index != -1) {
+            Long granterId = Long.parseLong(jTable1.getValueAt(index, 0).toString());
+
+            //write logic to show granter image in a dialog
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

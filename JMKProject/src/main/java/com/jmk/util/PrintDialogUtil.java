@@ -5,7 +5,7 @@
  */
 package com.jmk.util;
 
-import com.jmk.gui.CustomerListForm;
+import com.jmk.gui.GranterListForm;
 import java.awt.Toolkit;
 import javax.swing.JDialog;
 import net.sf.jasperreports.view.JRViewer;

@@ -13,6 +13,7 @@ import com.jmk.beans.Item;
 import com.jmk.beans.ItemSale;
 import com.jmk.beans.User;
 import com.jmk.dao.ContainerDAO;
+import com.jmk.service.ContainerService;
 import com.jmk.service.CustomerAccountService;
 import com.jmk.service.CustomerService;
 import com.jmk.service.ItemService;
@@ -48,7 +49,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     @Autowired
     private ItemService itemService;
     @Autowired
-    private ContainerDAO containerDAO;
+    private ContainerService containerService;
 
     private List<Customer> customerList;
     private List<Item> itemList;
@@ -987,7 +988,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                containerList = containerDAO.getAllContainer();
+                containerList = containerService.getAllContainer();
                 for (Container container : containerList) {
                     cmbContainer.addItem(container.getName());
                 }
@@ -1207,8 +1208,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     }
 
     private void reset() {
-        
-        
+
         ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
         ((DefaultTableModel) jTable2.getModel()).setRowCount(0);
 
@@ -1228,13 +1228,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         txtCurrentBalance.setText(empty);
         txtCustomerName.setText(empty);
         txtMobile.setText(empty);
-        
-       
-        
-        
-        
-        
-        
+
     }
 
 
