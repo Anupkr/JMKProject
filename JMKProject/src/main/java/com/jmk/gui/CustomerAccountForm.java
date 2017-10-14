@@ -44,6 +44,8 @@ public class CustomerAccountForm extends javax.swing.JDialog {
     public CustomerAccountForm() {
 
         initComponents();
+        setSize(JMKHome.getPanelHome().getSize());
+        setLocationRelativeTo(JMKHome.getPanelHome());
     }
 
     public void setCustomer(Customer customer) {
@@ -73,6 +75,10 @@ public class CustomerAccountForm extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Customer Account");
+        setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        setUndecorated(true);
+        setResizable(false);
+        setType(java.awt.Window.Type.POPUP);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
