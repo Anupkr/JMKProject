@@ -36,14 +36,13 @@ public class PayContainerForm extends javax.swing.JDialog {
 
     public PayContainerForm() {
         initComponents();
-         setSize(JMKHome.getPanelHome().getSize());
+        setSize(JMKHome.getPanelHome().getSize());
         setLocationRelativeTo(JMKHome.getPanelHome());
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -222,13 +221,7 @@ public class PayContainerForm extends javax.swing.JDialog {
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 73;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 325, 90, 28);
-        getContentPane().add(jPanel2, gridBagConstraints);
+        getContentPane().add(jPanel2, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

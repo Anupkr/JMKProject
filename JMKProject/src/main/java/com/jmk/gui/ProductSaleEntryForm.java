@@ -909,6 +909,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     private void cmbCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCustomerActionPerformed
 
         reset();
+
         int index = cmbCustomer.getSelectedIndex();
         if (index != -1) {
             Customer customer = customerList.get(index);
@@ -978,35 +979,26 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                customerList = customerService.getAllCustomer();
-                if (customerList != null) {
-                    for (Customer customer : customerList) {
-                        cmbCustomer.addItem(customer.getName().toUpperCase() + "    :   " + customer.getUser().getAddress().toUpperCase());
-                    }
+        new Thread(() -> {
+            customerList = customerService.getAllCustomer();
+            if (customerList != null) {
+                for (Customer customer : customerList) {
+                    cmbCustomer.addItem(customer.getName().toUpperCase() + "    :   " + customer.getUser().getAddress().toUpperCase());
                 }
             }
         }).start();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                itemList = itemService.getAllItem();
-                for (Item item : itemList) {
-                    cmbItem.addItem(item.getItemName());
-                }
-            }
+        new Thread(() -> {
+            itemList = itemService.getAllItem();
+            itemList.stream().forEach((item) -> {
+                cmbItem.addItem(item.getItemName());
+            });
         }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                containerList = containerService.getAllContainer();
-                for (Container container : containerList) {
-                    cmbContainer.addItem(container.getName());
-                }
-            }
+        new Thread(() -> {
+            containerList = containerService.getAllContainer();
+            containerList.stream().forEach((container) -> {
+                cmbContainer.addItem(container.getName());
+            });
         }).start();
         cmbItem.requestFocus();
 

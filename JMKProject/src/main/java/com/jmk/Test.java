@@ -22,8 +22,8 @@ public class Test {
     public static void main(String[] args) {
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            UIManager.setLookAndFeel(UIManager.getLookAndFeel());
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//            UIManager.setLookAndFeel(UIManager.getLookAndFeel());
 
             java.awt.EventQueue.invokeLater(new Runnable() {
                 @Override
@@ -40,10 +40,9 @@ public class Test {
                 }
             });
 
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException exception) {
+        } catch (Exception ex) {
 
         }
     }
-    
 
 }
