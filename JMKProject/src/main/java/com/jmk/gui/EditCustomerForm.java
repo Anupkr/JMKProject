@@ -28,12 +28,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class CustomerRegistrationForm extends javax.swing.JDialog {
+public class EditCustomerForm extends javax.swing.JDialog {
 
     @Autowired
     private CustomerService customerService;
 
-    public CustomerRegistrationForm() {
+    public EditCustomerForm() {
 
         initComponents();
         setSize(JMKHome.getPanelHome().getSize());
@@ -60,10 +60,7 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txtIdNumber = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
         cmbIdType = new javax.swing.JComboBox<>();
-        cmbAmountType = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnReset1 = new javax.swing.JButton();
@@ -152,12 +149,6 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("ID Type");
 
-        jLabel8.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel8.setText("Previous Ammount");
-
-        txtAmount.setToolTipText("");
-
         cmbIdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADHAR", "DL", "PAN" }));
         cmbIdType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,9 +156,7 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
             }
         });
 
-        cmbAmountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DUE", "PAID" }));
-
-        btnSave.setText("Save");
+        btnSave.setText("Update");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -195,20 +184,15 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel7))
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbAmountType, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txtCustomerName)
                         .addComponent(txtMobile1)
                         .addComponent(txtMobile2)
                         .addComponent(txtAddress)
-                        .addComponent(cmbIdType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbIdType, 0, 318, Short.MAX_VALUE)
                         .addComponent(txtIdNumber))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,13 +229,7 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8))
-                    .addComponent(cmbAmountType, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,8 +285,6 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         String address = txtAddress.getText();
         String idNumber = txtIdNumber.getText();
         String idType = cmbIdType.getSelectedItem().toString();
-        String paymentType = cmbAmountType.getSelectedItem().toString();
-        double amount = Double.parseDouble(txtAmount.getText().toString());
 
         if (txtCustomerName.getText().length() < 2) {
             JOptionPane.showMessageDialog(rootPane, "Valid Customer Name Requreid");
@@ -335,13 +311,6 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         customer.setIdType(idType);
 
         CustomerAccount customerAccount = new CustomerAccount();
-        if (paymentType.equalsIgnoreCase("DUE")) {
-            customerAccount.setCreditAmount(amount);
-            customerAccount.setTransactionType(TransactionType.TRANSACTION_TYPE_PURCHASE);
-        } else {
-            customerAccount.setDebitAmount(amount);
-            customerAccount.setTransactionType(TransactionType.TRANSACTION_TYPE_CASH);
-        }
 
         customer.setCustomerAccount(customerAccount);
         customer.setUser(user);
@@ -370,7 +339,6 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset1;
     private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox<String> cmbAmountType;
     private javax.swing.JComboBox<String> cmbIdType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -379,13 +347,11 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtIdNumber;
     private javax.swing.JTextField txtMobile1;
