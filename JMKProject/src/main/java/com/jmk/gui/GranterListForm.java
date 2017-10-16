@@ -135,14 +135,14 @@ public class GranterListForm extends javax.swing.JDialog {
 
             },
             new String [] {
-                "GranterID", "Name", "Address", "Mobile1", "Mobile2", "ID Type", "ID Number"
+                "Name", "Address", "Mobile1", "Mobile2", "ID Type", "ID Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -264,8 +264,8 @@ public class GranterListForm extends javax.swing.JDialog {
         new Thread() {
             @Override
             public void run() {
-                //granterList = granterService.getAllGranter();
-                // showInTable();
+                granterList = granterService.getAllGranter();
+                showInTable();
 
             }
 
@@ -287,7 +287,6 @@ public class GranterListForm extends javax.swing.JDialog {
                         if (text != null) {
                             if (granter.getName().toLowerCase().contains(text) || user.getAddress().toLowerCase().contains(text) || user.getMobile1().contains(text) || user.getMobile2().contains(text)) {
                                 defaultTableModel.addRow(new Object[]{
-                                    granter.getGranterId(),
                                     granter.getName(),
                                     user.getAddress(),
                                     user.getMobile1(),
@@ -298,7 +297,6 @@ public class GranterListForm extends javax.swing.JDialog {
                             }
                         } else {
                             defaultTableModel.addRow(new Object[]{
-                                granter.getGranterId(),
                                 granter.getName(),
                                 user.getAddress(),
                                 user.getMobile1(),

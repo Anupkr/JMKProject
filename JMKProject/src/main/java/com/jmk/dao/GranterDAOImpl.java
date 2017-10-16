@@ -33,16 +33,17 @@ public class GranterDAOImpl implements GranterDAO {
         return jdbcTemplate.query(SQLConstant.SQL_SELECT_ALL_GRANTERS, new RowMapper<Granter>() {
             public Granter mapRow(ResultSet rs, int arg1) throws SQLException {
                 Granter granter = new Granter();
-                granter.setGranterId(Long.MIN_VALUE);
-                granter.setName(rs.getString(1));
+                granter.setGranterId(rs.getLong(1));
+                
+                granter.setName(rs.getString(2));
 
                 User user = new User();
-                user.setAddress(rs.getString(2));
-                user.setMobile1(rs.getString(3));
-                user.setMobile2(rs.getString(4));
+                user.setAddress(rs.getString(3));
+                user.setMobile1(rs.getString(4));
+                user.setMobile2(rs.getString(5));
 
-                granter.setIdType(rs.getString(5));
-                granter.setIdNumber(rs.getString(6));
+                granter.setIdType(rs.getString(6));
+                granter.setIdNumber(rs.getString(7));
 
                 user.setUserId((int) rs.getLong(7));
                 user.setStatus(rs.getInt(8));
