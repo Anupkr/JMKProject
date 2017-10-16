@@ -5,17 +5,14 @@
  */
 package com.jmk.gui;
 
-import com.jmk.Test;
 import com.jmk.beans.Customer;
 import com.jmk.beans.CustomerAccount;
 import com.jmk.beans.Granter;
 import com.jmk.beans.User;
 import com.jmk.service.CustomerService;
 import com.jmk.util.StatusMessage;
-import com.jmk.util.TransactionType;
 import com.jmk.util.UserRole;
 import com.jmk.util.UserStatus;
-import com.sun.prism.paint.Gradient;
 import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;

@@ -99,7 +99,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public List<Customer> getAllCustomer() {
-
         return customerDAO.getAllCustomer();
 
     }
