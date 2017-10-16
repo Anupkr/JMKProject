@@ -151,18 +151,18 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableProduct = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtSecMoney = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtCoolie = new javax.swing.JTextField();
         txtTotalAmount = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnRemoveAll = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
@@ -182,14 +182,14 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         jLabel22 = new javax.swing.JLabel();
         txtCurrentBalance = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        btnPrintBill = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jButton8 = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablePayment = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
@@ -380,7 +380,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     jLabel11.setForeground(new java.awt.Color(255, 0, 0));
     jLabel11.setText("Customer");
 
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+    tableProduct.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -403,9 +403,9 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
             return canEdit [columnIndex];
         }
     });
-    jScrollPane1.setViewportView(jTable1);
-    if (jTable1.getColumnModel().getColumnCount() > 0) {
-        jTable1.getColumnModel().getColumn(3).setResizable(false);
+    jScrollPane1.setViewportView(tableProduct);
+    if (tableProduct.getColumnModel().getColumnCount() > 0) {
+        tableProduct.getColumnModel().getColumn(3).setResizable(false);
     }
 
     btnAdd.setText("Add");
@@ -432,13 +432,13 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
 
     jLabel18.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-    jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+    jPanel4.setBackground(new java.awt.Color(243, 86, 90));
     jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(1, 1, 1), 1, true));
 
-    jButton4.setText("Clear");
-    jButton4.addActionListener(new java.awt.event.ActionListener() {
+    btnClear.setText("Clear");
+    btnClear.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton4ActionPerformed(evt);
+            btnClearActionPerformed(evt);
         }
     });
 
@@ -451,6 +451,11 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     jLabel15.setText("Total Amount");
 
     txtCoolie.setText("0");
+    txtCoolie.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            txtCoolieFocusLost(evt);
+        }
+    });
     txtCoolie.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             txtCoolieActionPerformed(evt);
@@ -465,7 +470,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         }
     });
 
-    jButton3.setText("Remove Item");
+    btnRemoveAll.setText("Remove Item");
 
     jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
     jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -543,9 +548,9 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(270, 270, 270)
-                    .addComponent(jButton3)
+                    .addComponent(btnRemoveAll)
                     .addGap(19, 19, 19)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addContainerGap(36, Short.MAX_VALUE))
     );
     jPanel4Layout.setVerticalGroup(
@@ -576,8 +581,8 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(9, 9, 9)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnRemoveAll, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap())
     );
 
@@ -773,32 +778,32 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
-    jPanel5.setBackground(new java.awt.Color(255, 9, 0));
+    jPanel5.setBackground(new java.awt.Color(243, 86, 90));
 
-    jButton5.setText("Save");
-    jButton5.addActionListener(new java.awt.event.ActionListener() {
+    btnSave.setText("Save");
+    btnSave.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton5ActionPerformed(evt);
+            btnSaveActionPerformed(evt);
         }
     });
 
-    jButton6.setText("Reset");
-    jButton6.addActionListener(new java.awt.event.ActionListener() {
+    btnReset.setText("Reset");
+    btnReset.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton6ActionPerformed(evt);
+            btnResetActionPerformed(evt);
         }
     });
 
-    jButton7.setText("Print Bill");
+    btnPrintBill.setText("Print Bill");
 
     jRadioButton1.setBackground(new java.awt.Color(255, 0, 0));
     jRadioButton1.setForeground(new java.awt.Color(254, 254, 254));
     jRadioButton1.setText("Auto Print");
 
-    jButton8.setText("Close");
-    jButton8.addActionListener(new java.awt.event.ActionListener() {
+    btnClose.setText("Close");
+    btnClose.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton8ActionPerformed(evt);
+            btnCloseActionPerformed(evt);
         }
     });
 
@@ -808,15 +813,15 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel5Layout.createSequentialGroup()
             .addGap(56, 56, 56)
-            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnPrintBill, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jRadioButton1)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
     jPanel5Layout.setVerticalGroup(
@@ -824,17 +829,17 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         .addGroup(jPanel5Layout.createSequentialGroup()
             .addGap(40, 40, 40)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPrintBill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jRadioButton1)
-                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(83, 83, 83))
     );
 
     jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true), "Last Payment Transaction", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
-    jTable2.setModel(new javax.swing.table.DefaultTableModel(
+    tablePayment.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -857,9 +862,9 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
             return canEdit [columnIndex];
         }
     });
-    jTable2.setFillsViewportHeight(true);
-    jTable2.getTableHeader().setReorderingAllowed(false);
-    jScrollPane2.setViewportView(jTable2);
+    tablePayment.setFillsViewportHeight(true);
+    tablePayment.getTableHeader().setReorderingAllowed(false);
+    jScrollPane2.setViewportView(tablePayment);
 
     javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
     jPanel6.setLayout(jPanel6Layout);
@@ -871,7 +876,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel6Layout.createSequentialGroup()
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 6, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -883,8 +888,11 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -896,9 +904,9 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(27, 27, 27)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGap(1, 1, 1))
     );
@@ -925,15 +933,15 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
 
             if (list != null) {
 
-                DefaultTableModel tableModemModel = (DefaultTableModel) jTable2.getModel();
+                DefaultTableModel tableModemModel = (DefaultTableModel) tablePayment.getModel();
                 tableModemModel.setRowCount(list.size());
                 for (int i = 0; i < list.size(); i++) {
                     CustomerAccount ca = list.get(i);
-                    jTable2.setValueAt(ca.getDate(), i, 0);
-                    jTable2.setValueAt(ca.getCreditAmount(), i, 1);
-                    jTable2.setValueAt(ca.getDebitAmount(), i, 2);
-                    jTable2.setValueAt(ca.getTransactionType(), i, 3);
-                    jTable2.setValueAt(ca.getDescription(), i, 4);
+                    tablePayment.setValueAt(ca.getDate(), i, 0);
+                    tablePayment.setValueAt(ca.getCreditAmount(), i, 1);
+                    tablePayment.setValueAt(ca.getDebitAmount(), i, 2);
+                    tablePayment.setValueAt(ca.getTransactionType(), i, 3);
+                    tablePayment.setValueAt(ca.getDescription(), i, 4);
                 }
             }
         }
@@ -974,9 +982,9 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGrossAmountActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnClearActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         new Thread(() -> {
@@ -1085,7 +1093,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                     containerAccount.setCustomerId(customerAccount.getCustomerId());
                     containerAccountList.add(containerAccount);
 
-                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+                    DefaultTableModel defaultTableModel = (DefaultTableModel) tableProduct.getModel();
                     defaultTableModel.addRow(new Object[]{
                         item.getItemName(),
                         Double.parseDouble(txtWeight.getText()),
@@ -1100,8 +1108,8 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                     double totalItemAmount = 0, totalSecMoney = 0, totalAmount = 0, coolie = 0, grossAmount = 0, currentBalance = 0;
                     int row = defaultTableModel.getRowCount();
                     for (int r = 0; r < row; r++) {
-                        totalItemAmount = totalItemAmount + Double.parseDouble(jTable1.getValueAt(r, 3).toString());
-                        totalSecMoney = totalSecMoney + Double.parseDouble(jTable1.getValueAt(r, 7).toString());
+                        totalItemAmount = totalItemAmount + Double.parseDouble(tableProduct.getValueAt(r, 3).toString());
+                        totalSecMoney = totalSecMoney + Double.parseDouble(tableProduct.getValueAt(r, 7).toString());
                     }
                     currentBalance = Double.parseDouble(txtCurrentBalance.getText());
 
@@ -1162,7 +1170,7 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnAddKeyReleased
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         if (JOptionPane.showConfirmDialog(rootPane, "Are you sure?") == JOptionPane.YES_OPTION) {
 
@@ -1195,20 +1203,30 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "Somthing went wrong,please check all value and try again");
             }
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
 
         if (JOptionPane.showConfirmDialog(rootPane, "Are you sure?") == JOptionPane.YES_OPTION) {
             reset();
         }
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnResetActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void txtCoolieFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCoolieFocusLost
+        // TODO add your handling code here:
+        String txtAmount = txtCoolie.getText().trim();
+        if (txtAmount.length() == 0) {
+            txtCoolie.setText("0");
+        }
+        btnAddActionPerformed(null);
+
+    }//GEN-LAST:event_txtCoolieFocusLost
 
     private void changeFocusGainedBackgroundColor(JComponent component) {
         component.setBackground(Color.cyan);
@@ -1220,8 +1238,8 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
 
     private void reset() {
 
-        ((DefaultTableModel) jTable1.getModel()).setRowCount(0);
-        ((DefaultTableModel) jTable2.getModel()).setRowCount(0);
+        ((DefaultTableModel) tableProduct.getModel()).setRowCount(0);
+        ((DefaultTableModel) tablePayment.getModel()).setRowCount(0);
 
         String empty = "";
         txtWeight.setText(empty);
@@ -1245,17 +1263,17 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnPrintBill;
+    private javax.swing.JButton btnRemoveAll;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbContainer;
     private javax.swing.JComboBox<String> cmbCustomer;
     private javax.swing.JComboBox<String> cmbItem;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1288,9 +1306,9 @@ public class ProductSaleEntryForm extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblErrorMessage;
+    private javax.swing.JTable tablePayment;
+    private javax.swing.JTable tableProduct;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCoolie;

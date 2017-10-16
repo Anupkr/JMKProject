@@ -5,7 +5,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jmk.gui.JMKHome;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 public class Test {
 
@@ -22,27 +21,20 @@ public class Test {
     public static void main(String[] args) {
 
         try {
-//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 //            UIManager.setLookAndFeel(UIManager.getLookAndFeel());
 
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-
-                    JMKHome dialog = new JMKHome();
-                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                        @Override
-                        public void windowClosing(java.awt.event.WindowEvent e) {
-                            System.exit(0);
-                        }
-                    });
-                    dialog.setVisible(true);
-                }
+            java.awt.EventQueue.invokeLater(() -> {
+                JMKHome dialog = new JMKHome();
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             });
-
         } catch (Exception ex) {
-
         }
     }
-
 }

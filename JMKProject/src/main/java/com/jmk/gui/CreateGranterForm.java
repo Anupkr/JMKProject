@@ -63,11 +63,12 @@ public class CreateGranterForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Granter Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -79,7 +80,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel2, gridBagConstraints);
 
         txtGranterName.setToolTipText("");
-        txtGranterName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         txtGranterName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGranterNameActionPerformed(evt);
@@ -96,7 +96,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 29, 0, 0);
         jPanel2.add(txtGranterName, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Mobile No.1");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -108,7 +108,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel3, gridBagConstraints);
 
         txtMobile1.setToolTipText("");
-        txtMobile1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
@@ -121,7 +120,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(txtMobile1, gridBagConstraints);
 
         txtMobile2.setToolTipText("");
-        txtMobile2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 5;
@@ -133,7 +131,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 29, 0, 0);
         jPanel2.add(txtMobile2, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("Mobile No.2");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -144,7 +142,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(20, 44, 0, 0);
         jPanel2.add(jLabel4, gridBagConstraints);
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("Address");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -156,7 +154,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel5, gridBagConstraints);
 
         txtAddress.setToolTipText("");
-        txtAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 7;
@@ -168,7 +165,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 29, 0, 0);
         jPanel2.add(txtAddress, gridBagConstraints);
 
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setText("ID Number");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -180,7 +177,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel6, gridBagConstraints);
 
         txtIdNumber.setToolTipText("");
-        txtIdNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 19;
@@ -192,7 +188,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 29, 0, 0);
         jPanel2.add(txtIdNumber, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("ID Type");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -203,7 +199,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel7, gridBagConstraints);
 
         cmbIdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADHAR", "DL", "PAN" }));
-        cmbIdType.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(253, 26, 26), 1, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 9;
@@ -216,7 +211,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(cmbIdType, gridBagConstraints);
 
         btnSave.setText("Save");
-        btnSave.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -232,7 +226,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(btnSave, gridBagConstraints);
 
         btnReset.setText("Reset");
-        btnReset.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
@@ -260,7 +253,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         jPanel2.add(jLabel1, gridBagConstraints);
 
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("Granter Photo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -272,7 +265,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel8, gridBagConstraints);
 
         txtIdNumber1.setToolTipText("");
-        txtIdNumber1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 21;
@@ -285,7 +277,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(txtIdNumber1, gridBagConstraints);
 
         btnReset1.setText("Browse");
-        btnReset1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         btnReset1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReset1ActionPerformed(evt);
@@ -301,7 +292,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         jPanel2.add(btnReset1, gridBagConstraints);
 
-        jLabel9.setFont(new java.awt.Font("Symbola", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Add New Granter");
@@ -315,7 +306,6 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jPanel2.add(jLabel9, gridBagConstraints);
 
         btnReset2.setText("Exit");
-        btnReset2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 34, 34), 1, true));
         btnReset2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReset2ActionPerformed(evt);
@@ -331,19 +321,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(18, 12, 49, 0);
         jPanel2.add(btnReset2, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel2, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
