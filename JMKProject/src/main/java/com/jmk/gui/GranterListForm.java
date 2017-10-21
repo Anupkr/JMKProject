@@ -135,14 +135,14 @@ public class GranterListForm extends javax.swing.JDialog {
 
             },
             new String [] {
-                "GranterID", "Name", "Address", "Mobile1", "Mobile2", "ID Type", "ID Number"
+                "Name", "Address", "Mobile1", "Mobile2", "ID Type", "ID Number"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -234,7 +234,7 @@ public class GranterListForm extends javax.swing.JDialog {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,8 +253,8 @@ public class GranterListForm extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -264,8 +264,8 @@ public class GranterListForm extends javax.swing.JDialog {
         new Thread() {
             @Override
             public void run() {
-                //granterList = granterService.getAllGranter();
-                // showInTable();
+                granterList = granterService.getAllGranter();
+                showInTable();
 
             }
 
@@ -287,7 +287,6 @@ public class GranterListForm extends javax.swing.JDialog {
                         if (text != null) {
                             if (granter.getName().toLowerCase().contains(text) || user.getAddress().toLowerCase().contains(text) || user.getMobile1().contains(text) || user.getMobile2().contains(text)) {
                                 defaultTableModel.addRow(new Object[]{
-                                    granter.getGranterId(),
                                     granter.getName(),
                                     user.getAddress(),
                                     user.getMobile1(),
@@ -298,7 +297,6 @@ public class GranterListForm extends javax.swing.JDialog {
                             }
                         } else {
                             defaultTableModel.addRow(new Object[]{
-                                granter.getGranterId(),
                                 granter.getName(),
                                 user.getAddress(),
                                 user.getMobile1(),
@@ -368,7 +366,6 @@ public class GranterListForm extends javax.swing.JDialog {
         int index = jTable1.getSelectedRow();
 
         if (index != -1) {
-            Long granterId = Long.parseLong(jTable1.getValueAt(index, 0).toString());
 
             //write logic to show granter image in a dialog
         } else {
