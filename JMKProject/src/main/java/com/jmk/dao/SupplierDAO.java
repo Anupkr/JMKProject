@@ -22,4 +22,6 @@ public interface SupplierDAO {
 
     public Integer delete(Integer supplierId);
 
+    public Supplier getSupplierById(Integer id);
+
 }

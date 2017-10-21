@@ -22,4 +22,6 @@ public interface SupplierService {
 
     public String delete(Integer supplierId);
 
+    public Supplier getSupplierById(Integer id);
+
 }

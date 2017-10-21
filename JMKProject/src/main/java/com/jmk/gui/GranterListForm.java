@@ -31,6 +31,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+
 /**
  *
  * @author mulayam
@@ -181,6 +182,11 @@ public class GranterListForm extends javax.swing.JDialog {
         jLabel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Nimbus Sans L", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
@@ -335,7 +341,6 @@ public class GranterListForm extends javax.swing.JDialog {
 
                     int id = Integer.parseInt(jTable1.getValueAt(i, 0).toString());
                     Granter granter = new Granter();
-                    granter.setGranterId(id);
 
                     listToPrint.add(granterList.get(granterList.indexOf(granter)));
 
@@ -377,6 +382,10 @@ public class GranterListForm extends javax.swing.JDialog {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

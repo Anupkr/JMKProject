@@ -31,6 +31,7 @@ public class Test {
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
+                    
                 });
                 dialog.setVisible(true);
             });

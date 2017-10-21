@@ -58,9 +58,8 @@ public class SupplierServiceImpl implements SupplierService {
         String message = StatusMessage.STATUS_FAILED;
 
         try {
-            if (supplier != null && supplier.getName().trim().length() > 2 && supplier.getArrivalType().length() > 0) {
-
-                Integer count = supplierDAO.create(supplier);
+            if (supplier != null && supplier.getId() > 0 && supplier.getName().trim().length() > 2 && supplier.getArrivalType().length() > 0) {
+                Integer count = supplierDAO.edit(supplier);
                 if (count != null && count > 0) {
                     message = "Supplier Account Successfully Update";
                 }
@@ -79,5 +78,15 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public String delete(Integer supplierId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Supplier getSupplierById(Integer id) {
+
+        if (id != null && id > 0) {
+            return supplierDAO.getSupplierById(id);
+        } else {
+            return null;
+        }
     }
 }

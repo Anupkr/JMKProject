@@ -47,11 +47,18 @@ public class SQLConstant {
     public static final String SQL_SELECT_ALL_DUE_CONTAINER_BY_CUSTOMER_ID
             = "select d.*,c.container_name from (select container_id,sum(credit),sum(debit),sec_money from container_account where customer_id=? group by container_id,sec_money) d join containers c on c.container_id=d.container_id ";
 
-    public static final String SQL_INSERT_SUPPLIER = "insert into supplier_details( name, address1, address2, mobile1, mobile2, arrival_type, emaild_id, id_type, id_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    public static final String SQL_INSERT_SUPPLIER = "insert into supplier_details( name, address1, address2, mobile1, mobile2, arrival_type, email_id, id_type, id_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     public static final String SQL_UPDATE_SUPPLIER = "update supplier_details set name=?, address1=?, address2=?,"
-            + " mobile1=?, mobile2=?, arrival_type=?, emaild_id=?,"
+            + " mobile1=?, mobile2=?, arrival_type=?, email_id=?,"
             + " id_type=?, id_number=? WHERE id=?";
 
-    public static final String SQL_SELECT_ALL_SUPPLIER = "select id,name,address1,address2,mobile1,mobile2,arrival_type,email_id,id_type,id_number from supplier_details";
+//    public static final String SQL_SELECT_ALL_SUPPLIER = "select id,name,address1,address2,mobile1,mobile2,arrival_type,email_id,id_type,id_number from supplier_details";
+    public static final String SQL_SELECT_SUPPLIER_BY_ID = "select id,name,address1,address2,mobile1,mobile2,arrival_type,email_id,id_type,id_number from supplier_details where id=?";
+
+    public static final String SQL_SELECT_ALL_SUPPLIER = "select s.id,s.name,s.address1,s.address2,s.mobile1,s.mobile2,s.arrival_type,s.email_id,s.id_type,s.id_number,sa.current_balance  from supplier_details  s left join ( select supplier_id, current_balance from supplier_account where id in (select  max(id)  from supplier_account group by supplier_id )) sa on sa.supplier_id=s.id";
+
+    public static final String SQL_INSERT__SUPPLIER_ACCOUNT = "INSERT INTO jmk.supplier_account (supplier_id, date, purchase_ammount, sale_amount, paid_amount, particular, current_balance) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+    
 }

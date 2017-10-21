@@ -8,9 +8,11 @@ package com.jmk.dao;
 import com.jmk.beans.Supplier;
 import com.jmk.dao.util.SQLConstant;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -45,10 +47,14 @@ public class SupplierDAOImpl implements SupplierDAO {
             s.setName(rs.getString(2));
             s.setAddress1(rs.getString(3));
             s.setAddress2(rs.getString(4));
-            s.setArrivalType(rs.getString(5));
-            s.setEmaild(rs.getString(6));
-            s.setIdType(rs.getString(7));
-            s.setIdNumber(rs.getString(8));
+            s.setMobile1(rs.getString(5));
+            s.setMobile2(rs.getString(6));
+
+            s.setArrivalType(rs.getString(7));
+            s.setEmaild(rs.getString(8));
+            s.setIdType(rs.getString(9));
+            s.setIdNumber(rs.getString(10));
+            s.setCurrentBalance(rs.getDouble(11));
             return s;
         });
     }
@@ -67,4 +73,26 @@ public class SupplierDAOImpl implements SupplierDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public Supplier getSupplierById(Integer id) {
+
+        return jdbcTemplate.queryForObject(SQLConstant.SQL_SELECT_SUPPLIER_BY_ID, new RowMapper<Supplier>() {
+            @Override
+            public Supplier mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Supplier s = new Supplier();
+                s.setId(rs.getInt(1));
+                s.setName(rs.getString(2));
+                s.setAddress1(rs.getString(3));
+                s.setAddress2(rs.getString(4));
+                s.setMobile1(rs.getString(5));
+                s.setMobile2(rs.getString(6));
+
+                s.setArrivalType(rs.getString(7));
+                s.setEmaild(rs.getString(8));
+                s.setIdType(rs.getString(9));
+                s.setIdNumber(rs.getString(10));
+                return s;
+            }
+        }, id);
+    }
 }

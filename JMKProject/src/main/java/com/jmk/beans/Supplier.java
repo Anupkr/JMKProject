@@ -5,6 +5,8 @@
  */
 package com.jmk.beans;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author mulayam
@@ -21,6 +23,35 @@ public class Supplier {
     private String emaild;
     private String idType;
     private String idNumber;
+    private Double currentBalance;
+
+    public Supplier() {
+    }
+
+    public Supplier(String name, String arrivalType, String mobile1, String mobile2, String address1, String address2, String emaild, String idType, String idNumber, double currentBalance) {
+        this.name = name;
+        this.arrivalType = arrivalType;
+        this.mobile1 = mobile1;
+        this.mobile2 = mobile2;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.emaild = emaild;
+        this.idType = idType;
+        this.idNumber = idNumber;
+        this.currentBalance = currentBalance;
+    }
+
+    public Supplier(String name, String arrivalType, String mobile1, String mobile2, String address1, String address2, String emaild, String idType, String idNumber) {
+        this.name = name;
+        this.arrivalType = arrivalType;
+        this.mobile1 = mobile1;
+        this.mobile2 = mobile2;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.emaild = emaild;
+        this.idType = idType;
+        this.idNumber = idNumber;
+    }
 
     public int getId() {
         return id;
@@ -102,13 +133,38 @@ public class Supplier {
         this.idNumber = idNumber;
     }
 
-    public double getCurrentBalance() {
+    public Double getCurrentBalance() {
+       
         return currentBalance;
     }
 
-    public void setCurrentBalance(double currentBalance) {
+    public void setCurrentBalance(Double currentBalance) {
         this.currentBalance = currentBalance;
     }
-    private double currentBalance;
+
+ 
+    
+    @Override
+    public String toString() {
+        return "Supplier{" + "id=" + id + ", name=" + name + ", arrivalType=" + arrivalType + ", mobile1=" + mobile1 + ", mobile2=" + mobile2 + ", address1=" + address1 + ", address2=" + address2 + ", emaild=" + emaild + ", idType=" + idType + ", idNumber=" + idNumber + ", currentBalance=" + currentBalance + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Supplier other = (Supplier) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
 
 }

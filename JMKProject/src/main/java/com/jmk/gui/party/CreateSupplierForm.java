@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jmk.gui.pary;
+package com.jmk.gui.party;
 
+import com.jmk.beans.Supplier;
 import com.jmk.gui.JMKHome;
+import com.jmk.service.SupplierService;
+import com.jmk.util.StatusMessage;
 import javax.swing.JOptionPane;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -20,9 +24,9 @@ import org.springframework.stereotype.Component;
 
 public class CreateSupplierForm extends javax.swing.JDialog {
 
-    /**
-     * Creates new form CreateSupplierForm
-     */
+    @Autowired
+    private SupplierService supplierService;
+
     public CreateSupplierForm() {
 
         initComponents();
@@ -43,30 +47,30 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtGranterName = new javax.swing.JTextField();
+        txtSupplierName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtMobile1 = new javax.swing.JTextField();
         txtMobile2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
+        txtAddress1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtIdNumber = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cmbIdType = new javax.swing.JComboBox<>();
+        cmbArrivalType = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnReset2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        txtAddress1 = new javax.swing.JTextField();
+        txtAddress2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtMobile3 = new javax.swing.JTextField();
+        txtEmailId = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         cmbIdType1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtIdNumber1 = new javax.swing.JTextField();
+        txtOpeningBalance = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        cmbIdType2 = new javax.swing.JComboBox<>();
+        cmbBalanceType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create Supplier ");
@@ -76,14 +80,15 @@ public class CreateSupplierForm extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Supplier Entry");
+        jLabel1.setText("Create Supplier Account");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 482;
+        gridBagConstraints.ipadx = 338;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 22);
         getContentPane().add(jLabel1, gridBagConstraints);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -93,10 +98,10 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Supplier Name");
 
-        txtGranterName.setToolTipText("");
-        txtGranterName.addActionListener(new java.awt.event.ActionListener() {
+        txtSupplierName.setToolTipText("");
+        txtSupplierName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGranterNameActionPerformed(evt);
+                txtSupplierNameActionPerformed(evt);
             }
         });
 
@@ -116,7 +121,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("Address1");
 
-        txtAddress.setToolTipText("");
+        txtAddress1.setToolTipText("");
 
         jLabel6.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
@@ -128,10 +133,10 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("ID Type");
 
-        cmbIdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Party Stock", "Self Purchase" }));
-        cmbIdType.addActionListener(new java.awt.event.ActionListener() {
+        cmbArrivalType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Party Stock", "Self Purchase" }));
+        cmbArrivalType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbIdTypeActionPerformed(evt);
+                cmbArrivalTypeActionPerformed(evt);
             }
         });
 
@@ -160,13 +165,13 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("Address2");
 
-        txtAddress1.setToolTipText("");
+        txtAddress2.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("EmailId");
 
-        txtMobile3.setToolTipText("");
+        txtEmailId.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
@@ -183,16 +188,16 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("Oppending Balance");
 
-        txtIdNumber1.setToolTipText("");
+        txtOpeningBalance.setToolTipText("");
 
         jLabel12.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("Balance Type");
 
-        cmbIdType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CREDIT", "DEBIT" }));
-        cmbIdType2.addActionListener(new java.awt.event.ActionListener() {
+        cmbBalanceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CREDIT", "DEBIT" }));
+        cmbBalanceType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbIdType2ActionPerformed(evt);
+                cmbBalanceTypeActionPerformed(evt);
             }
         });
 
@@ -221,12 +226,12 @@ public class CreateSupplierForm extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtMobile1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                                .addComponent(txtGranterName, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(txtSupplierName, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(cmbIdType1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOpeningBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtMobile3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addComponent(txtEmailId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                .addComponent(txtAddress1, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -237,17 +242,17 @@ public class CreateSupplierForm extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbIdType, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbArrivalType, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(txtMobile2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtIdNumber)
-                                        .addComponent(cmbIdType2, 0, 244, Short.MAX_VALUE)))))))
+                                        .addComponent(cmbBalanceType, 0, 244, Short.MAX_VALUE)))))))
                 .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
@@ -256,10 +261,10 @@ public class CreateSupplierForm extends javax.swing.JDialog {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGranterName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSupplierName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cmbIdType, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbArrivalType, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMobile1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,13 +274,13 @@ public class CreateSupplierForm extends javax.swing.JDialog {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMobile3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,9 +291,9 @@ public class CreateSupplierForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIdNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOpeningBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbIdType2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbBalanceType, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,24 +312,41 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtGranterNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGranterNameActionPerformed
+    private void txtSupplierNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSupplierNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtGranterNameActionPerformed
+    }//GEN-LAST:event_txtSupplierNameActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-        String granterName = txtGranterName.getText();
-        String password = txtMobile1.getText();
+        String supplierName = txtSupplierName.getText();
         String mobile1 = txtMobile1.getText();
         String mobile2 = txtMobile2.getText();
-        String address = txtAddress.getText();
+        String address1 = txtAddress1.getText();
+        String address2 = txtAddress2.getText();
         String idNumber = txtIdNumber.getText();
-        String idType = cmbIdType.getSelectedItem().toString();
+        String idType = cmbIdType1.getSelectedItem().toString();
+        String emailId = txtEmailId.getText();
+        String balanceType = cmbBalanceType.getSelectedItem().toString();
 
-        if (txtGranterName.getText().length() < 2) {
-            JOptionPane.showMessageDialog(rootPane, "Valid Granter Name Requreid");
-            txtGranterName.requestFocus();
+        String arrivalType = cmbArrivalType.getSelectedItem().toString();
+
+        String strOpeningBalance = this.txtOpeningBalance.getText();
+        double openingBalance = 0;
+        try {
+            openingBalance = Double.parseDouble(strOpeningBalance);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Invalid Ammount");
+            this.txtOpeningBalance.requestFocus();;
+            return;
         }
+        Supplier supplier = new Supplier(supplierName, arrivalType, mobile1, mobile2, address1, address2, emailId, idType, idNumber, openingBalance);
+        String message = supplierService.create(supplier);
+        if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(message)) {
+            JOptionPane.showMessageDialog(rootPane, message, "Success", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, message, "Message", JOptionPane.ERROR_MESSAGE);
+        }
+
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -341,22 +363,22 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbIdType1ActionPerformed
 
-    private void cmbIdType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIdType2ActionPerformed
+    private void cmbBalanceTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBalanceTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbIdType2ActionPerformed
+    }//GEN-LAST:event_cmbBalanceTypeActionPerformed
 
-    private void cmbIdTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIdTypeActionPerformed
+    private void cmbArrivalTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbArrivalTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbIdTypeActionPerformed
+    }//GEN-LAST:event_cmbArrivalTypeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset2;
     private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox<String> cmbIdType;
+    private javax.swing.JComboBox<String> cmbArrivalType;
+    private javax.swing.JComboBox<String> cmbBalanceType;
     private javax.swing.JComboBox<String> cmbIdType1;
-    private javax.swing.JComboBox<String> cmbIdType2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -370,13 +392,13 @@ public class CreateSupplierForm extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAddress1;
-    private javax.swing.JTextField txtGranterName;
+    private javax.swing.JTextField txtAddress2;
+    private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtIdNumber;
-    private javax.swing.JTextField txtIdNumber1;
     private javax.swing.JTextField txtMobile1;
     private javax.swing.JTextField txtMobile2;
-    private javax.swing.JTextField txtMobile3;
+    private javax.swing.JTextField txtOpeningBalance;
+    private javax.swing.JTextField txtSupplierName;
     // End of variables declaration//GEN-END:variables
 }
