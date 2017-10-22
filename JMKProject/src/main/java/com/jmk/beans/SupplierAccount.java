@@ -5,6 +5,7 @@
  */
 package com.jmk.beans;
 
+import com.jmk.util.AmmountFormater;
 import java.util.Date;
 
 /**
@@ -84,6 +85,22 @@ public class SupplierAccount {
 
     public void setCurrentBalance(double currentBalance) {
         this.currentBalance = currentBalance;
+    }
+
+    public String getPurchaseAmountAsString() {
+        return AmmountFormater.formateDoubleToString(purchaseAmount);
+    }
+
+    public String getCurrentBalanceAsString() {
+        return AmmountFormater.formateDoubleToString(currentBalance);
+    }
+
+    public String getSaleAmountAsString() {
+        return AmmountFormater.formateDoubleToString(saleAmount);
+    }
+
+    public String getPaidAmountAsString() {
+        return AmmountFormater.formateDoubleToString(paidAmount);
     }
 
 }

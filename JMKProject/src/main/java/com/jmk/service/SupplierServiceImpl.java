@@ -12,6 +12,8 @@ import com.jmk.util.StatusMessage;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,10 +36,18 @@ public class SupplierServiceImpl implements SupplierService {
 
                 Integer count = supplierDAO.create(supplier);
                 if (count != null && count > 0) {
-                    message = "Supplier Account Successfully Created";
+                    message = StatusMessage.STATUS_SUCCESS;
                 }
             } else {
                 message = "Invalid Supplier information";
+            }
+        } catch (DuplicateKeyException ex) {
+            if (ex.getMessage().contains("mobile1_UNIQUE")) {
+                message = "Mobile1 " + supplier.getMobile1() + " already exists";
+            } else if (ex.getMessage().contains("email_id_UNIQUE")) {
+                message = "EmaildId " + supplier.getEmaild() + " already exists";
+            } else if (ex.getMessage().contains("mobile2_UNIQUE")) {
+                message = "Mobile2 " + supplier.getMobile2() + "already exists";
             }
         } catch (DataAccessException e) {
             System.out.println(e);
@@ -50,7 +60,11 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public List<Supplier> getAllSupplires() {
-        return supplierDAO.getAllSupplires();
+        try {
+            return supplierDAO.getAllSupplires();
+        } catch (EmptyResultDataAccessException ex) {
+            return null;
+        }
     }
 
     @Override
@@ -61,16 +75,24 @@ public class SupplierServiceImpl implements SupplierService {
             if (supplier != null && supplier.getId() > 0 && supplier.getName().trim().length() > 2 && supplier.getArrivalType().length() > 0) {
                 Integer count = supplierDAO.edit(supplier);
                 if (count != null && count > 0) {
-                    message = "Supplier Account Successfully Update";
+                    message = StatusMessage.STATUS_SUCCESS;
                 }
             } else {
                 message = "Invalid Supplier information";
             }
+        } catch (DuplicateKeyException ex) {
+            if (ex.getMessage().contains("mobile1_UNIQUE")) {
+                message = "Mobile1 " + supplier.getMobile1() + " already exists";
+            } else if (ex.getMessage().contains("email_id_UNIQUE")) {
+                message = "EmaildId " + supplier.getEmaild() + " already exists";
+            } else if (ex.getMessage().contains("mobile2_UNIQUE")) {
+                message = "Mobile2 " + supplier.getMobile2() + "already exists";
+            }
         } catch (DataAccessException e) {
             System.out.println(e);
-            message = "Sorry ! Supplier Account Updation Failed, Please try again";
+            message = "Sorry ! Supplier Account Creation Failed, Please try again";
         } catch (Exception e) {
-            message = "Sorry ! Supplier Account Updation Failed, Please try again";
+            message = "Sorry ! Supplier Account Creation Failed, Please try again";
         }
         return message;
     }

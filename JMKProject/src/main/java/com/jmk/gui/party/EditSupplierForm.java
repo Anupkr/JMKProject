@@ -39,10 +39,6 @@ public class EditSupplierForm extends javax.swing.JDialog {
 
     }
 
-    private void getSupplier() {
-
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -181,6 +177,7 @@ public class EditSupplierForm extends javax.swing.JDialog {
         txtArrivalType.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(212, 2, 2));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Edit Supplier Account");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -310,6 +307,12 @@ public class EditSupplierForm extends javax.swing.JDialog {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         String name = txtSupplierName.getText();
+
+        if (name.trim().length() < 3) {
+            JOptionPane.showMessageDialog(rootPane, "Valid name required,please enter valid supplier name", "Required", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         String mobile1 = txtMobile1.getText();
         String mobile2 = txtMobile2.getText();
         String address1 = txtAddress1.getText();
@@ -328,10 +331,12 @@ public class EditSupplierForm extends javax.swing.JDialog {
         supplier.setIdNumber(idNumber);
         supplier.setIdType(idType);
         supplier.setArrivalType(arrivalType);
+        supplier.setEmaild(emailId);
 
         String message = supplierService.edit(supplier);
         if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(message)) {
-            JOptionPane.showMessageDialog(rootPane, message, "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Supplier Account Successfully Updated", "Success", JOptionPane.INFORMATION_MESSAGE);
+            dispose();
         } else {
             JOptionPane.showMessageDialog(rootPane, message, "Message", JOptionPane.ERROR_MESSAGE);
         }

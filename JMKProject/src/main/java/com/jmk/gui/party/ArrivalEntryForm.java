@@ -86,7 +86,6 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         txtCurrentBalance = new javax.swing.JTextField();
         txtSupplierName = new javax.swing.JTextField();
-        lblSupplierId = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         txtProfitLoss = new javax.swing.JTextField();
@@ -121,6 +120,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(212, 2, 2));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Arrival Entry");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -206,8 +206,6 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
     txtSupplierName.setForeground(new java.awt.Color(212, 2, 2));
     txtSupplierName.setFocusable(false);
 
-    lblSupplierId.setText("jLabel13");
-
     javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
     jPanel2.setLayout(jPanel2Layout);
     jPanel2Layout.setHorizontalGroup(
@@ -225,15 +223,12 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
                 .addComponent(txtMobile))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel7))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                        .addComponent(txtCurrentBalance)))
-                .addComponent(lblSupplierId, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel5)
+                .addComponent(jLabel7))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                .addComponent(txtCurrentBalance))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel2Layout.setVerticalGroup(
@@ -242,8 +237,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
             .addContainerGap()
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addComponent(dateChooserCombo1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addComponent(lblSupplierId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(dateChooserCombo1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -418,6 +412,11 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
     );
 
     btnReset.setText("Reset");
+    btnReset.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnResetActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
     jPanel4.setLayout(jPanel4Layout);
@@ -561,8 +560,52 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(rootPane, "Invalid Amount");
                     }
                 } else {
-                    //save data for selfpurchase stock
+                    //save data for selfPurchase stock
+
+                    double amount = Double.parseDouble(txtCurrentBalance.getText());
+
+                    try {
+                        double purchaseAmount = Double.parseDouble(txtPurchaseAmount.getText());
+                        double saleAmount = Double.parseDouble(txtSaleAmount.getText());
+                        double paidAmount = Double.parseDouble(txtPaidAmount.getText());
+
+                        double currentBalance = amount + purchaseAmount - paidAmount;
+                        String particular = txtParticular.getText().trim();
+
+                        Supplier supplier = tempList.get(index - 1);
+
+                        SupplierAccount account = new SupplierAccount();
+                        //set information to SupplierAccount obj
+                        account.setSupplierId(supplier.getId());
+                        account.setCurrentBalance(currentBalance);
+                        account.setDate(dateChooserCombo1.getSelectedDate().getTime());
+                        account.setPaidAmount(paidAmount);
+                        account.setParticular(particular);
+                        account.setSaleAmount(saleAmount);
+                        account.setPurchaseAmount(purchaseAmount);
+
+                        String message = supplierAccountService.saveAccount(account);
+                        if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(message)) {
+                            cmbSupplierName.setSelectedIndex(0);
+
+                            int i = supplierList.indexOf(supplier);
+                            supplier.setCurrentBalance(currentBalance);
+                            supplierList.set(i, supplier);
+                            tempList.set(index - 1, supplier);
+
+                            JOptionPane.showMessageDialog(rootPane, "Record Successfully Saved", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                        } else {
+
+                            JOptionPane.showMessageDialog(rootPane, message, "Failed", JOptionPane.ERROR_MESSAGE);
+                        }
+
+                    } catch (NumberFormatException e) {
+                        JOptionPane.showMessageDialog(rootPane, "Invalid Amount");
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Please select supplier", "Message", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -630,6 +673,11 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
 
     }//GEN-LAST:event_txtPurchaseAmountActionPerformed
 
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        resetText();
+    }//GEN-LAST:event_btnResetActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
@@ -656,7 +704,6 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblSupplierId;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCurrentBalance;
     private javax.swing.JTextField txtMobile;

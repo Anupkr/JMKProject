@@ -9,6 +9,7 @@ import com.jmk.beans.Supplier;
 import com.jmk.gui.JMKHome;
 import com.jmk.service.SupplierService;
 import com.jmk.util.StatusMessage;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -75,7 +76,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create Supplier ");
         setModal(true);
-        setType(java.awt.Window.Type.POPUP);
+        setType(java.awt.Window.Type.UTILITY);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
@@ -319,6 +320,11 @@ public class CreateSupplierForm extends javax.swing.JDialog {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         String supplierName = txtSupplierName.getText();
+        if (!Pattern.matches("[a-zA-Z][a-zA-Z0-9]{2,}", supplierName)) {
+            JOptionPane.showMessageDialog(rootPane, "Valid name required,please enter valid supplier name", "Required", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         String mobile1 = txtMobile1.getText();
         String mobile2 = txtMobile2.getText();
         String address1 = txtAddress1.getText();
@@ -342,7 +348,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         Supplier supplier = new Supplier(supplierName, arrivalType, mobile1, mobile2, address1, address2, emailId, idType, idNumber, openingBalance);
         String message = supplierService.create(supplier);
         if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(message)) {
-            JOptionPane.showMessageDialog(rootPane, message, "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Account Successfully Created", "Success", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(rootPane, message, "Message", JOptionPane.ERROR_MESSAGE);
         }

@@ -6,11 +6,18 @@
 package com.jmk.service;
 
 import com.jmk.beans.SupplierAccount;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author mulayam
  */
 public interface SupplierAccountService {
+
     public String saveAccount(SupplierAccount account);
+
+    public List<SupplierAccount> getAllTransaction(int supplierId);
+    public List<SupplierAccount> getAllTransaction(int supplierId,Date from,Date to);
+    
 }

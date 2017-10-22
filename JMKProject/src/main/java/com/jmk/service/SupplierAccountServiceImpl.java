@@ -8,8 +8,17 @@ package com.jmk.service;
 import com.jmk.beans.SupplierAccount;
 import com.jmk.dao.SupplierAccountDAO;
 import com.jmk.util.StatusMessage;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,12 +46,30 @@ public class SupplierAccountServiceImpl implements SupplierAccountService {
                 message = "Complete Information Required";
             }
         } catch (DataAccessException ex) {
-
             System.out.println(ex);
         } catch (Exception ex) {
             System.out.println(ex);
         }
-        System.out.println(message);
         return message;
     }
+
+    @Override
+    public List<SupplierAccount> getAllTransaction(int supplierId) {
+        try {
+            return supplierAccountDAO.getAllTransaction(supplierId);
+        } catch (EmptyResultDataAccessException ex) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<SupplierAccount> getAllTransaction(int supplierId, Date from, Date to) {
+        try {
+
+            return supplierAccountDAO.getAllTransaction(supplierId, from, to);
+        } catch (EmptyResultDataAccessException ex) {
+        }
+        return null;
+    }
+
 }

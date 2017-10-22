@@ -6,6 +6,8 @@
 package com.jmk.dao;
 
 import com.jmk.beans.SupplierAccount;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -14,4 +16,9 @@ import com.jmk.beans.SupplierAccount;
 public interface SupplierAccountDAO {
 
     public Integer saveAccount(SupplierAccount account);
+
+    public List<SupplierAccount> getAllTransaction(int supplierId);
+
+    public List<SupplierAccount> getAllTransaction(int supplierId, Date from, Date to);
+
 }

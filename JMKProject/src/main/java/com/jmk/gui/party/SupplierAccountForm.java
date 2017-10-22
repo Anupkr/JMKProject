@@ -3,12 +3,18 @@ package com.jmk.gui.party;
 import com.jmk.gui.*;
 import com.jmk.beans.Customer;
 import com.jmk.beans.CustomerAccount;
+import com.jmk.beans.Supplier;
+import com.jmk.beans.SupplierAccount;
 import com.jmk.service.CustomerAccountService;
+import com.jmk.service.SupplierAccountService;
+import com.jmk.util.AmmountFormater;
+import com.jmk.util.ArrivalType;
 import com.jmk.util.PrintDialogUtil;
 import com.jmk.util.TransactionType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,39 +43,66 @@ public class SupplierAccountForm extends javax.swing.JDialog {
 
     @Autowired
 
-    private CustomerAccountService customerAccountService;
-    private Customer customer;
+    private SupplierAccountService supplierAccountService;
+    private Supplier supplier;
 
-    private List<CustomerAccount> customerAccountList;
+    private List<SupplierAccount> supplierAccountList;
 
     public SupplierAccountForm() {
 
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    private void addIntoTable() {
+        if (supplier != null) {
+            jLabel1.setText(supplier.getName() + "    -   " + supplier.getAddress1());
+
+            DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+            defaultTableModel.setRowCount(0);
+            if (supplierAccountList != null) {
+                supplierAccountList.stream().forEach(new Consumer<SupplierAccount>() {
+                    @Override
+                    public void accept(SupplierAccount supplierAccount) {
+
+                        defaultTableModel.addRow(new Object[]{
+                            supplierAccount.getDate(),
+                            AmmountFormater.formateDoubleToString(supplierAccount.getPurchaseAmount()),
+                            AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount()),
+                            AmmountFormater.formateDoubleToString(supplierAccount.getPaidAmount()),
+                            AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount() - supplierAccount.getPurchaseAmount()),
+                            supplierAccount.getParticular(),
+                            AmmountFormater.formateDoubleToString(supplierAccount.getCurrentBalance())
+                        });
+                    }
+                });
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Account details not found");
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
         dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
         jLabel4 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -80,26 +113,27 @@ public class SupplierAccountForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
-        setType(java.awt.Window.Type.POPUP);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
-
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("Customer Account");
-
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("Name");
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("From");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipady = 18;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 88, 12, 0);
+        jPanel1.add(jLabel3, gridBagConstraints);
 
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
@@ -142,6 +176,14 @@ public class SupplierAccountForm extends javax.swing.JDialog {
                 (datechooser.view.BackRenderer)null,
                 false,
                 true)));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 1;
+    gridBagConstraints.gridy = 2;
+    gridBagConstraints.ipadx = 133;
+    gridBagConstraints.ipady = 7;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
+    jPanel1.add(dateChooserCombo1, gridBagConstraints);
 
     dateChooserCombo2.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
         new datechooser.view.appearance.ViewAppearance("custom",
@@ -184,60 +226,93 @@ public class SupplierAccountForm extends javax.swing.JDialog {
             (datechooser.view.BackRenderer)null,
             false,
             true)));
+gridBagConstraints = new java.awt.GridBagConstraints();
+gridBagConstraints.gridx = 3;
+gridBagConstraints.gridy = 2;
+gridBagConstraints.ipadx = 135;
+gridBagConstraints.ipady = 7;
+gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+gridBagConstraints.insets = new java.awt.Insets(18, 18, 0, 0);
+jPanel1.add(dateChooserCombo2, gridBagConstraints);
 
 jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 jLabel4.setForeground(new java.awt.Color(255, 0, 0));
 jLabel4.setText("To");
+gridBagConstraints = new java.awt.GridBagConstraints();
+gridBagConstraints.gridx = 2;
+gridBagConstraints.gridy = 2;
+gridBagConstraints.ipady = 17;
+gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+gridBagConstraints.insets = new java.awt.Insets(18, 12, 0, 0);
+jPanel1.add(jLabel4, gridBagConstraints);
 
 jButton5.setText("Search");
+jButton5.addActionListener(new java.awt.event.ActionListener() {
+    public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton5ActionPerformed(evt);
+    }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 4;
+    gridBagConstraints.gridy = 2;
+    gridBagConstraints.gridheight = 2;
+    gridBagConstraints.ipadx = 41;
+    gridBagConstraints.ipady = 6;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(18, 6, 12, 0);
+    jPanel1.add(jButton5, gridBagConstraints);
 
-jSeparator1.setBackground(new java.awt.Color(254, 254, 254));
+    jSeparator1.setBackground(new java.awt.Color(254, 254, 254));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.gridwidth = 7;
+    gridBagConstraints.ipadx = 797;
+    gridBagConstraints.ipady = -1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+    jPanel1.add(jSeparator1, gridBagConstraints);
 
-javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-jPanel1.setLayout(jPanel1Layout);
-jPanel1Layout.setHorizontalGroup(
-    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-    .addGroup(jPanel1Layout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap())
-    .addComponent(jSeparator1)
-    .addGroup(jPanel1Layout.createSequentialGroup()
-        .addGap(149, 149, 149)
-        .addComponent(jLabel3)
-        .addGap(2, 2, 2)
-        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(2, 2, 2)
-        .addComponent(jLabel4)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
-        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-    jPanel1Layout.setVerticalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dateChooserCombo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addContainerGap())
-    );
+    jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
+    jLabel1.setForeground(new java.awt.Color(221, 1, 1));
+    jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel1.setText("Supplier Account");
+    jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(248, 248, 248)));
+    jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.gridwidth = 7;
+    gridBagConstraints.ipadx = 449;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 0);
+    jPanel1.add(jLabel1, gridBagConstraints);
+
+    jButton7.setText("Show All");
+    jButton7.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton7ActionPerformed(evt);
+        }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 5;
+    gridBagConstraints.gridy = 2;
+    gridBagConstraints.gridheight = 2;
+    gridBagConstraints.ipadx = 30;
+    gridBagConstraints.ipady = 6;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(18, 6, 12, 0);
+    jPanel1.add(jButton7, gridBagConstraints);
+
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.ipadx = 383;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    getContentPane().add(jPanel1, gridBagConstraints);
 
     jPanel2.setBackground(new java.awt.Color(254, 254, 254));
+    jPanel2.setLayout(new java.awt.GridBagLayout());
 
     jButton1.setText("Print");
     jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -245,17 +320,39 @@ jPanel1Layout.setHorizontalGroup(
             jButton1ActionPerformed(evt);
         }
     });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.ipadx = 38;
+    gridBagConstraints.ipady = 5;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(12, 385, 12, 0);
+    jPanel2.add(jButton1, gridBagConstraints);
 
     jButton2.setText("Edit");
-
-    jButton3.setText("Show Bill");
-    jButton3.addActionListener(new java.awt.event.ActionListener() {
+    jButton2.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton3ActionPerformed(evt);
+            jButton2ActionPerformed(evt);
         }
     });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 1;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.ipadx = 44;
+    gridBagConstraints.ipady = 5;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(12, 6, 12, 0);
+    jPanel2.add(jButton2, gridBagConstraints);
 
     jButton4.setText("Delete");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 2;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.ipadx = 24;
+    gridBagConstraints.ipady = 5;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(12, 12, 12, 0);
+    jPanel2.add(jButton4, gridBagConstraints);
 
     jButton6.setText("Close");
     jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -263,50 +360,37 @@ jPanel1Layout.setHorizontalGroup(
             jButton6ActionPerformed(evt);
         }
     });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 3;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.ipadx = 32;
+    gridBagConstraints.ipady = 5;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(12, 6, 12, 362);
+    jPanel2.add(jButton6, gridBagConstraints);
 
-    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-    jPanel2.setLayout(jPanel2Layout);
-    jPanel2Layout.setHorizontalGroup(
-        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel2Layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton3)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-    jPanel2Layout.setVerticalGroup(
-        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-            .addContainerGap())
-    );
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 2;
+    gridBagConstraints.ipadx = 81;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+    getContentPane().add(jPanel2, gridBagConstraints);
 
+    jTable1.setBorder(null);
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
         new String [] {
-            "Date", "ProductAmount", "SecMoney", "Coolie", "Gross Amount", "Debit", "Credit", "Transaction Type", "Current Balance", "Description"
+            "Date", "PurchaseAmount", "SaleAmount", "PaidAmount", "Profit/Loss", "Particular", "Balance"
         }
     ) {
         Class[] types = new Class [] {
-            java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
+            java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
         };
         boolean[] canEdit = new boolean [] {
-            false, false, false, false, false, false, false, false, false, false
+            false, false, false, false, true, false, false
         };
 
         public Class getColumnClass(int columnIndex) {
@@ -320,70 +404,47 @@ jPanel1Layout.setHorizontalGroup(
     jTable1.setFillsViewportHeight(true);
     jTable1.getTableHeader().setReorderingAllowed(false);
     jScrollPane1.setViewportView(jTable1);
-    if (jTable1.getColumnModel().getColumnCount() > 0) {
-        jTable1.getColumnModel().getColumn(8).setResizable(false);
-    }
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1079, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(layout.createSequentialGroup()
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, 0)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap())
-    );
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+    gridBagConstraints.ipadx = 1165;
+    gridBagConstraints.ipady = 253;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.weightx = 1.0;
+    gridBagConstraints.weighty = 1.0;
+    gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+    getContentPane().add(jScrollPane1, gridBagConstraints);
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        if (customer != null) {
-            jLabel2.setText(customer.getName() + "    -   " + customer.getUser().getAddress());
-
-            System.out.println(this.getClass() + ":" + customer);
-            customerAccountList = customerAccountService.getAllTransaction(customer.getCustomerId());
-
-            DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
-            defaultTableModel.setRowCount(0);
-            if (customerAccountList != null) {
-                customerAccountList.stream().forEach((customerAccount) -> {
-                    defaultTableModel.addRow(new Object[]{
-                        customerAccount.getDate(),
-                        customerAccount.getProductAmount(),
-                        customerAccount.getSecurityMoney(),
-                        customerAccount.getCoolieAmount(),
-                        (customerAccount.getProductAmount() + customerAccount.getSecurityMoney() + customerAccount.getCoolieAmount()), customerAccount.getDebitAmount(),
-                        customerAccount.getCreditAmount(),
-                        customerAccount.getTransactionType(), customerAccount.getCurrentBalance(),
-                        customerAccount.getDescription()});
-                });
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Account details not found");
+        new Thread() {
+            @Override
+            public void run() {
+                jButton7ActionPerformed(null);
+                addIntoTable();
             }
-        }
+        }.start();
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(customerAccountList, false);
+            JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(supplierAccountList, false);
 
-            Map parameters = new HashMap();
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("supplierName", supplier.getName() + " : " + supplier.getAddress1());
 
-            JasperDesign jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/jasper/customer_account.jrxml"));
+            JasperDesign jasperDesign = null;
+            if (ArrivalType.ARRIVAL_TYPE_SELF_PURCHASE.equalsIgnoreCase(supplier.getArrivalType())) {
+                jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/jasper/supplier_account_self_purchase.jrxml"));
+
+            } else {
+                jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/jasper/supplier_account_party_stock.jrxml"));
+
+            }
 
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
@@ -399,41 +460,36 @@ jPanel1Layout.setHorizontalGroup(
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        int index = jTable1.getSelectedRow();
-        if (index != -1) {
-
-            CustomerAccount account = customerAccountList.get(index);
-            System.out.println(account);
-
-            String transactionType = account.getTransactionType();
-            if (TransactionType.TRANSACTION_TYPE_PURCHASE.equalsIgnoreCase(transactionType)) {
-                long transactionId = account.getTransactionId();
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "There is no bill to show on selected row,please select a valid row", "Empty Bill", JOptionPane.INFORMATION_MESSAGE);
-
-            }
-        }
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        supplierAccountList = supplierAccountService.getAllTransaction(supplier.getId(), dateChooserCombo1.getSelectedDate().getTime(), dateChooserCombo2.getSelectedDate().getTime());
+        addIntoTable();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        supplierAccountList = supplierAccountService.getAllTransaction(supplier.getId());
+        addIntoTable();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

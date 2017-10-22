@@ -234,7 +234,7 @@ public class EditCustomerForm extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create Customer Account");

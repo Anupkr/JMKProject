@@ -22,7 +22,6 @@ public class Test {
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//            UIManager.setLookAndFeel(UIManager.getLookAndFeel());
 
             java.awt.EventQueue.invokeLater(() -> {
                 JMKHome dialog = new JMKHome();
@@ -31,7 +30,7 @@ public class Test {
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
                     }
-                    
+
                 });
                 dialog.setVisible(true);
             });

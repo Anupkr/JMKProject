@@ -28,11 +28,11 @@
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="-25" width="595" height="97" forecolor="#FF0000" backcolor="#006699" uuid="0e5f9261-c3b3-4874-a283-f24801512281"/>
 				<staticText>
-					<reportElement x="109" y="27" width="284" height="43" forecolor="#FFFFFF" uuid="5ad24a58-6d21-417e-b2c0-a55aa90729ac"/>
+					<reportElement x="86" y="27" width="370" height="43" forecolor="#FFFFFF" uuid="5ad24a58-6d21-417e-b2c0-a55aa90729ac"/>
 					<textElement>
-						<font size="34" isBold="true"/>
+						<font size="30" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Customer List]]></text>
+					<text><![CDATA[Customer Account]]></text>
 				</staticText>
 				<ellipse>
 					<reportElement x="36" y="25" width="50" height="45" forecolor="#FEFEFE" backcolor="#006699" uuid="f8550c96-9f2e-4db5-b8e1-93a667e2cfc7"/>
@@ -138,7 +138,7 @@
 					<pen lineStyle="Solid" lineColor="#A2A2A2"/>
 				</graphicElement>
 			</line>
-			<textField isBlankWhenNull="true">
+			<textField pattern="dd/MM/yy" isBlankWhenNull="true">
 				<reportElement x="1" y="0" width="49" height="20" uuid="114b051d-fbd9-4a5b-a395-c7842fca46d4"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
@@ -166,8 +166,7 @@
 			<textField isBlankWhenNull="true">
 				<reportElement x="324" y="1" width="64" height="19" uuid="3f1b6dab-5dea-4075-b782-0da5e8977424"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{creditAmount}==0.0?null:$F{creditAmount}
-]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{creditAmount}==0.0?null:$F{creditAmount}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="388" y="1" width="75" height="19" uuid="abc34457-d5d9-4b79-a9b7-3ae3d3e4b1ad"/>
@@ -182,9 +181,7 @@
 			<textField isBlankWhenNull="true">
 				<reportElement x="178" y="1" width="84" height="19" uuid="1b11e38a-1209-4625-bbf1-377ec7f24581"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[($F{coolieAmount}+$F{productAmount}+$F{securityMoney})==0.0?null:($F{coolieAmount}+$F{productAmount}+$F{securityMoney})
-
-]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{coolieAmount}+$F{productAmount}+$F{securityMoney})==0.0?null:($F{coolieAmount}+$F{productAmount}+$F{securityMoney})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -5,8 +5,6 @@
  */
 package com.jmk.beans;
 
-import java.math.BigDecimal;
-
 /**
  *
  * @author mulayam
