@@ -6,6 +6,7 @@
 package com.jmk.gui;
 
 import com.jmk.Test;
+import com.jmk.gui.supplier.ArrivalEntryForm;
 import com.jmk.gui.supplier.EditSupplierAccountForm;
 import com.jmk.gui.supplier.CreateSupplierForm;
 import com.jmk.gui.supplier.SupplierListForm;
@@ -122,7 +123,7 @@ public class JMKHome extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Nimbus Mono L", 1, 36)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("X");
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_white.png"))); // NOI18N
         jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -578,23 +579,23 @@ public class JMKHome extends javax.swing.JFrame {
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
         // TODO add your handling code here:
-        PaymentTransaction form=Test.getBean(PaymentTransaction.class);
+        PaymentTransaction form = Test.getBean(PaymentTransaction.class);
         form.setVisible(true);
     }//GEN-LAST:event_jLabel26MouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
         // TODO add your handling code here:
-        CreateSupplierForm form=Test.getBean(CreateSupplierForm.class);
+        CreateSupplierForm form = Test.getBean(CreateSupplierForm.class);
         form.setVisible(true);
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
-        SupplierListForm form=Test.getBean(SupplierListForm.class);
-        form.setVisible(true);
+        Test.getBean(SupplierListForm.class).setVisible(true);
+        
     }//GEN-LAST:event_jLabel29MouseClicked
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
-        Test.getBean(EditSupplierAccountForm.class).setVisible(true);
+        Test.getBean(ArrivalEntryForm.class).setVisible(true);
     }//GEN-LAST:event_jLabel31MouseClicked
 
 

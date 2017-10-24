@@ -141,6 +141,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
             }
         });
 
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/010-database.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +149,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
             }
         });
 
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +157,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
             }
         });
 
+        btnReset2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
         btnReset2.setText("Close");
         btnReset2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

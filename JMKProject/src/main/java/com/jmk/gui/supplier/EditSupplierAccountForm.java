@@ -34,35 +34,35 @@ import org.springframework.stereotype.Component;
 @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 
 public class EditSupplierAccountForm extends javax.swing.JDialog {
-
+    
     private String empty = "";
-
+    
     @Autowired
     private SupplierAccountService supplierAccountService;
-
+    
     private List<SupplierAccount> supplierAccountList;
-
+    
     private int tid;
     private Supplier supplier;
-
+    
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
-
+    
     public void setTid(int tid) {
         this.tid = tid;
     }
-
+    
     public String getEmpty() {
         return empty;
     }
-
+    
     public EditSupplierAccountForm() {
-
+        
         initComponents();
         setSize(JMKHome.getPanelHome().getSize());
         setLocationRelativeTo(JMKHome.getPanelHome());
-
+        
     }
 
     /**
@@ -321,6 +321,7 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
             .addContainerGap(21, Short.MAX_VALUE))
     );
 
+    btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save.png"))); // NOI18N
     btnSave.setText("Save");
     btnSave.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,6 +329,7 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
         }
     });
 
+    btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
     btnClose.setText("Close");
     btnClose.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,10 +347,10 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(316, 316, 316)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(288, 288, 288)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addContainerGap())
     );
     jPanel4Layout.setVerticalGroup(
@@ -360,8 +362,8 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(10, 10, 10)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -381,22 +383,22 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCloseActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        
         if (supplier != null) {
-
+            
             txtSupplierName.setText(supplier.getName());
             txtAddress.setText(supplier.getAddress1());
             txtMobile.setText(supplier.getMobile1());
-
+            
             Double editCurrentBalance = supplierAccountService.getCurrentBalanceBeforeTId(supplier.getId(), tid);
             System.out.println(tid + "    :   " + editCurrentBalance);
-
+            
             if (editCurrentBalance == null) {
                 editCurrentBalance = 0.0;
             }
             //call formateDoubleToString to remove exponential form of double amount value
             txtCurrentBalance.setText(AmmountFormater.formateDoubleToString(editCurrentBalance));
-
+            
             supplierAccountList = supplierAccountService.getListFromTransactionId(supplier.getId(), tid);
 
             //get firt row from list which has to edit
@@ -415,38 +417,38 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
             if (ArrivalType.ARRIVAL_TYPE_PARTY_STOCK.equalsIgnoreCase(supplier.getArrivalType())) {
                 txtPurchaseAmount.setEnabled(false);
             }
-
+            
         } else {
             dispose();
         }
 
     }//GEN-LAST:event_formWindowOpened
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
+        
         if (JOptionPane.YES_OPTION == JOptionPane.showConfirmDialog(rootPane, "Are you sure?", "Confirmation", JOptionPane.YES_NO_OPTION)) {
-
+            
             String arrivalType = supplier.getArrivalType();
             if (arrivalType.equalsIgnoreCase(ArrivalType.ARRIVAL_TYPE_PARTY_STOCK)) {
                 //update if arrivaltype is Party Stock
 
                 try {
                     double currentBalance = Double.parseDouble(txtCurrentBalance.getText());
-
+                    
                     double saleAmount = Double.parseDouble(txtSaleAmount.getText());
                     double paidAmount = Double.parseDouble(txtPaidAmount.getText());
-                    currentBalance = currentBalance + saleAmount - paidAmount;
+                    currentBalance = (currentBalance + saleAmount) - paidAmount;
                     String particular = txtParticular.getText().trim();
 
                     //get First row from row which has to be updated
                     SupplierAccount account = supplierAccountList.get(0);
+//                    JOptionPane.showMessageDialog(rootPane, account);
 
                     //set new values
                     account.setSaleAmount(saleAmount);
                     account.setPaidAmount(paidAmount);
                     account.setParticular(particular);
                     account.setDate(dateChooserCombo1.getSelectedDate().getTime());
-
-                    currentBalance = currentBalance + saleAmount - paidAmount;
+                    
                     account.setCurrentBalance(currentBalance);
                     //replace existing firt row with updated value
                     supplierAccountList.set(0, account);
@@ -454,40 +456,40 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
                     //currentBalance for next row
                     //update the current balance of each row after editing row
                     for (int i = 1; i < supplierAccountList.size(); i++) {
-
+                        
                         account = supplierAccountList.get(i);
-                        currentBalance = currentBalance + account.getSaleAmount() - account.getPaidAmount();
+                        currentBalance = (currentBalance + account.getSaleAmount()) - account.getPaidAmount();
                         account.setCurrentBalance(currentBalance);
 
                         //update list 
                         supplierAccountList.set(i, account);
-
+                        
                     }
                     System.out.println(supplierAccountList);
-                    String message = "";
-//                    String mesage = supplierAccountService.updateAccountList(supplierAccountList);
+//                    String message = "";
+                    String message = supplierAccountService.updateAccountList(supplierAccountList);
                     if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(message)) {
                         GUIUtils.showSuccessMessage(rootPane, "Successfully Updated");
                         dispose();
                     } else {
                         GUIUtils.showErrorMessage(rootPane, message);
                     }
-
+                    
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(rootPane, "Invalid Amount");
                 }
             } else {
                 //save data for selfPurchase stock
                 try {
-
+                    
                     double currentBalance = Double.parseDouble(txtCurrentBalance.getText());
-
+                    
                     double purchaseAmount = Double.parseDouble(txtPurchaseAmount.getText());
-
+                    
                     double saleAmount = Double.parseDouble(txtSaleAmount.getText());
                     double paidAmount = Double.parseDouble(txtPaidAmount.getText());
                     currentBalance = currentBalance + purchaseAmount - paidAmount;
-
+                    
                     String particular = txtParticular.getText().trim();
 
                     //get First row from row which has to be updated
@@ -498,7 +500,7 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
                     account.setPaidAmount(paidAmount);
                     account.setParticular(particular);
                     account.setDate(dateChooserCombo1.getSelectedDate().getTime());
-
+                    
                     account.setCurrentBalance(currentBalance);
                     //replace existing firt row with updated value
                     supplierAccountList.set(0, account);
@@ -506,14 +508,15 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
                     //currentBalance for next row
                     //update the current balance of each row after editing row
                     for (int i = 1; i < supplierAccountList.size(); i++) {
-
+                        
                         account = supplierAccountList.get(i);
                         currentBalance = currentBalance + account.getPurchaseAmount() - account.getPaidAmount();
                         account.setCurrentBalance(currentBalance);
                         //update list
                         supplierAccountList.set(i, account);
-
+                        
                     }
+//                    JOptionPane.showMessageDialog(rootPane, supplierAccountList);
                     System.out.println(supplierAccountList);
                     String mesage = supplierAccountService.updateAccountList(supplierAccountList);
                     if (StatusMessage.STATUS_SUCCESS.equalsIgnoreCase(mesage)) {
@@ -522,14 +525,14 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
                     } else {
                         GUIUtils.showErrorMessage(rootPane, mesage);
                     }
-
+                    
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(rootPane, "Invalid Amount");
                 }
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
-
+    
 
     private void txtParticularKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtParticularKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_TAB) {
@@ -537,7 +540,7 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
             KeyboardFocusManager.
                     getCurrentKeyboardFocusManager().focusNextComponent();
         }
-
+        
         if (evt.getKeyCode() == KeyEvent.VK_TAB
                 && evt.isShiftDown()) {
             evt.consume();

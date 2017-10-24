@@ -130,6 +130,7 @@ public class EditSupplierForm extends javax.swing.JDialog {
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("ID Type");
 
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +138,7 @@ public class EditSupplierForm extends javax.swing.JDialog {
             }
         });
 
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +146,7 @@ public class EditSupplierForm extends javax.swing.JDialog {
             }
         });
 
+        btnReset2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
         btnReset2.setText("Close");
         btnReset2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
