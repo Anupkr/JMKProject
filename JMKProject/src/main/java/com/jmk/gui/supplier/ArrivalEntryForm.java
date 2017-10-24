@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jmk.gui.party;
+package com.jmk.gui.supplier;
 
 import com.jmk.beans.Supplier;
 import com.jmk.beans.SupplierAccount;

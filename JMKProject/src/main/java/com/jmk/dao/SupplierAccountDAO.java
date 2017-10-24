@@ -21,4 +21,10 @@ public interface SupplierAccountDAO {
 
     public List<SupplierAccount> getAllTransaction(int supplierId, Date from, Date to);
 
+    public Double getCurrentBalanceBeforeTId(int supplierId, int tid);
+
+    public List<SupplierAccount> getListFromTransactionId(int supplierId,int tid);
+
+    public int[] updateAccountList(List<SupplierAccount> list);
+
 }

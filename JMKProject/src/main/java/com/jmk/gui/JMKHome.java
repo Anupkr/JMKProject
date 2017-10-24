@@ -6,9 +6,9 @@
 package com.jmk.gui;
 
 import com.jmk.Test;
-import com.jmk.gui.party.ArrivalEntryForm;
-import com.jmk.gui.party.CreateSupplierForm;
-import com.jmk.gui.party.SupplierListForm;
+import com.jmk.gui.supplier.EditSupplierAccountForm;
+import com.jmk.gui.supplier.CreateSupplierForm;
+import com.jmk.gui.supplier.SupplierListForm;
 import com.jmk.gui.util.GUIUtils;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -594,7 +594,7 @@ public class JMKHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel29MouseClicked
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
-        Test.getBean(ArrivalEntryForm.class).setVisible(true);
+        Test.getBean(EditSupplierAccountForm.class).setVisible(true);
     }//GEN-LAST:event_jLabel31MouseClicked
 
 

@@ -6,6 +6,7 @@ import com.jmk.util.StatusMessage;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,19 +21,21 @@ public class ContainerServiceImpl implements ContainerService {
 
     @Override
     public String createContainer(Container container) {
-        System.out.print("5");
 
-        JOptionPane.showMessageDialog(null, container.getName());
-        String message = StatusMessage.STATUS_FAILED;
-        if (container != null) {
+        String message;
+        if (container != null && container.getName().trim().length() > 0) {
             try {
                 Integer containerId = containerDAO.createContainer(container);
                 if (containerId != null && containerId > 0) {
-                    message = "Container Succsessfully Added";
+                    message = StatusMessage.STATUS_SUCCESS;
                 } else {
                     message = "Container Could not add, please Try Again";
                 }
+
+            } catch (DuplicateKeyException ex) {
+                message = container.getName() + " already exists";
             } catch (Exception e) {
+                System.out.println(e);
                 message = "Container Creation Failed, please try again";
             }
 

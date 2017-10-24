@@ -8,16 +8,11 @@ package com.jmk.service;
 import com.jmk.beans.SupplierAccount;
 import com.jmk.dao.SupplierAccountDAO;
 import com.jmk.util.StatusMessage;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -72,4 +67,51 @@ public class SupplierAccountServiceImpl implements SupplierAccountService {
         return null;
     }
 
+    @Override
+    public List<SupplierAccount> getListFromTransactionId(int supplierId, int tid) {
+        try {
+
+            return supplierAccountDAO.getListFromTransactionId(supplierId, tid);
+        } catch (EmptyResultDataAccessException ex) {
+        }
+        return null;
+    }
+
+    @Override
+    public Double getCurrentBalanceBeforeTId(int supplierId, int tid) {
+        try {
+            return supplierAccountDAO.getCurrentBalanceBeforeTId(supplierId, tid);
+        } catch (EmptyResultDataAccessException ex) {
+        } catch (DataAccessException ex) {
+
+        } catch (Exception ex) {
+
+        }
+        return null;
+    }
+
+    @Override
+    public String updateAccountList(List<SupplierAccount> list) {
+
+        String message = StatusMessage.STATUS_FAILED;
+        try {
+            if (list != null && list.size() > 0) {
+                int count[] = supplierAccountDAO.updateAccountList(list);
+                int sum = Arrays.stream(count).sum();
+                if (sum == list.size()) {
+                    message = StatusMessage.STATUS_SUCCESS;
+                }
+            }
+
+        } catch (DataAccessException ex) {
+            System.out.println(ex);
+            message = StatusMessage.STATUS_FAILED;
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+            message = StatusMessage.STATUS_FAILED;
+        }
+        return message;
+    }
 }

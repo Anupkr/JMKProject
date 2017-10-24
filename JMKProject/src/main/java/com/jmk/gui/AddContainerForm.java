@@ -6,6 +6,7 @@
 package com.jmk.gui;
 
 import com.jmk.beans.Container;
+import com.jmk.gui.util.GUIUtils;
 import com.jmk.service.ContainerService;
 import com.jmk.util.StatusMessage;
 import javax.swing.JOptionPane;
@@ -53,6 +54,7 @@ public class AddContainerForm extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtSecurityMoney = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
@@ -60,10 +62,34 @@ public class AddContainerForm extends javax.swing.JDialog {
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true), "Add New Container", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
+        jPanel2.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel2.setText("Enter Container Name");
+        jLabel2.setText("Container Name");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipady = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(94, 30, 0, 0);
+        jPanel2.add(jLabel2, gridBagConstraints);
+
+        txtContainerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContainerNameActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 274;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(94, 12, 0, 41);
+        jPanel2.add(txtContainerName, gridBagConstraints);
 
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,80 +97,108 @@ public class AddContainerForm extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 35;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 90, 114, 0);
+        jPanel2.add(jButton1, gridBagConstraints);
 
-        jButton2.setText("Exit");
+        jButton2.setText("Close");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 37;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 18, 114, 0);
+        jPanel2.add(jButton2, gridBagConstraints);
 
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel3.setText("Enter Security Money");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(txtContainerName, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSecurityMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtContainerName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtSecurityMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13))
-        );
+        jLabel3.setText("Security Money");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipady = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 30, 0, 0);
+        jPanel2.add(jLabel3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 275;
+        gridBagConstraints.ipady = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 41);
+        jPanel2.add(txtSecurityMoney, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 21;
-        gridBagConstraints.ipady = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(42, 12, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(17, 34, 51, 0);
         getContentPane().add(jPanel2, gridBagConstraints);
+
+        jLabel10.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Create New Container");
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 174;
+        gridBagConstraints.ipady = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jLabel10, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        String containername = txtContainerName.getText();
-        double securitymoney = Double.parseDouble(txtSecurityMoney.getText());
-        Container container = new Container();
-        container.setName(containername);
-        container.setSecurityMoney(securitymoney);
-        String message = containerService.createContainer(container);
-        System.out.println(message);
-        if (message.equalsIgnoreCase(StatusMessage.STATUS_SUCCESS)) {
-            JOptionPane.showMessageDialog(rootPane, "New Container Added Succsessfully", "Succsess", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(rootPane, message);
+        try {
+            String containername = txtContainerName.getText();
+            if (containername.trim().length() < 2) {
+                GUIUtils.showErrorMessage(rootPane, "Please enter a valid container name");
+                txtContainerName.requestFocus();
+                return;
+            }
+
+            int securitymoney = Integer.parseInt(txtSecurityMoney.getText());
+
+            if (securitymoney < 0) {
+                GUIUtils.showErrorMessage(rootPane, "Security money cannot be less than 0");
+                txtSecurityMoney.requestFocus();
+                return;
+            }
+
+            Container container = new Container();
+            container.setName(containername);
+            container.setSecurityMoney(securitymoney);
+
+            String message = containerService.createContainer(container);
+
+            if (message.equalsIgnoreCase(StatusMessage.STATUS_SUCCESS)) {
+                GUIUtils.showSuccessMessage(rootPane, "New Container Succsessfully Added");
+                txtContainerName.setText("");
+                txtSecurityMoney.setText("");
+                txtContainerName.requestFocus();
+            } else {
+                GUIUtils.showErrorMessage(rootPane, message);
+            }
+        } catch (NumberFormatException ex) {
+            GUIUtils.showErrorMessage(rootPane, "Invalid value");
+            txtSecurityMoney.requestFocus();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -153,10 +207,15 @@ public class AddContainerForm extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void txtContainerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContainerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContainerNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;

@@ -103,4 +103,9 @@ public class SupplierAccount {
         return AmmountFormater.formateDoubleToString(paidAmount);
     }
 
+    @Override
+    public String toString() {
+        return "SupplierAccount{" + "id=" + id + ", supplierId=" + supplierId + ", date=" + date + ", purchaseAmount=" + purchaseAmount + ", saleAmount=" + saleAmount + ", paidAmount=" + paidAmount + ", particular=" + particular + ", currentBalance=" + currentBalance + '}'+"\n";
+    }
+
 }

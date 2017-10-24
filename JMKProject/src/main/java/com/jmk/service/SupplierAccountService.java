@@ -18,6 +18,13 @@ public interface SupplierAccountService {
     public String saveAccount(SupplierAccount account);
 
     public List<SupplierAccount> getAllTransaction(int supplierId);
-    public List<SupplierAccount> getAllTransaction(int supplierId,Date from,Date to);
-    
+
+    public List<SupplierAccount> getAllTransaction(int supplierId, Date from, Date to);
+
+    public Double getCurrentBalanceBeforeTId(int supplierId, int tid);
+
+    public List<SupplierAccount> getListFromTransactionId(int supplier_id, int tid);
+
+    public String updateAccountList(List<SupplierAccount> list);
+
 }

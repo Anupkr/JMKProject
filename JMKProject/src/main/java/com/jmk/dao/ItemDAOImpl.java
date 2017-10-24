@@ -18,14 +18,17 @@ public class ItemDAOImpl implements ItemDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Override
     public Integer createItem(Item item) {
-        return null;
+        return jdbcTemplate.update(SQLConstant.SQL_INSERT_ITEM, item.getItemName(), item.getContainerId());
     }
 
+    @Override
     public Integer editItem(Item item) {
         return null;
     }
 
+    @Override
     public List<Item> getAllItems() {
         return jdbcTemplate.query(SQLConstant.SQL_SELECT_ALL_ITEMS, new RowMapper<Item>() {
             @Override
@@ -40,10 +43,12 @@ public class ItemDAOImpl implements ItemDAO {
 
     }
 
+    @Override
     public Item getItem(Integer itemId) {
         return null;
     }
 
+    @Override
     public Item getItem(String itemName) {
 
         return null;

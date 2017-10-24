@@ -1,16 +1,13 @@
-package com.jmk.gui.party;
+package com.jmk.gui.supplier;
 
-import com.jmk.gui.*;
-import com.jmk.beans.Customer;
-import com.jmk.beans.CustomerAccount;
+import com.jmk.Test;
 import com.jmk.beans.Supplier;
 import com.jmk.beans.SupplierAccount;
-import com.jmk.service.CustomerAccountService;
+import com.jmk.gui.util.GUIUtils;
 import com.jmk.service.SupplierAccountService;
 import com.jmk.util.AmmountFormater;
 import com.jmk.util.ArrivalType;
 import com.jmk.util.PrintDialogUtil;
-import com.jmk.util.TransactionType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,16 +66,31 @@ public class SupplierAccountForm extends javax.swing.JDialog {
                     @Override
                     public void accept(SupplierAccount supplierAccount) {
 
-                        defaultTableModel.addRow(new Object[]{
-                            supplierAccount.getDate(),
-                            AmmountFormater.formateDoubleToString(supplierAccount.getPurchaseAmount()),
-                            AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount()),
-                            AmmountFormater.formateDoubleToString(supplierAccount.getPaidAmount()),
-                            AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount() - supplierAccount.getPurchaseAmount()),
-                            supplierAccount.getParticular(),
-                            AmmountFormater.formateDoubleToString(supplierAccount.getCurrentBalance())
-                        });
+                        if (ArrivalType.ARRIVAL_TYPE_PARTY_STOCK.equalsIgnoreCase(supplier.getArrivalType())) {
+                            defaultTableModel.addRow(new Object[]{
+                                supplierAccount.getId(),
+                                supplierAccount.getDate(),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getPurchaseAmount()),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount()),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getPaidAmount()),
+                                "N/A",
+                                supplierAccount.getParticular(),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getCurrentBalance())
+                            });
+                        } else {
+                            defaultTableModel.addRow(new Object[]{
+                                supplierAccount.getId(),
+                                supplierAccount.getDate(),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getPurchaseAmount()),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount()),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getPaidAmount()),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getSaleAmount() - supplierAccount.getPurchaseAmount()),
+                                supplierAccount.getParticular(),
+                                AmmountFormater.formateDoubleToString(supplierAccount.getCurrentBalance())
+                            });
+                        }
                     }
+
                 });
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Account details not found");
@@ -383,14 +395,14 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
 
         },
         new String [] {
-            "Date", "PurchaseAmount", "SaleAmount", "PaidAmount", "Profit/Loss", "Particular", "Balance"
+            "TID", "Date", "PurchaseAmount", "SaleAmount", "PaidAmount", "Profit/Loss", "Particular", "Balance"
         }
     ) {
         Class[] types = new Class [] {
-            java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
         };
         boolean[] canEdit = new boolean [] {
-            false, false, false, false, true, false, false
+            false, false, false, false, false, false, false, false
         };
 
         public Class getColumnClass(int columnIndex) {
@@ -455,7 +467,8 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
             PrintDialogUtil pdu = new PrintDialogUtil(this, true, jRViewer);
 
         } catch (JRException ex) {
-            Logger.getLogger(SupplierAccountForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SupplierAccountForm.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -472,8 +485,22 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow != -1) {
+            int tid = Integer.parseInt(jTable1.getValueAt(selectedRow, 0).toString());
 
+            EditSupplierAccountForm form = Test.getBean(EditSupplierAccountForm.class
+            );
+            form.setTid(tid);
+            form.setSupplier(supplier);
+            form.setVisible(true);
+            jButton7ActionPerformed(evt);
+
+        } else {
+            GUIUtils.showErrorMessage(rootPane, "Please select row to edit");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         supplierAccountList = supplierAccountService.getAllTransaction(supplier.getId());

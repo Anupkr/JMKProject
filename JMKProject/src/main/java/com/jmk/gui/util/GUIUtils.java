@@ -5,8 +5,8 @@
  */
 package com.jmk.gui.util;
 
-import com.jmk.Test;
-import javax.swing.JDialog;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 
 /**
  * This class provide the common feature
@@ -15,5 +15,13 @@ import javax.swing.JDialog;
  */
 public class GUIUtils {
 
-   
+    public static void showErrorMessage(JComponent component, String message) {
+        JOptionPane.showMessageDialog(component, message, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public static void showSuccessMessage(JComponent component, String message) {
+        JOptionPane.showMessageDialog(component, message, "Success", JOptionPane.INFORMATION_MESSAGE);
+
+    }
+
 }

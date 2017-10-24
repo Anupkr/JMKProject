@@ -8,11 +8,11 @@ package com.jmk.dao.util;
  */
 public class SQLConstant {
 
-    public static final String SQL_INSERT_CONTAINER = "insert into container (name,security_money) values(?,?)";
+    public static final String SQL_INSERT_CONTAINER = "insert into containers (container_name,security_money) values(?,?)";
     public static final String SQL_SELECT_ALL_CONTAINER = "select container_id,container_name,security_money from containers";
     public static final String SQL_UPDATE_CONTAINER = "update container set name=?,security_money=? where container_id=?";
 
-    public static final String SQL_INSERT_ITEM = "insert into container (item_name,status) values(?,?)";
+    public static final String SQL_INSERT_ITEM = "insert into items (item_name,container_id) values(?,?)";
 
     public static final String SQL_INSERT_USER = "insert into user(user_name,password,mobile1,mobile2,address,user_role,status)values(?,?,?,?,?,?,?)";
 
@@ -62,5 +62,10 @@ public class SQLConstant {
 
     public static final String SQL_SELECT_SUPPLIER_ACCOUNT_BY_ID = "SELECT id,supplier_id,date,purchase_ammount,sale_amount,paid_amount,particular,current_balance FROM jmk.supplier_account where supplier_id=?";
     public static final String SQL_SELECT_SUPPLIER_ACCOUNT_FROM_TO = "SELECT id,supplier_id,date,purchase_ammount,sale_amount,paid_amount,particular,current_balance FROM jmk.supplier_account where supplier_id=? and date_format(date,'%Y-%m-%d')>=? and date_format(date,'%Y-%m-%d')<=?";
+
+    public static final String SQL_SELECT_SUP_CURR_BALANCE_BEFORE_TID = "select current_balance from supplier_account where id=(select max(id)from supplier_account where supplier_id=? and  id<?)";
+    public static final String SQL_SELECT_SUP_ACC_FROM_TID = "select id,supplier_id,date,purchase_ammount,sale_amount,paid_amount,particular,current_balance from supplier_account  where supplier_id=? and id>=?";
+
+    public static final String SQL_UPDATE_SUP_ACCOUNT = "update supplier_account set date=?, purchase_ammount=?, sale_amount=?, paid_amount=?, current_balance=? where id=?";
 
 }

@@ -37,7 +37,7 @@ public class GranterServiceImpl implements GranterService {
                         //Save Granter Information in Granter table
                         Integer granterId = granterDAO.createGranter(granter);
                         if (granterId != null && granterId > 0) {
-                            System.out.println("Granter Creation Succsessfully");
+                            message = StatusMessage.STATUS_SUCCESS;
                         } else {
                             System.out.println("GranterId Creation failed");
                         }
@@ -53,8 +53,6 @@ public class GranterServiceImpl implements GranterService {
             } catch (Exception e) {
                 message = "Granter Creation Failed, Please try again";
             }
-        } else {
-
         }
         return message;
     }

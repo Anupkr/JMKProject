@@ -7,17 +7,17 @@ import java.util.List;
  *
  * @author anup
  */
-public interface ContainerService
-{
+public interface ContainerService {
 
     /**
-     * 
+     *
      * @param container
      * @return
      */
     public String createContainer(Container container);
+
     /**
-     * @return 
+     * @return
      */
     public List<Container> getAllContainer();
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jmk.gui.party;
+package com.jmk.gui.supplier;
 
 import com.jmk.Test;
 import com.jmk.beans.Customer;
@@ -277,7 +277,7 @@ public class SupplierListForm extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
@@ -285,7 +285,7 @@ public class SupplierListForm extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -293,61 +293,52 @@ public class SupplierListForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        new Thread() {
-            @Override
-            public void run() {
-                supplierList = supplierService.getAllSupplires();
-                showInTable();
 
-            }
+        supplierList = supplierService.getAllSupplires();
+        showInTable();
 
-        }.start();
 
     }//GEN-LAST:event_formWindowOpened
     private void showInTable() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String text = jTextField1.getText().toLowerCase();
-                if (supplierList != null) {
-                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
-                    defaultTableModel.setRowCount(0);
 
-                    for (Supplier s : supplierList) {
-                        if (text != null) {
-                            if (s.getName().toLowerCase().contains(text)) {
-                                defaultTableModel.addRow(new Object[]{
-                                    s.getId(),
-                                    s.getName(),
-                                    s.getAddress1(),
-                                    s.getAddress2(),
-                                    s.getMobile1(),
-                                    s.getMobile2(),
-                                    s.getArrivalType(),
-                                    AmmountFormater.formateDoubleToString(s.getCurrentBalance()),
-                                    s.getIdType(),
-                                    s.getIdNumber()
-                                });
-                            }
-                        } else {
-                            defaultTableModel.addRow(new Object[]{
-                                s.getId(),
-                                s.getName(),
-                                s.getAddress1(),
-                                s.getAddress2(),
-                                s.getMobile1(),
-                                s.getMobile2(),
-                                s.getArrivalType(),
-                                AmmountFormater.formateDoubleToString(s.getCurrentBalance()),
-                                s.getIdType(),
-                                s.getIdNumber()
-                            });
+        String text = jTextField1.getText().toLowerCase();
+        if (supplierList != null && supplierList.size() > 0) {
+            DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+            defaultTableModel.setRowCount(0);
 
-                        }
+            for (Supplier s : supplierList) {
+                if (text != null) {
+                    if (s.getName().toLowerCase().contains(text)) {
+                        defaultTableModel.addRow(new Object[]{
+                            s.getId(),
+                            s.getName(),
+                            s.getAddress1(),
+                            s.getAddress2(),
+                            s.getMobile1(),
+                            s.getMobile2(),
+                            s.getArrivalType(),
+                            AmmountFormater.formateDoubleToString(s.getCurrentBalance()),
+                            s.getIdType(),
+                            s.getIdNumber()
+                        });
                     }
+                } else {
+                    defaultTableModel.addRow(new Object[]{
+                        s.getId(),
+                        s.getName(),
+                        s.getAddress1(),
+                        s.getAddress2(),
+                        s.getMobile1(),
+                        s.getMobile2(),
+                        s.getArrivalType(),
+                        AmmountFormater.formateDoubleToString(s.getCurrentBalance()),
+                        s.getIdType(),
+                        s.getIdNumber()
+                    });
+
                 }
             }
-        }).start();
+        }
 
     }
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
