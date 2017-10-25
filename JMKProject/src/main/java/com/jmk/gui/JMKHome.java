@@ -7,16 +7,13 @@ package com.jmk.gui;
 
 import com.jmk.Test;
 import com.jmk.gui.supplier.ArrivalEntryForm;
-import com.jmk.gui.supplier.EditSupplierAccountForm;
 import com.jmk.gui.supplier.CreateSupplierForm;
 import com.jmk.gui.supplier.SupplierListForm;
-import com.jmk.gui.util.GUIUtils;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -33,21 +30,14 @@ public class JMKHome extends javax.swing.JFrame {
         initComponents();
 
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
-        new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                Date date = new Date();
-
-                SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-
-                String format = sdf.format(date);
-                jLabel15.setText(format);
-
-            }
-
+        new Timer(1000, (ActionEvent e) -> {
+            Date date = new Date();
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            
+            String format = sdf.format(date);
+            jLabel15.setText(format);
         }).start();
-
     }
 
     public static JPanel getPanelHome() {
@@ -507,63 +497,49 @@ public class JMKHome extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
 
 //        CustomerRegistrationForm customerRegistrationForm=new CustomerRegistrationForm(this, rootPaneCheckingEnabled);
-        CustomerRegistrationForm form = Test.getBean(CustomerRegistrationForm.class);
-        form.setVisible(true);
+        Test.getBean(CustomerRegistrationForm.class).setVisible(true);
+
 
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
 
-        CustomerPaymentForm customerPaymentForm = Test.getBean(CustomerPaymentForm.class);
-
-        customerPaymentForm.setVisible(true);
-
+        Test.getBean(CustomerPaymentForm.class).setVisible(true);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-        CustomerListForm form = Test.getBean(CustomerListForm.class);
-
-        form.setVisible(true);
+        Test.getBean(CustomerListForm.class).setVisible(true);
 
 
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
 
-        ProductSaleEntryForm productSaleEntryForm = Test.getBean(ProductSaleEntryForm.class);
-        productSaleEntryForm.setVisible(true);
+        Test.getBean(ProductSaleEntryForm.class).setVisible(true);
 
 
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        Test.getBean(PayContainerForm.class).setVisible(true);
 
-        PayContainerForm containerForm = Test.getBean(PayContainerForm.class);
-        containerForm.setVisible(true);
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-        CreateItemForm itemForm = Test.getBean(CreateItemForm.class);
-
-        itemForm.setVisible(true);
+        Test.getBean(CreateItemForm.class).setVisible(true);
 
 
     }//GEN-LAST:event_jLabel19MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        AddContainerForm containerForm = Test.getBean(AddContainerForm.class);
-        containerForm.setVisible(true);
+        Test.getBean(AddContainerForm.class).setVisible(true);
 
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
 
-        CreateGranterForm form = Test.getBean(CreateGranterForm.class);
-
-        form.setVisible(true);
-
-
+        Test.getBean(CreateGranterForm.class).setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
@@ -591,7 +567,7 @@ public class JMKHome extends javax.swing.JFrame {
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
         Test.getBean(SupplierListForm.class).setVisible(true);
-        
+
     }//GEN-LAST:event_jLabel29MouseClicked
 
     private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked

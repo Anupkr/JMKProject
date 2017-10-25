@@ -50,6 +50,56 @@ public class PaymentTransaction extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtCurrentBalance = new javax.swing.JTextField();
+        txtCustomerName1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txtMobileNumber = new javax.swing.JTextField();
+        cmbCustomerList = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        txtAddress1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        txtCurrentBalance1 = new javax.swing.JTextField();
+        txtCustomerName2 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtMobileNumber1 = new javax.swing.JTextField();
+        cmbCustomerList1 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        txtAddress2 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtCurrentBalance2 = new javax.swing.JTextField();
+        txtCustomerName3 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txtMobileNumber2 = new javax.swing.JTextField();
+        cmbCustomerList2 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtAddress3 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        txtCurrentBalance3 = new javax.swing.JTextField();
+        txtCustomerName4 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txtMobileNumber3 = new javax.swing.JTextField();
+        cmbCustomerList3 = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        txtAddress4 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        txtCurrentBalance4 = new javax.swing.JTextField();
+        txtCustomerName5 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txtMobileNumber4 = new javax.swing.JTextField();
+        cmbCustomerList4 = new javax.swing.JComboBox<>();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        txtAddress5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalityType(java.awt.Dialog.ModalityType.DOCUMENT_MODAL);
@@ -69,37 +119,37 @@ public class PaymentTransaction extends javax.swing.JDialog {
 
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(76, 76, 76),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(76, 76, 76),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(76, 76, 76),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                     new java.awt.Color(76, 76, 76),
                     new java.awt.Color(255, 0, 0),
                     false,
@@ -111,37 +161,37 @@ public class PaymentTransaction extends javax.swing.JDialog {
 
     dateChooserCombo2.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                 new java.awt.Color(76, 76, 76),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                 new java.awt.Color(76, 76, 76),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                 new java.awt.Color(76, 76, 76),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
                 new java.awt.Color(76, 76, 76),
                 new java.awt.Color(255, 0, 0),
                 false,
@@ -231,7 +281,7 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(32, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -249,11 +299,11 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
             .addGap(18, 18, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(dateChooserCombo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dateChooserCombo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(dateChooserCombo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING)
                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,6 +315,261 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
     );
 
     getContentPane().add(jPanel1, new java.awt.GridBagConstraints());
+
+    jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel9.setText("Current Balance");
+    getContentPane().add(jLabel9, new java.awt.GridBagConstraints());
+
+    txtCurrentBalance.setEditable(false);
+    txtCurrentBalance.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCurrentBalance.setForeground(new java.awt.Color(255, 0, 0));
+    txtCurrentBalance.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCurrentBalance.setFocusable(false);
+    getContentPane().add(txtCurrentBalance, new java.awt.GridBagConstraints());
+
+    txtCustomerName1.setEditable(false);
+    txtCustomerName1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCustomerName1.setForeground(new java.awt.Color(255, 0, 0));
+    txtCustomerName1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCustomerName1.setFocusable(false);
+    getContentPane().add(txtCustomerName1, new java.awt.GridBagConstraints());
+
+    jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel10.setText("Customer Name");
+    getContentPane().add(jLabel10, new java.awt.GridBagConstraints());
+
+    jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel11.setText("Mobile Number");
+    getContentPane().add(jLabel11, new java.awt.GridBagConstraints());
+
+    txtMobileNumber.setEditable(false);
+    txtMobileNumber.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtMobileNumber.setForeground(new java.awt.Color(255, 0, 0));
+    txtMobileNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtMobileNumber.setFocusable(false);
+    getContentPane().add(txtMobileNumber, new java.awt.GridBagConstraints());
+
+    getContentPane().add(cmbCustomerList, new java.awt.GridBagConstraints());
+
+    jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel12.setText("Address");
+    getContentPane().add(jLabel12, new java.awt.GridBagConstraints());
+
+    jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+    jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel13.setText("Select Customer");
+    getContentPane().add(jLabel13, new java.awt.GridBagConstraints());
+
+    txtAddress1.setEditable(false);
+    txtAddress1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtAddress1.setForeground(new java.awt.Color(255, 0, 0));
+    txtAddress1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtAddress1.setFocusable(false);
+    getContentPane().add(txtAddress1, new java.awt.GridBagConstraints());
+
+    jLabel14.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel14.setText("Current Balance");
+    getContentPane().add(jLabel14, new java.awt.GridBagConstraints());
+
+    txtCurrentBalance1.setEditable(false);
+    txtCurrentBalance1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCurrentBalance1.setForeground(new java.awt.Color(255, 0, 0));
+    txtCurrentBalance1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCurrentBalance1.setFocusable(false);
+    getContentPane().add(txtCurrentBalance1, new java.awt.GridBagConstraints());
+
+    txtCustomerName2.setEditable(false);
+    txtCustomerName2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCustomerName2.setForeground(new java.awt.Color(255, 0, 0));
+    txtCustomerName2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCustomerName2.setFocusable(false);
+    getContentPane().add(txtCustomerName2, new java.awt.GridBagConstraints());
+
+    jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel15.setText("Customer Name");
+    getContentPane().add(jLabel15, new java.awt.GridBagConstraints());
+
+    jLabel16.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel16.setText("Mobile Number");
+    getContentPane().add(jLabel16, new java.awt.GridBagConstraints());
+
+    txtMobileNumber1.setEditable(false);
+    txtMobileNumber1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtMobileNumber1.setForeground(new java.awt.Color(255, 0, 0));
+    txtMobileNumber1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtMobileNumber1.setFocusable(false);
+    getContentPane().add(txtMobileNumber1, new java.awt.GridBagConstraints());
+
+    getContentPane().add(cmbCustomerList1, new java.awt.GridBagConstraints());
+
+    jLabel17.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel17.setText("Address");
+    getContentPane().add(jLabel17, new java.awt.GridBagConstraints());
+
+    jLabel18.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+    jLabel18.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel18.setText("Select Customer");
+    getContentPane().add(jLabel18, new java.awt.GridBagConstraints());
+
+    txtAddress2.setEditable(false);
+    txtAddress2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtAddress2.setForeground(new java.awt.Color(255, 0, 0));
+    txtAddress2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtAddress2.setFocusable(false);
+    getContentPane().add(txtAddress2, new java.awt.GridBagConstraints());
+
+    jLabel19.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel19.setText("Current Balance");
+    getContentPane().add(jLabel19, new java.awt.GridBagConstraints());
+
+    txtCurrentBalance2.setEditable(false);
+    txtCurrentBalance2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCurrentBalance2.setForeground(new java.awt.Color(255, 0, 0));
+    txtCurrentBalance2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCurrentBalance2.setFocusable(false);
+    getContentPane().add(txtCurrentBalance2, new java.awt.GridBagConstraints());
+
+    txtCustomerName3.setEditable(false);
+    txtCustomerName3.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCustomerName3.setForeground(new java.awt.Color(255, 0, 0));
+    txtCustomerName3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCustomerName3.setFocusable(false);
+    getContentPane().add(txtCustomerName3, new java.awt.GridBagConstraints());
+
+    jLabel20.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel20.setText("Customer Name");
+    getContentPane().add(jLabel20, new java.awt.GridBagConstraints());
+
+    jLabel21.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel21.setText("Mobile Number");
+    getContentPane().add(jLabel21, new java.awt.GridBagConstraints());
+
+    txtMobileNumber2.setEditable(false);
+    txtMobileNumber2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtMobileNumber2.setForeground(new java.awt.Color(255, 0, 0));
+    txtMobileNumber2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtMobileNumber2.setFocusable(false);
+    getContentPane().add(txtMobileNumber2, new java.awt.GridBagConstraints());
+
+    getContentPane().add(cmbCustomerList2, new java.awt.GridBagConstraints());
+
+    jLabel22.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel22.setText("Address");
+    getContentPane().add(jLabel22, new java.awt.GridBagConstraints());
+
+    jLabel23.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+    jLabel23.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel23.setText("Select Customer");
+    getContentPane().add(jLabel23, new java.awt.GridBagConstraints());
+
+    txtAddress3.setEditable(false);
+    txtAddress3.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtAddress3.setForeground(new java.awt.Color(255, 0, 0));
+    txtAddress3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtAddress3.setFocusable(false);
+    getContentPane().add(txtAddress3, new java.awt.GridBagConstraints());
+
+    jLabel24.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel24.setText("Current Balance");
+    getContentPane().add(jLabel24, new java.awt.GridBagConstraints());
+
+    txtCurrentBalance3.setEditable(false);
+    txtCurrentBalance3.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCurrentBalance3.setForeground(new java.awt.Color(255, 0, 0));
+    txtCurrentBalance3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCurrentBalance3.setFocusable(false);
+    getContentPane().add(txtCurrentBalance3, new java.awt.GridBagConstraints());
+
+    txtCustomerName4.setEditable(false);
+    txtCustomerName4.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCustomerName4.setForeground(new java.awt.Color(255, 0, 0));
+    txtCustomerName4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCustomerName4.setFocusable(false);
+    getContentPane().add(txtCustomerName4, new java.awt.GridBagConstraints());
+
+    jLabel25.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel25.setText("Customer Name");
+    getContentPane().add(jLabel25, new java.awt.GridBagConstraints());
+
+    jLabel26.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel26.setText("Mobile Number");
+    getContentPane().add(jLabel26, new java.awt.GridBagConstraints());
+
+    txtMobileNumber3.setEditable(false);
+    txtMobileNumber3.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtMobileNumber3.setForeground(new java.awt.Color(255, 0, 0));
+    txtMobileNumber3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtMobileNumber3.setFocusable(false);
+    getContentPane().add(txtMobileNumber3, new java.awt.GridBagConstraints());
+
+    getContentPane().add(cmbCustomerList3, new java.awt.GridBagConstraints());
+
+    jLabel27.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel27.setText("Address");
+    getContentPane().add(jLabel27, new java.awt.GridBagConstraints());
+
+    jLabel28.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+    jLabel28.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel28.setText("Select Customer");
+    getContentPane().add(jLabel28, new java.awt.GridBagConstraints());
+
+    txtAddress4.setEditable(false);
+    txtAddress4.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtAddress4.setForeground(new java.awt.Color(255, 0, 0));
+    txtAddress4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtAddress4.setFocusable(false);
+    getContentPane().add(txtAddress4, new java.awt.GridBagConstraints());
+
+    jLabel29.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel29.setText("Current Balance");
+    getContentPane().add(jLabel29, new java.awt.GridBagConstraints());
+
+    txtCurrentBalance4.setEditable(false);
+    txtCurrentBalance4.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCurrentBalance4.setForeground(new java.awt.Color(255, 0, 0));
+    txtCurrentBalance4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCurrentBalance4.setFocusable(false);
+    getContentPane().add(txtCurrentBalance4, new java.awt.GridBagConstraints());
+
+    txtCustomerName5.setEditable(false);
+    txtCustomerName5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtCustomerName5.setForeground(new java.awt.Color(255, 0, 0));
+    txtCustomerName5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtCustomerName5.setFocusable(false);
+    getContentPane().add(txtCustomerName5, new java.awt.GridBagConstraints());
+
+    jLabel30.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel30.setText("Customer Name");
+    getContentPane().add(jLabel30, new java.awt.GridBagConstraints());
+
+    jLabel31.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel31.setText("Mobile Number");
+    getContentPane().add(jLabel31, new java.awt.GridBagConstraints());
+
+    txtMobileNumber4.setEditable(false);
+    txtMobileNumber4.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtMobileNumber4.setForeground(new java.awt.Color(255, 0, 0));
+    txtMobileNumber4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtMobileNumber4.setFocusable(false);
+    getContentPane().add(txtMobileNumber4, new java.awt.GridBagConstraints());
+
+    getContentPane().add(cmbCustomerList4, new java.awt.GridBagConstraints());
+
+    jLabel32.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel32.setText("Address");
+    getContentPane().add(jLabel32, new java.awt.GridBagConstraints());
+
+    jLabel33.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+    jLabel33.setForeground(new java.awt.Color(255, 0, 0));
+    jLabel33.setText("Select Customer");
+    getContentPane().add(jLabel33, new java.awt.GridBagConstraints());
+
+    txtAddress5.setEditable(false);
+    txtAddress5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+    txtAddress5.setForeground(new java.awt.Color(255, 0, 0));
+    txtAddress5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 1, true));
+    txtAddress5.setFocusable(false);
+    getContentPane().add(txtAddress5, new java.awt.GridBagConstraints());
 
     pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -283,19 +588,69 @@ jButton5.addActionListener(new java.awt.event.ActionListener() {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbCustomerList;
+    private javax.swing.JComboBox<String> cmbCustomerList1;
+    private javax.swing.JComboBox<String> cmbCustomerList2;
+    private javax.swing.JComboBox<String> cmbCustomerList3;
+    private javax.swing.JComboBox<String> cmbCustomerList4;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAddress1;
+    private javax.swing.JTextField txtAddress2;
+    private javax.swing.JTextField txtAddress3;
+    private javax.swing.JTextField txtAddress4;
+    private javax.swing.JTextField txtAddress5;
+    private javax.swing.JTextField txtCurrentBalance;
+    private javax.swing.JTextField txtCurrentBalance1;
+    private javax.swing.JTextField txtCurrentBalance2;
+    private javax.swing.JTextField txtCurrentBalance3;
+    private javax.swing.JTextField txtCurrentBalance4;
+    private javax.swing.JTextField txtCustomerName1;
+    private javax.swing.JTextField txtCustomerName2;
+    private javax.swing.JTextField txtCustomerName3;
+    private javax.swing.JTextField txtCustomerName4;
+    private javax.swing.JTextField txtCustomerName5;
+    private javax.swing.JTextField txtMobileNumber;
+    private javax.swing.JTextField txtMobileNumber1;
+    private javax.swing.JTextField txtMobileNumber2;
+    private javax.swing.JTextField txtMobileNumber3;
+    private javax.swing.JTextField txtMobileNumber4;
     // End of variables declaration//GEN-END:variables
 }

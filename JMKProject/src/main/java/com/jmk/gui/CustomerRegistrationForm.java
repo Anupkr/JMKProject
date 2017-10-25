@@ -10,12 +10,16 @@ import com.jmk.beans.Customer;
 import com.jmk.beans.CustomerAccount;
 import com.jmk.beans.Granter;
 import com.jmk.beans.User;
+import com.jmk.gui.util.GUIUtils;
 import com.jmk.service.CustomerService;
+import com.jmk.service.GranterService;
 import com.jmk.util.StatusMessage;
 import com.jmk.util.TransactionType;
 import com.jmk.util.UserRole;
 import com.jmk.util.UserStatus;
 import com.sun.prism.paint.Gradient;
+import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -33,6 +37,11 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private GranterService granterService;
+
+    private List<Granter> granterList;
+
     public CustomerRegistrationForm() {
 
         initComponents();
@@ -47,7 +56,6 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtCustomerName = new javax.swing.JTextField();
@@ -67,15 +75,25 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnReset1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        txtGranterAddress = new javax.swing.JTextField();
+        txtGranterMobile = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        cmbGranter = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Customer Registration");
-        setBackground(new java.awt.Color(255, 0, 0));
         setModal(true);
         setUndecorated(true);
         setResizable(false);
-        setType(java.awt.Window.Type.POPUP);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 0, 57));
@@ -94,29 +112,14 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 200;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(jPanel3, gridBagConstraints);
 
         jPanel4.setBackground(new java.awt.Color(254, 254, 254));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(254, 254, 254), 1, true));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(213, 34, 34), 1, true), "Granter Information", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(213, 34, 34), 1, true), "Customer Information", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(228, 228, 228), 1, true), "Customer Information", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP));
 
         jLabel2.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -167,6 +170,7 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
 
         cmbAmountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DUE", "PAID" }));
 
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,8 +178,15 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
             }
         });
 
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
+        btnReset1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
         btnReset1.setText("Close");
         btnReset1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +227,7 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnReset1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,41 +270,139 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Create Customer Account");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 12, 0);
+        getContentPane().add(jPanel4, gridBagConstraints);
+
+        jLabel11.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Create Customer Account");
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.ipadx = 486;
+        gridBagConstraints.ipady = 13;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 12, 0, 0);
+        getContentPane().add(jLabel11, gridBagConstraints);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(230, 230, 230), 1, true), "Granter Information", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(1, 1, 1))); // NOI18N
+
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("Address");
+
+        txtGranterAddress.setEditable(false);
+        txtGranterAddress.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        txtGranterAddress.setForeground(new java.awt.Color(255, 0, 0));
+        txtGranterAddress.setFocusable(false);
+        txtGranterAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGranterAddressActionPerformed(evt);
+            }
+        });
+
+        txtGranterMobile.setEditable(false);
+        txtGranterMobile.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        txtGranterMobile.setForeground(new java.awt.Color(255, 0, 0));
+        txtGranterMobile.setFocusable(false);
+
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("Mobile");
+
+        cmbGranter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbGranterItemStateChanged(evt);
+            }
+        });
+        cmbGranter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbGranterActionPerformed(evt);
+            }
+        });
+        cmbGranter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmbGranterKeyTyped(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cmbGranterKeyReleased(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel15.setText("Granter");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(60, 60, 60)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel12)
+                        .addComponent(jLabel15)
+                        .addComponent(jLabel10))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtGranterMobile, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtGranterAddress, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cmbGranter, 0, 265, Short.MAX_VALUE))
+                    .addContainerGap(35, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 427, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(53, 53, 53)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbGranter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtGranterAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtGranterMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(232, 232, 232)))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 23;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(27, 46, 12, 45);
-        getContentPane().add(jPanel4, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 0);
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -327,9 +436,15 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
 
         Customer customer = new Customer();
 
+        //get selected granter
+        int index = cmbGranter.getSelectedIndex();
         Granter granter = new Granter();
-        granter.setGranterId(1L);
 
+        if (index != -1) {
+            granter = granterList.get(index);
+        } else {
+            granter.setGranterId(1L);
+        }
         customer.setName(customerName);
         customer.setIdNumber(idNumber);
         customer.setIdType(idType);
@@ -349,12 +464,14 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
 
         String message = customerService.createCustomer(customer);
         if (message.equalsIgnoreCase(StatusMessage.STATUS_SUCCESS)) {
-            JOptionPane.showMessageDialog(rootPane, "New Customer Account Successfully Created", "Success", JOptionPane.INFORMATION_MESSAGE);
+            GUIUtils.showSuccessMessage(rootPane, "New Customer Account Successfully Created");
+            reset();
         } else {
-            JOptionPane.showMessageDialog(rootPane, message);
+            GUIUtils.showErrorMessage(rootPane, message);
 
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
 
     private void btnReset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReset1ActionPerformed
         // TODO add your handling code here:
@@ -365,14 +482,82 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbIdTypeActionPerformed
 
+    private void txtGranterAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGranterAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGranterAddressActionPerformed
 
+    private void cmbGranterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGranterActionPerformed
+
+
+    }//GEN-LAST:event_cmbGranterActionPerformed
+
+    private void cmbGranterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbGranterKeyTyped
+
+    }//GEN-LAST:event_cmbGranterKeyTyped
+
+    private void cmbGranterKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbGranterKeyReleased
+
+
+    }//GEN-LAST:event_cmbGranterKeyReleased
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        granterList = granterService.getAllGranter();
+        if (granterList != null && granterList.size() > 0) {
+
+            for (Granter granter : granterList) {
+                cmbGranter.addItem(granter.getName());
+            }
+        }
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void cmbGranterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbGranterItemStateChanged
+        // TODO add your handling code here:
+        int index = cmbGranter.getSelectedIndex();
+        if (index >= 0) {
+
+            Granter granter = granterList.get(index);
+
+            txtGranterAddress.setText(granter.getUser().getAddress());
+            txtGranterMobile.setText(granter.getUser().getMobile1());
+        }
+    }//GEN-LAST:event_cmbGranterItemStateChanged
+
+    private void reset() {
+
+        String empty = "";
+
+        txtAddress.setText(empty);
+        txtAmount.setText(empty);
+        txtCustomerName.setText(empty);
+        txtIdNumber.setText(empty);
+        txtMobile1.setText(empty);
+        txtMobile2.setText(empty);
+
+        cmbAmountType.setSelectedIndex(0);
+        
+        cmbGranter.setSelectedIndex(0);
+        cmbIdType.setSelectedItem(0);
+
+        txtCustomerName.requestFocus();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnReset1;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> cmbAmountType;
+    private javax.swing.JComboBox<String> cmbGranter;
     private javax.swing.JComboBox<String> cmbIdType;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -387,6 +572,8 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCustomerName;
+    private javax.swing.JTextField txtGranterAddress;
+    private javax.swing.JTextField txtGranterMobile;
     private javax.swing.JTextField txtIdNumber;
     private javax.swing.JTextField txtMobile1;
     private javax.swing.JTextField txtMobile2;
