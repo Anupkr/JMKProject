@@ -2,6 +2,7 @@ package com.jmk.beans;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -66,5 +67,29 @@ public class Granter implements Serializable {
         this.customerList = customerList;
     }
 
-   
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.granterId);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Granter other = (Granter) obj;
+        if (!Objects.equals(this.granterId, other.granterId)) {
+            return false;
+        }
+        return true;
+    }
+
 }

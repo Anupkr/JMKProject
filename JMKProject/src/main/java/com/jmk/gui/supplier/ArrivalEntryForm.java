@@ -342,6 +342,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
 
     btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/010-database.png"))); // NOI18N
     btnSave.setText("Save");
+    btnSave.setBorder(null);
     btnSave.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnSaveActionPerformed(evt);
@@ -350,6 +351,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
 
     btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
     btnClose.setText("Close");
+    btnClose.setBorder(null);
     btnClose.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnCloseActionPerformed(evt);
@@ -415,6 +417,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
 
     btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
     btnReset.setText("Reset");
+    btnReset.setBorder(null);
     btnReset.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnResetActionPerformed(evt);

@@ -45,7 +45,11 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public Integer editUser(User user) {
-        return null;
+
+//    update user_name=?, password=?, address=?, mobile1=?, mobile2=?, user_role=?, status=? WHERE user_id=?;
+        return jdbcTemplate.update(SQLConstant.SQL_UPDATE_USER, user.getUserName(), user.getPassword(),
+                user.getAddress(), user.getMobile1(), user.getMobile2(), user.getUserRole(), user.getStatus(), user.getUserId());
+
     }
 
 }

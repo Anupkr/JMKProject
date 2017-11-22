@@ -16,10 +16,14 @@ public class SQLConstant {
 
     public static final String SQL_INSERT_USER = "insert into user(user_name,password,mobile1,mobile2,address,user_role,status)values(?,?,?,?,?,?,?)";
 
+    public static final String SQL_UPDATE_USER = "update user set user_name=?, password=?, address=?, mobile1=?, mobile2=?, user_role=?, status=? WHERE user_id=?";
+
     public static final String SQL_INSERT_GRANTER = "insert into granter(user_id,name,id_number,id_type)values(?,?,?,?)";
     public static final String SQL_SELECT_ALL_GRANTERS = "select g.granter_id,g.name,u.address,u.mobile1,u.mobile2,g.id_type,g.id_number,g.user_id,u.status,u.user_name,u.user_role from granter g join user u on u.user_id=g.user_id ";
 
     public static final String SQL_INSERT_CUSTOMER = "insert into customer(granter_id,user_id,name,id_number,id_type)values(?,?,?,?,?)";
+    public static final String SQL_UPDATE_CUSTOMER = "update customer set name=?, id_number=?, id_type=?, granter_id=? where customer_id=?";
+
     public static final String SQL_SELECT_ALL_CUSTOMER = "select c.customer_id,c.granter_id,c.id_number,c.id_type,c.name,"
             + "c.user_id,u.address,u.mobile1,u.mobile2,"
             + "u.status,u.user_name,u.user_role,ca.current_balance from customer c join "

@@ -25,24 +25,24 @@
 		<variableExpression><![CDATA[$F{customerAccount}.getCurrentBalance()]]></variableExpression>
 	</variable>
 	<background>
-		<band/>
+		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-25" width="595" height="97" forecolor="#FF0000" backcolor="#006699" uuid="0e5f9261-c3b3-4874-a283-f24801512281"/>
+				<reportElement mode="Opaque" x="-20" y="-25" width="595" height="97" forecolor="#030303" uuid="0e5f9261-c3b3-4874-a283-f24801512281"/>
 				<staticText>
-					<reportElement x="109" y="27" width="284" height="43" forecolor="#FFFFFF" uuid="5ad24a58-6d21-417e-b2c0-a55aa90729ac"/>
+					<reportElement x="109" y="27" width="284" height="43" uuid="5ad24a58-6d21-417e-b2c0-a55aa90729ac"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Customer List]]></text>
 				</staticText>
 				<ellipse>
-					<reportElement x="36" y="25" width="50" height="45" forecolor="#FEFEFE" backcolor="#006699" uuid="f8550c96-9f2e-4db5-b8e1-93a667e2cfc7"/>
+					<reportElement x="36" y="25" width="50" height="45" forecolor="#010101" uuid="f8550c96-9f2e-4db5-b8e1-93a667e2cfc7"/>
 				</ellipse>
 				<staticText>
-					<reportElement x="46" y="40" width="33" height="20" forecolor="#FEFEFE" uuid="f41a509d-5b3e-426f-8970-bcd7cbef3645"/>
+					<reportElement x="46" y="40" width="33" height="20" uuid="f41a509d-5b3e-426f-8970-bcd7cbef3645"/>
 					<textElement>
 						<font size="13" isBold="true"/>
 					</textElement>
@@ -55,7 +55,7 @@
 					</graphicElement>
 				</line>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="406" y="63" width="169" height="13" forecolor="#FEFEFE" uuid="7cc7d67e-4536-4b9f-b163-b4d40d39f92c"/>
+					<reportElement x="406" y="60" width="169" height="16" uuid="7cc7d67e-4536-4b9f-b163-b4d40d39f92c"/>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
 			</frame>
@@ -100,7 +100,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20">
+		<band height="20" splitType="Immediate">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="3cd15e59-a241-4e27-b67f-0887d0312d73"/>
 			</line>

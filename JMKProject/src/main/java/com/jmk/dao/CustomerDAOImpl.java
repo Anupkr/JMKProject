@@ -75,17 +75,17 @@ public class CustomerDAOImpl implements CustomerDAO {
         return jdbcTemplate.query(SQLConstant.SQL_SELECT_ALL_CUSTOMER, (ResultSet rs, int arg1) -> {
             User user = new User();
             Granter granter = new Granter();
-            
+
             Customer customer = new Customer();
             customer.setCustomerId(rs.getLong(1));
             granter.setGranterId(rs.getLong(2));
             customer.setGranter(granter);
-            
+
             customer.setIdNumber(rs.getString(3));
             customer.setIdType(rs.getString(4));
-            
+
             customer.setName(rs.getString(5));
-            
+
             user.setUserId(rs.getInt(6));
             user.setAddress(rs.getString(7));
             user.setMobile1(rs.getString(8));
@@ -95,7 +95,7 @@ public class CustomerDAOImpl implements CustomerDAO {
             user.setUserRole(rs.getString(12));
             CustomerAccount customerAccount = new CustomerAccount();
             customerAccount.setCurrentBalance(rs.getDouble(13));
-            
+
             customer.setCustomerAccount(customerAccount);
             customer.setUser(user);
             return customer;
@@ -114,17 +114,17 @@ public class CustomerDAOImpl implements CustomerDAO {
         return jdbcTemplate.queryForObject(SQLConstant.SQL_SELECT_CUSTOMER_BY_ID, (ResultSet rs, int rowNum) -> {
             User user = new User();
             Granter granter = new Granter();
-            
+
             Customer customer = new Customer();
             customer.setCustomerId(rs.getLong(1));
             granter.setGranterId(rs.getLong(2));
             customer.setGranter(granter);
-            
+
             customer.setIdNumber(rs.getString(3));
             customer.setIdType(rs.getString(4));
-            
+
             customer.setName(rs.getString(5));
-            
+
             user.setUserId(rs.getInt(6));
             user.setAddress(rs.getString(7));
             user.setMobile1(rs.getString(8));
@@ -140,5 +140,24 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Override
     public Granter getGranter(Long customerId) {
         return null;
+    }
+
+    @Override
+    public Integer updateCustomer(Customer customer) {
+//        "update customer set name=?, id_number=?, id_type=?, granter_id=? where customer_id=?"
+        return jdbcTemplate.update(new PreparedStatementCreator() {
+            @Override
+            public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+                PreparedStatement ps = con.prepareStatement(SQLConstant.SQL_UPDATE_CUSTOMER);
+
+                ps.setString(1, customer.getName());
+                ps.setString(2, customer.getIdNumber());
+                ps.setString(3, customer.getIdType());
+                ps.setLong(4, customer.getGranter().getGranterId());
+                ps.setLong(5, customer.getCustomerId());
+
+                return ps;
+            }
+        });
     }
 }

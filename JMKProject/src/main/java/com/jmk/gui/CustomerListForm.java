@@ -8,10 +8,12 @@ package com.jmk.gui;
 import com.jmk.Test;
 import com.jmk.beans.Customer;
 import com.jmk.beans.User;
+import com.jmk.gui.supplier.EditSupplierForm;
 import com.jmk.service.CustomerAccountService;
 import com.jmk.service.CustomerService;
 import com.jmk.util.AmmountFormater;
 import com.jmk.util.PrintDialogUtil;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -58,7 +60,8 @@ public class CustomerListForm extends javax.swing.JDialog {
 
     public CustomerListForm() {
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
+        Dimension dimension = JMKHome.getPanelHome().getSize();
+        setSize((int) dimension.getWidth() + 200, (int) dimension.getHeight());
         setLocationRelativeTo(JMKHome.getPanelHome());
 
     }
@@ -92,7 +95,6 @@ public class CustomerListForm extends javax.swing.JDialog {
         setFocusable(false);
         setModal(true);
         setUndecorated(true);
-        setType(java.awt.Window.Type.POPUP);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -172,14 +174,14 @@ public class CustomerListForm extends javax.swing.JDialog {
 
             },
             new String [] {
-                "CustomerID", "Customer Name", "Address", "Mobile1", "Mobile2", "Current Balance"
+                "CustomerID", "Customer Name", "Address", "Mobile1", "Mobile2", "Current Balance", "ID", "IDNumber"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -211,7 +213,7 @@ public class CustomerListForm extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Liberation Sans Narrow", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-balance.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/007-list.png"))); // NOI18N
         jLabel7.setText("Granter Details");
         jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -225,6 +227,11 @@ public class CustomerListForm extends javax.swing.JDialog {
         jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Liberation Sans Narrow", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
@@ -275,11 +282,11 @@ public class CustomerListForm extends javax.swing.JDialog {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(689, 689, 689)
+                        .addGap(515, 515, 515)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTotalBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 12, Short.MAX_VALUE))
+                        .addComponent(lblTotalBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,11 +337,14 @@ public class CustomerListForm extends javax.swing.JDialog {
                         User user = customer.getUser();
                         if (text != null) {
                             if (customer.getName().toLowerCase().contains(text) || user.getAddress().toLowerCase().contains(text) || user.getMobile1().contains(text) || user.getMobile2().contains(text)) {
-                                defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance()});
+                                defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance(),
+                                    customer.getIdType(), customer.getIdNumber()
+                                });
                                 totalBalance = totalBalance + customer.getCustomerAccount().getCurrentBalance();
                             }
                         } else {
-                            defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance()});
+                            defaultTableModel.addRow(new Object[]{customer.getCustomerId(), customer.getName(), user.getAddress(), user.getMobile1(), user.getMobile2(), customer.getCustomerAccount().getCurrentBalance(), customer.getIdType(), customer.getIdNumber()});
+
                             totalBalance = totalBalance + customer.getCustomerAccount().getCurrentBalance();
                         }
                     }
@@ -430,6 +440,35 @@ public class CustomerListForm extends javax.swing.JDialog {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        int row = jTable1.getSelectedRow();
+
+        if (row != -1) {
+            Integer id = Integer.parseInt(jTable1.getValueAt(row, 0).toString());
+
+            Customer c = new Customer();
+            c.setCustomerId(id);
+
+            int index = customerList.indexOf(c);
+            c = customerList.get(index);
+
+            //Show Supplier Edit Form
+            EditCustomerForm form = Test.getBean(EditCustomerForm.class);
+            form.setLocationRelativeTo(this);
+            form.setCustomer(c);
+
+            form.setVisible(true);
+
+            //refresh table
+            showInTable();
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
+        }
+
+
+    }//GEN-LAST:event_jLabel4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

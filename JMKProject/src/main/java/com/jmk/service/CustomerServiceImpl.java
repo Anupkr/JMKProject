@@ -14,6 +14,7 @@ import com.jmk.util.StatusMessage;
 import org.springframework.stereotype.Service;
 import org.apache.log4j.Logger;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -99,8 +100,15 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public List<Customer> getAllCustomer() {
-        return customerDAO.getAllCustomer();
-
+        List<Customer> list = null;
+        try {
+            return customerDAO.getAllCustomer();
+        } catch (EmptyResultDataAccessException ex) {
+            logger.info("Exception in getAllCustomer", ex);
+        } catch (Exception ex) {
+            logger.info("Exception in getAllCustomer", ex);
+        }
+        return list;
     }
 
     public Customer getCustomer(Integer customerId) {
@@ -109,6 +117,42 @@ public class CustomerServiceImpl implements CustomerService {
 
     public Customer getCustomer(String mobile) {
         return null;
+    }
+
+    @Override
+    public String updateCustomer(Customer customer) {
+
+        logger.info("update customer called" + customer);
+        String message = StatusMessage.STATUS_FAILED;
+        try {
+            User user = customer.getUser();
+            if (user != null && user.getUserId() > 0 && customer != null && customer.getCustomerId() > 0 && customer.getName().trim().length() > 2) {
+                //update customer details
+                Integer i = customerDAO.updateCustomer(customer);
+                if (i != null && i > 0) {
+                    //update user details
+                    Integer count = userDAO.editUser(user);
+                    if (count != null && count > 0) {
+                        message = StatusMessage.STATUS_SUCCESS;
+                        logger.info("user pdated");
+                        logger.info("Customer record updated");
+                    } else {
+                        logger.info("User updation failed");
+                        message = "User updation failed please try again";
+                    }
+                }
+            } else {
+                message = "Customer information requrired";
+            }
+        } catch (DataAccessException ex) {
+            logger.error("Error in update custoemr" + ex.getMessage());
+            message = StatusMessage.STATUS_FAILED;
+        } catch (Exception ex) {
+            logger.error("Error in update custoemr" + ex.getMessage());
+            message = StatusMessage.STATUS_FAILED;
+        }
+        logger.info("Returned message from update customer " + message);
+        return message;
     }
 
 }

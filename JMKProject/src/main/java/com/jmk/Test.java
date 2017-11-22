@@ -5,6 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jmk.gui.JMKHome;
 import javax.swing.UIManager;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 
 public class Test {
 
@@ -19,6 +21,9 @@ public class Test {
     }
 
     public static void main(String[] args) {
+        BasicConfigurator.configure();
+        Logger logger = Logger.getLogger(Test.class);
+        logger.info("Application started looger working");
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
