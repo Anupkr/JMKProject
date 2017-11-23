@@ -165,13 +165,13 @@ public class SupplierAccountForm extends javax.swing.JDialog {
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
                 new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(92, 97, 108),
+                    new java.awt.Color(76, 76, 76),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
                 new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(92, 97, 108),
+                    new java.awt.Color(76, 76, 76),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
@@ -189,13 +189,13 @@ public class SupplierAccountForm extends javax.swing.JDialog {
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
                 new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(92, 97, 108),
+                    new java.awt.Color(76, 76, 76),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
                 new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(92, 97, 108),
+                    new java.awt.Color(76, 76, 76),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -211,13 +211,13 @@ public class SupplierAccountForm extends javax.swing.JDialog {
     dateChooserCombo2.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
         new datechooser.view.appearance.ViewAppearance("custom",
             new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(92, 97, 108),
+                new java.awt.Color(76, 76, 76),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
             new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(92, 97, 108),
+                new java.awt.Color(76, 76, 76),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
@@ -235,13 +235,13 @@ public class SupplierAccountForm extends javax.swing.JDialog {
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
             new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(92, 97, 108),
+                new java.awt.Color(76, 76, 76),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
             new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(92, 97, 108),
+                new java.awt.Color(76, 76, 76),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -389,6 +389,7 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     jScrollPane1.setViewportView(jTable1);
 
     lblProfitLoss.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+    lblProfitLoss.setForeground(new java.awt.Color(251, 0, 0));
     lblProfitLoss.setText("jLabel2");
 
     jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 15)); // NOI18N
@@ -398,9 +399,11 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel6.setText("Purchase:");
 
     lblPurchase.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+    lblPurchase.setForeground(new java.awt.Color(251, 0, 0));
     lblPurchase.setText("jLabel2");
 
     lblSale.setFont(new java.awt.Font("DejaVu Sans", 0, 15)); // NOI18N
+    lblSale.setForeground(new java.awt.Color(251, 0, 0));
     lblSale.setText("jLabel2");
 
     jLabel7.setFont(new java.awt.Font("DejaVu Sans", 1, 15)); // NOI18N
@@ -456,15 +459,15 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
         }.start();
     }//GEN-LAST:event_formWindowOpened
 
-
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        supplierAccountList = supplierAccountService.getAllTransaction(supplier.getId(), dateChooserCombo2.getSelectedDate().getTime(), dateChooserCombo1.getSelectedDate().getTime());
+        supplierAccountList = supplierAccountService.getAllTransaction(supplier.getId());
         addIntoTable();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
+        supplierAccountList = supplierAccountService.getAllTransaction(supplier.getId(), dateChooserCombo2.getSelectedDate().getTime(), dateChooserCombo1.getSelectedDate().getTime());
+        addIntoTable();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked

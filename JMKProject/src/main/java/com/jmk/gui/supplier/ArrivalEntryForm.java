@@ -57,8 +57,10 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
 
         initComponents();
         setSize(GUIHome.getPanelHome().getSize());
-        setLocationRelativeTo(GUIHome.getPanelHome());
+        System.out.println(GUIHome.getPanelHome().getSize());
+        System.out.println(GUIHome.getPanelHome().getLocation());
 
+        setLocationRelativeTo(GUIHome.getPanelHome());
         tempList = new ArrayList<>();
 
     }
