@@ -6,7 +6,7 @@
 package com.jmk.gui.supplier;
 
 import com.jmk.beans.Supplier;
-import com.jmk.gui.JMKHome;
+import com.jmk.gui.GUIHome;
 import com.jmk.service.SupplierService;
 import com.jmk.util.StatusMessage;
 import javax.swing.JOptionPane;
@@ -35,7 +35,7 @@ public class EditSupplierForm extends javax.swing.JDialog {
 
         initComponents();
 
-        this.setLocationRelativeTo(JMKHome.getPanelHome());
+        this.setLocationRelativeTo(GUIHome.getPanelHome());
 
     }
 

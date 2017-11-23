@@ -23,8 +23,8 @@ public class PaymentTransaction extends javax.swing.JDialog {
     public PaymentTransaction() {
 
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     /**

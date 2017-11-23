@@ -6,7 +6,7 @@
 package com.jmk.gui.supplier;
 
 import com.jmk.beans.Supplier;
-import com.jmk.gui.JMKHome;
+import com.jmk.gui.GUIHome;
 import com.jmk.service.SupplierService;
 import com.jmk.util.StatusMessage;
 import java.util.regex.Pattern;
@@ -31,8 +31,8 @@ public class CreateSupplierForm extends javax.swing.JDialog {
     public CreateSupplierForm() {
 
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     /**

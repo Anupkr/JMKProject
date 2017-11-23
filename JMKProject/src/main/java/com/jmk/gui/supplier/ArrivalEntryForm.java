@@ -7,7 +7,7 @@ package com.jmk.gui.supplier;
 
 import com.jmk.beans.Supplier;
 import com.jmk.beans.SupplierAccount;
-import com.jmk.gui.JMKHome;
+import com.jmk.gui.GUIHome;
 import com.jmk.service.SupplierAccountService;
 import com.jmk.service.SupplierService;
 import com.jmk.util.AmmountFormater;
@@ -56,8 +56,8 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
     public ArrivalEntryForm() {
 
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
 
         tempList = new ArrayList<>();
 

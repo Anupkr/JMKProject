@@ -7,7 +7,7 @@ package com.jmk.gui.supplier;
 
 import com.jmk.beans.Supplier;
 import com.jmk.beans.SupplierAccount;
-import com.jmk.gui.JMKHome;
+import com.jmk.gui.GUIHome;
 import com.jmk.gui.util.GUIUtils;
 import com.jmk.service.SupplierAccountService;
 import com.jmk.service.SupplierService;
@@ -60,8 +60,8 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
     public EditSupplierAccountForm() {
         
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
         
     }
 

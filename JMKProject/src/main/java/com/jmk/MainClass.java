@@ -3,12 +3,11 @@ package com.jmk;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.jmk.gui.JMKHome;
-import javax.swing.UIManager;
+import com.jmk.gui.GUIHome;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-public class Test {
+public class MainClass {
 
     static ApplicationContext context;
 
@@ -22,14 +21,14 @@ public class Test {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        Logger logger = Logger.getLogger(Test.class);
+        Logger logger = Logger.getLogger(MainClass.class);
         logger.info("Application started looger working");
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             java.awt.EventQueue.invokeLater(() -> {
-                JMKHome dialog = new JMKHome();
+                GUIHome dialog = new GUIHome();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

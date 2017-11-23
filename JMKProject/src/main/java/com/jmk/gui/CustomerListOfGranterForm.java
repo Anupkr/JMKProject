@@ -35,8 +35,8 @@ public class CustomerListOfGranterForm extends javax.swing.JDialog {
 
     public CustomerListOfGranterForm() {
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     public void setGranterId(int granterId) {

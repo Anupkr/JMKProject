@@ -28,8 +28,8 @@ public class CreateGranterForm extends javax.swing.JDialog {
 
     public CreateGranterForm() {
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     @SuppressWarnings("unchecked")

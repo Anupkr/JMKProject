@@ -5,7 +5,7 @@
  */
 package com.jmk.gui;
 
-import com.jmk.Test;
+import com.jmk.MainClass;
 import com.jmk.beans.Customer;
 import com.jmk.beans.User;
 import com.jmk.gui.supplier.EditSupplierForm;
@@ -60,9 +60,9 @@ public class CustomerListForm extends javax.swing.JDialog {
 
     public CustomerListForm() {
         initComponents();
-        Dimension dimension = JMKHome.getPanelHome().getSize();
+        Dimension dimension = GUIHome.getPanelHome().getSize();
         setSize((int) dimension.getWidth() + 200, (int) dimension.getHeight());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setLocationRelativeTo(GUIHome.getPanelHome());
 
     }
 
@@ -379,7 +379,7 @@ public class CustomerListForm extends javax.swing.JDialog {
             if (index != -1) {
                 customer = customerList.get(index);
                 System.out.println(customer);
-                CustomerAccountForm customerAccountForm = Test.getBean(CustomerAccountForm.class);
+                CustomerAccountForm customerAccountForm = MainClass.getBean(CustomerAccountForm.class);
                 customerAccountForm.setCustomer(customer);
                 customerAccountForm.setModal(true);
                 customerAccountForm.setLocationRelativeTo(this);
@@ -454,7 +454,7 @@ public class CustomerListForm extends javax.swing.JDialog {
             c = customerList.get(index);
 
             //Show Supplier Edit Form
-            EditCustomerForm form = Test.getBean(EditCustomerForm.class);
+            EditCustomerForm form = MainClass.getBean(EditCustomerForm.class);
             form.setLocationRelativeTo(this);
             form.setCustomer(c);
 

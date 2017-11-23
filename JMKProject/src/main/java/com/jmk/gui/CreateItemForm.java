@@ -35,8 +35,8 @@ public class CreateItemForm extends javax.swing.JDialog {
 
     public CreateItemForm() {
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
 
     }
 

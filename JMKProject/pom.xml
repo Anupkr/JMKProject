@@ -66,10 +66,5 @@
             <artifactId>jasperreports</artifactId>
             <version>5.6.0</version>
         </dependency>
-        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>AbsoluteLayout</artifactId>
-            <version>SNAPSHOT</version>
-        </dependency>
     </dependencies>
 </project>

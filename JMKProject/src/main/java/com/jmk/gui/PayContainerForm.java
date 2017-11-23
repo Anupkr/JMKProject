@@ -36,8 +36,8 @@ public class PayContainerForm extends javax.swing.JDialog {
 
     public PayContainerForm() {
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     @SuppressWarnings("unchecked")

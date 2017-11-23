@@ -44,8 +44,8 @@ public class CustomerAccountForm extends javax.swing.JDialog {
     public CustomerAccountForm() {
 
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     public void setCustomer(Customer customer) {

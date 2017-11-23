@@ -5,13 +5,13 @@
  */
 package com.jmk.gui.supplier;
 
-import com.jmk.Test;
+import com.jmk.MainClass;
 import com.jmk.beans.Customer;
 import com.jmk.beans.Granter;
 import com.jmk.beans.Supplier;
 import com.jmk.beans.User;
 import com.jmk.gui.CustomerAccountForm;
-import com.jmk.gui.JMKHome;
+import com.jmk.gui.GUIHome;
 import com.jmk.service.GranterService;
 import com.jmk.service.SupplierService;
 import com.jmk.util.AmmountFormater;
@@ -56,9 +56,9 @@ public class SupplierListForm extends javax.swing.JDialog {
     public SupplierListForm() {
 
         initComponents();
-        Dimension dimension = JMKHome.getPanelHome().getSize();
+        Dimension dimension = GUIHome.getPanelHome().getSize();
         setSize((int) dimension.getWidth() + 200, (int) dimension.getHeight());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     /**
@@ -79,10 +79,10 @@ public class SupplierListForm extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
@@ -153,6 +153,7 @@ public class SupplierListForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 131, 0, 0);
         jPanel1.add(jLabel2, gridBagConstraints);
 
+        jTable1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -182,89 +183,73 @@ public class SupplierListForm extends javax.swing.JDialog {
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 1, 15)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/012-draw.png"))); // NOI18N
-        jLabel3.setText("Edit");
-        jLabel3.setToolTipText("Show the list of all customer list of select granter");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.setEnabled(false);
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/012-draw.png"))); // NOI18N
+        jLabel5.setText("Edit");
+        jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                jLabel5MouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 83;
-        gridBagConstraints.ipady = 8;
+        gridBagConstraints.ipadx = 51;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 93, 0, 0);
-        jPanel2.add(jLabel3, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(12, 163, 0, 0);
+        jPanel2.add(jLabel5, gridBagConstraints);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-balance.png"))); // NOI18N
-        jLabel4.setText("Show Account");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.setEnabled(false);
-        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-balance.png"))); // NOI18N
+        jLabel6.setText("Show Account");
+        jLabel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                jLabel6MouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 36;
-        gridBagConstraints.ipady = 8;
+        gridBagConstraints.ipadx = 30;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        jPanel2.add(jLabel4, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        jPanel2.add(jLabel6, gridBagConstraints);
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/009-printer.png"))); // NOI18N
-        jLabel8.setText("Print All");
-        jLabel8.setToolTipText("Print Granter List");
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel8.setEnabled(false);
-        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/009-printer.png"))); // NOI18N
+        jLabel7.setText("Print All");
+        jLabel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                jLabel7MouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 60;
-        gridBagConstraints.ipady = 8;
+        gridBagConstraints.ipadx = 39;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 6, 0, 0);
-        jPanel2.add(jLabel8, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        jPanel2.add(jLabel7, gridBagConstraints);
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
-        jLabel9.setText("Close");
-        jLabel9.setToolTipText("Print Granter List");
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel9.setEnabled(false);
-        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
+        jLabel10.setText("Close");
+        jLabel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                jLabel10MouseClicked(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 75;
-        gridBagConstraints.ipady = 8;
+        gridBagConstraints.ipadx = 44;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 104);
-        jPanel2.add(jLabel9, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 31);
+        jPanel2.add(jLabel10, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,9 +257,7 @@ public class SupplierListForm extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +266,7 @@ public class SupplierListForm extends javax.swing.JDialog {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -348,8 +331,57 @@ public class SupplierListForm extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        int index = jTable1.getSelectedRow();
 
+        if (index != -1) {
+
+            //write logic to show granter image in a dialog
+            Integer id = Integer.parseInt(jTable1.getValueAt(index, 0).toString());
+
+            //Show Supplier Edit Form
+            EditSupplierForm form = MainClass.getBean(EditSupplierForm.class);
+            form.setId(id);
+            form.setVisible(true);
+
+            //refresh list and show in table
+            supplierList = supplierService.getAllSupplires();
+            showInTable();
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
+        }
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        int index = jTable1.getSelectedRow();
+
+        if (index != -1) {
+            int supplierId = Integer.parseInt(jTable1.getValueAt(index, 0).toString());
+
+            //create supplier object
+            Supplier supplier = new Supplier();
+
+            //set selected supplierId to supplier object
+            supplier.setId(supplierId);
+
+            //get index from customerList of id {customerId}
+            index = supplierList.indexOf(supplier);
+            if (index != -1) {
+                supplier = supplierList.get(index);
+                SupplierAccountForm form = MainClass.getBean(SupplierAccountForm.class);
+                form.setSupplier(supplier);
+                form.setSize(this.getSize());
+                form.setLocationRelativeTo(this);
+
+                form.setVisible(true);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
+        }
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         //        String sourceFileName = getClass().getResource("/jasper/customer_list.jasper").getFile();
         try {
 
@@ -385,72 +417,21 @@ public class SupplierListForm extends javax.swing.JDialog {
         } catch (JRException ex) {
             Logger.getLogger(SupplierListForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        int index = jTable1.getSelectedRow();
-
-        if (index != -1) {
-
-            //write logic to show granter image in a dialog
-            Integer id = Integer.parseInt(jTable1.getValueAt(index, 0).toString());
-
-            //Show Supplier Edit Form
-            EditSupplierForm form = Test.getBean(EditSupplierForm.class);
-            form.setId(id);
-            form.setVisible(true);
-
-            //refresh list and show in table
-            supplierList = supplierService.getAllSupplires();
-            showInTable();
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
-        }
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jLabel9MouseClicked
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-
-        int index = jTable1.getSelectedRow();
-
-        if (index != -1) {
-            int supplierId = Integer.parseInt(jTable1.getValueAt(index, 0).toString());
-
-            //create supplier object
-            Supplier supplier = new Supplier();
-
-            //set selected supplierId to supplier object
-            supplier.setId(supplierId);
-
-            //get index from customerList of id {customerId}
-            index = supplierList.indexOf(supplier);
-            if (index != -1) {
-                supplier = supplierList.get(index);
-                SupplierAccountForm form = Test.getBean(SupplierAccountForm.class);
-                form.setSupplier(supplier);
-                form.setSize(this.getSize());
-                form.setLocationRelativeTo(this);
-
-                form.setVisible(true);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Please Select Customer");
-        }
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

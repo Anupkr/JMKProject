@@ -5,7 +5,7 @@
  */
 package com.jmk.gui;
 
-import com.jmk.Test;
+import com.jmk.MainClass;
 import com.jmk.beans.Customer;
 import com.jmk.beans.CustomerAccount;
 import com.jmk.beans.Granter;
@@ -45,8 +45,8 @@ public class CustomerRegistrationForm extends javax.swing.JDialog {
     public CustomerRegistrationForm() {
 
         initComponents();
-        setSize(JMKHome.getPanelHome().getSize());
-        setLocationRelativeTo(JMKHome.getPanelHome());
+        setSize(GUIHome.getPanelHome().getSize());
+        setLocationRelativeTo(GUIHome.getPanelHome());
     }
 
     @SuppressWarnings("unchecked")
