@@ -26,7 +26,7 @@ public class MainClass {
         logger.info("Application started looger working");
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             java.awt.EventQueue.invokeLater(() -> {
                 GUIHome dialog = new GUIHome();

@@ -100,7 +100,7 @@ public class GUIHome extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Jai Ma Kali SAbji Mandi");
+        jLabel1.setText("Jai Ma Kali Sabji Mandi");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
         jLabel1.getAccessibleContext().setAccessibleName("Jai Ma Kali Sabji Mandi");
