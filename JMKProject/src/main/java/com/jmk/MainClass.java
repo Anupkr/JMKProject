@@ -12,7 +12,7 @@ public class MainClass {
     static ApplicationContext context;
 
     static {
-        context = new ClassPathXmlApplicationContext("com/jmk/cfg/application.xml");
+        context = new ClassPathXmlApplicationContext("application.xml");
     }
 
     public static <T> T getBean(Class<T> classType) {
