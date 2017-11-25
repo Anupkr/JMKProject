@@ -9,14 +9,11 @@ import com.jmk.MainClass;
 import com.jmk.gui.supplier.ArrivalEntryForm;
 import com.jmk.gui.supplier.CreateSupplierForm;
 import com.jmk.gui.supplier.SupplierListForm;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.BEncoderStream;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.Timer;
 
@@ -65,7 +62,6 @@ public class GUIHome extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        dateChooserPanel1 = new datechooser.beans.DateChooserPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelHome = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
@@ -103,7 +99,6 @@ public class GUIHome extends javax.swing.JFrame {
         jLabel1.setText("Jai Ma Kali Sabji Mandi");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
-        jLabel1.getAccessibleContext().setAccessibleName("Jai Ma Kali Sabji Mandi");
 
         jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(254, 254, 254));
@@ -128,457 +123,410 @@ public class GUIHome extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(222, 33, 31));
 
-        dateChooserPanel1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
-            new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
-                    new java.awt.Color(0, 0, 255),
-                    true,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(0, 0, 255),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(128, 128, 128),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
-                    new java.awt.Color(0, 0, 255),
-                    false,
-                    true,
-                    new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
-                    new java.awt.Color(255, 0, 0),
-                    false,
-                    false,
-                    new datechooser.view.appearance.swing.ButtonPainter()),
-                (datechooser.view.BackRenderer)null,
-                false,
-                true)));
-    dateChooserPanel1.setCalendarBackground(new java.awt.Color(248, 25, 22));
-    dateChooserPanel1.setCalendarPreferredSize(new java.awt.Dimension(200, 162));
-    dateChooserPanel1.setWeekStyle(datechooser.view.WeekDaysStyle.SHORT);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 227, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 627, Short.MAX_VALUE)
+        );
 
-    javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-    jPanel2.setLayout(jPanel2Layout);
-    jPanel2Layout.setHorizontalGroup(
-        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(dateChooserPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-    );
-    jPanel2Layout.setVerticalGroup(
-        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(dateChooserPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-    );
+        panelHome.setBackground(new java.awt.Color(255, 255, 255));
+        panelHome.setLayout(new java.awt.GridBagLayout());
 
-    panelHome.setBackground(new java.awt.Color(255, 255, 255));
-    panelHome.setLayout(new java.awt.GridBagLayout());
+        jLabel29.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(199, 19, 19));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/customer_list.png"))); // NOI18N
+        jLabel29.setText("Suppliers");
+        jLabel29.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel29.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 14, 0, 0);
+        panelHome.add(jLabel29, gridBagConstraints);
 
-    jLabel29.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel29.setForeground(new java.awt.Color(199, 19, 19));
-    jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/customer_list.png"))); // NOI18N
-    jLabel29.setText("Suppliers");
-    jLabel29.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel29.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel29MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 2;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 14, 0, 0);
-    panelHome.add(jLabel29, gridBagConstraints);
+        jLabel31.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(199, 19, 19));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/badge.png"))); // NOI18N
+        jLabel31.setText("Sale Entry");
+        jLabel31.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel31.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel31.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 103, 0, 0);
+        panelHome.add(jLabel31, gridBagConstraints);
 
-    jLabel31.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel31.setForeground(new java.awt.Color(199, 19, 19));
-    jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/badge.png"))); // NOI18N
-    jLabel31.setText("Sale Entry");
-    jLabel31.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel31.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel31.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel31MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(12, 103, 0, 0);
-    panelHome.add(jLabel31, gridBagConstraints);
+        jLabel32.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(199, 19, 19));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/businessman-with-shopping-cart.png"))); // NOI18N
+        jLabel32.setText("Arrival Entry");
+        jLabel32.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel32.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel32.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 14, 0, 0);
+        panelHome.add(jLabel32, gridBagConstraints);
 
-    jLabel32.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel32.setForeground(new java.awt.Color(199, 19, 19));
-    jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/businessman-with-shopping-cart.png"))); // NOI18N
-    jLabel32.setText("Arrival Entry");
-    jLabel32.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel32.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel32.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel32MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 2;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(12, 14, 0, 0);
-    panelHome.add(jLabel32, gridBagConstraints);
+        jLabel33.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(199, 19, 19));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/wallet_1.png"))); // NOI18N
+        jLabel33.setText("Payment");
+        jLabel33.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel33.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel33.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel33MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
+        panelHome.add(jLabel33, gridBagConstraints);
 
-    jLabel33.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel33.setForeground(new java.awt.Color(199, 19, 19));
-    jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/wallet_1.png"))); // NOI18N
-    jLabel33.setText("Payment");
-    jLabel33.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel33.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel33.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel33MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 4;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
-    panelHome.add(jLabel33, gridBagConstraints);
+        jLabel17.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(199, 19, 19));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/shopping-cart.png"))); // NOI18N
+        jLabel17.setText("Container Payment");
+        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel17.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel17.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 24;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 8, 0, 0);
+        panelHome.add(jLabel17, gridBagConstraints);
 
-    jLabel17.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel17.setForeground(new java.awt.Color(199, 19, 19));
-    jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/shopping-cart.png"))); // NOI18N
-    jLabel17.setText("Container Payment");
-    jLabel17.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel17.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel17.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel17MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 6;
-    gridBagConstraints.gridy = 0;
-    gridBagConstraints.ipadx = 24;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(12, 8, 0, 0);
-    panelHome.add(jLabel17, gridBagConstraints);
+        jLabel34.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(199, 19, 19));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/businessman-with-shopping-cart.png"))); // NOI18N
+        jLabel34.setText("Customers");
+        jLabel34.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel34.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel34.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel34MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 103, 0, 0);
+        panelHome.add(jLabel34, gridBagConstraints);
 
-    jLabel34.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel34.setForeground(new java.awt.Color(199, 19, 19));
-    jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/businessman-with-shopping-cart.png"))); // NOI18N
-    jLabel34.setText("Customers");
-    jLabel34.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel34.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel34.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel34MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 103, 0, 0);
-    panelHome.add(jLabel34, gridBagConstraints);
+        jLabel5.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/add_granter.png"))); // NOI18N
+        jLabel5.setText("New Granter");
+        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        panelHome.add(jLabel5, gridBagConstraints);
 
-    jLabel5.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel5.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/add_granter.png"))); // NOI18N
-    jLabel5.setText("New Granter");
-    jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel5MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 4;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-    panelHome.add(jLabel5, gridBagConstraints);
+        jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/add-friend.png"))); // NOI18N
+        jLabel6.setText("New Customer");
+        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 66;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 103, 0, 0);
+        panelHome.add(jLabel6, gridBagConstraints);
 
-    jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel6.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/add-friend.png"))); // NOI18N
-    jLabel6.setText("New Customer");
-    jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel6MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 2;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 66;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 103, 0, 0);
-    panelHome.add(jLabel6, gridBagConstraints);
+        jLabel8.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/businessman.png"))); // NOI18N
+        jLabel8.setText("New Supplier");
+        jLabel8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 8, 0, 0);
+        panelHome.add(jLabel8, gridBagConstraints);
 
-    jLabel8.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel8.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/businessman.png"))); // NOI18N
-    jLabel8.setText("New Supplier");
-    jLabel8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel8MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 6;
-    gridBagConstraints.gridy = 1;
-    gridBagConstraints.ipadx = 63;
-    gridBagConstraints.ipady = 7;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 8, 0, 0);
-    panelHome.add(jLabel8, gridBagConstraints);
+        jLabel7.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/vegetables.png"))); // NOI18N
+        jLabel7.setText("Items");
+        jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 67;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 14, 0, 0);
+        panelHome.add(jLabel7, gridBagConstraints);
 
-    jLabel7.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel7.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/vegetables.png"))); // NOI18N
-    jLabel7.setText("Items");
-    jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel7MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 2;
-    gridBagConstraints.gridy = 2;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 67;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 14, 0, 0);
-    panelHome.add(jLabel7, gridBagConstraints);
+        jLabel9.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/shopping-cart-black-shape.png"))); // NOI18N
+        jLabel9.setText("Shopping Carts");
+        jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 61;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        panelHome.add(jLabel9, gridBagConstraints);
 
-    jLabel9.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel9.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/shopping-cart-black-shape.png"))); // NOI18N
-    jLabel9.setText("Shopping Carts");
-    jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel9MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 4;
-    gridBagConstraints.gridy = 2;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 61;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-    panelHome.add(jLabel9, gridBagConstraints);
+        jLabel10.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/granter_list.png"))); // NOI18N
+        jLabel10.setText("Granter List");
+        jLabel10.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 67;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 8, 0, 1);
+        panelHome.add(jLabel10, gridBagConstraints);
 
-    jLabel10.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel10.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/granter_list.png"))); // NOI18N
-    jLabel10.setText("Granter List");
-    jLabel10.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel10.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel10MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 6;
-    gridBagConstraints.gridy = 2;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 67;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 8, 0, 1);
-    panelHome.add(jLabel10, gridBagConstraints);
+        jLabel11.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/add-friend.png"))); // NOI18N
+        jLabel11.setText("Payment Report");
+        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 54;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 103, 12, 0);
+        panelHome.add(jLabel11, gridBagConstraints);
 
-    jLabel11.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel11.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/add-friend.png"))); // NOI18N
-    jLabel11.setText("Payment Report");
-    jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel11MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 0;
-    gridBagConstraints.gridy = 3;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 54;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 103, 12, 0);
-    panelHome.add(jLabel11, gridBagConstraints);
+        jLabel12.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/backup.png"))); // NOI18N
+        jLabel12.setText("Data Backup");
+        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 67;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 14, 12, 0);
+        panelHome.add(jLabel12, gridBagConstraints);
 
-    jLabel12.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel12.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/backup.png"))); // NOI18N
-    jLabel12.setText("Data Backup");
-    jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel12.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel12.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel12MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 2;
-    gridBagConstraints.gridy = 3;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 67;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 14, 12, 0);
-    panelHome.add(jLabel12, gridBagConstraints);
+        jLabel13.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(212, 2, 2));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/restore.png"))); // NOI18N
+        jLabel13.setText("Data Restore");
+        jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 67;
+        gridBagConstraints.ipady = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 12, 0);
+        panelHome.add(jLabel13, gridBagConstraints);
 
-    jLabel13.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-    jLabel13.setForeground(new java.awt.Color(212, 2, 2));
-    jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/132/restore.png"))); // NOI18N
-    jLabel13.setText("Data Restore");
-    jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-    jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-    jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    jLabel13.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-    jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            jLabel13MouseClicked(evt);
-        }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridx = 4;
-    gridBagConstraints.gridy = 3;
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.ipadx = 67;
-    gridBagConstraints.ipady = 14;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    gridBagConstraints.insets = new java.awt.Insets(6, 6, 12, 0);
-    panelHome.add(jLabel13, gridBagConstraints);
+        jScrollPane1.setViewportView(panelHome);
 
-    jScrollPane1.setViewportView(panelHome);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1145, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)))
+        );
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-        .addGroup(layout.createSequentialGroup()
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, 0)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1145, Short.MAX_VALUE)
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(layout.createSequentialGroup()
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 0, 0)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)))
-    );
-
-    pack();
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -683,7 +631,6 @@ public class GUIHome extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private datechooser.beans.DateChooserPanel dateChooserPanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jmk.gui.GUIHome;
-import javax.swing.UIManager;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
