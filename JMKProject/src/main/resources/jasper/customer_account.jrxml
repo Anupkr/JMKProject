@@ -131,7 +131,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20">
+		<band height="20" splitType="Immediate">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="3cd15e59-a241-4e27-b67f-0887d0312d73"/>
 				<graphicElement>

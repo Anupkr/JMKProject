@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jmk.gui.GUIHome;
+import javax.swing.UIManager;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
@@ -25,7 +26,7 @@ public class MainClass {
         logger.info("Application started looger working");
 
         try {
-//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             java.awt.EventQueue.invokeLater(() -> {
                 GUIHome dialog = new GUIHome();

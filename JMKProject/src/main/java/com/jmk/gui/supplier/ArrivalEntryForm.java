@@ -15,9 +15,6 @@ import com.jmk.util.ArrivalType;
 import com.jmk.util.StatusMessage;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -32,7 +29,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Scope(scopeName = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-
 public class ArrivalEntryForm extends javax.swing.JDialog {
 
     /**

@@ -1,160 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer_list" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="c7dba399-6795-4273-b5c1-2165df237022">
-    <property name="ireport.zoom" value="1.7524694974069641"/>
-    <property name="ireport.x" value="0"/>
-    <property name="ireport.y" value="0"/>
-    <parameter name="supplierName" class="java.lang.String"/>
-    <field name="paidAmountAsString" class="java.lang.String"/>
-    <field name="date" class="java.util.Date"/>
-    <field name="purchaseAmountAsString" class="java.lang.String"/>
-    <field name="currentBalanceAsString" class="java.lang.String"/>
-    <field name="saleAmountAsString" class="java.lang.String"/>
-    <field name="particular" class="java.lang.String"/>
-    <background>
-        <band/>
-    </background>
-    <title>
-        <band height="74">
-            <frame>
-                <reportElement mode="Opaque" x="-20" y="-25" width="595" height="97" forecolor="#FF0000" backcolor="#006699" uuid="0e5f9261-c3b3-4874-a283-f24801512281"/>
-                <ellipse>
-                    <reportElement x="35" y="17" width="50" height="45" forecolor="#FEFEFE" backcolor="#006699" uuid="f8550c96-9f2e-4db5-b8e1-93a667e2cfc7"/>
-                </ellipse>
-                <staticText>
-                    <reportElement x="45" y="32" width="33" height="20" forecolor="#FEFEFE" uuid="f41a509d-5b3e-426f-8970-bcd7cbef3645"/>
-                    <textElement>
-                        <font size="13" isBold="true"/>
-                    </textElement>
-                    <text><![CDATA[JMK]]></text>
-                </staticText>
-                <line>
-                    <reportElement x="0" y="80" width="595" height="1" uuid="45c67e7f-3e8f-4794-b04e-d23d64916cf3"/>
-                    <graphicElement>
-                        <pen lineStyle="Double" lineColor="#FEFEFE"/>
-                    </graphicElement>
-                </line>
-                <textField pattern="EEEEE dd MMMMM yyyy">
-                    <reportElement x="410" y="65" width="169" height="13" forecolor="#FEFEFE" uuid="7cc7d67e-4536-4b9f-b163-b4d40d39f92c"/>
-                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-                </textField>
-                <textField isBlankWhenNull="true">
-                    <reportElement x="98" y="25" width="456" height="35" forecolor="#FEFEFE" uuid="68fa4a84-cbb4-4b8b-a4c1-34781bd33d7f"/>
-                    <textElement>
-                        <font size="20" isBold="true"/>
-                    </textElement>
-                    <textFieldExpression><![CDATA[$P{supplierName}]]></textFieldExpression>
-                </textField>
-            </frame>
-        </band>
-    </title>
-    <columnHeader>
-        <band height="24">
-            <staticText>
-                <reportElement x="15" y="2" width="76" height="20" isRemoveLineWhenBlank="true" uuid="95e5ed23-04d7-4c90-a2a8-0b34c1c9a42a"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-                    <paragraph spacingBefore="1"/>
-                </textElement>
-                <text><![CDATA[Date]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="99" y="2" width="102" height="20" isRemoveLineWhenBlank="true" uuid="f92af4c7-78cd-476b-9de9-e04aba430ceb"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-                    <paragraph spacingBefore="1"/>
-                </textElement>
-                <text><![CDATA[Purchase Amount]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="408" y="2" width="94" height="20" isRemoveLineWhenBlank="true" uuid="242a3b06-1ce4-4eb5-9bb5-89cec8bf47f9"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-                    <paragraph spacingBefore="1"/>
-                </textElement>
-                <text><![CDATA[Balance]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="207" y="2" width="92" height="20" isRemoveLineWhenBlank="true" uuid="aaa07eec-a769-41ad-a60d-aa41614c304b"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-                    <paragraph spacingBefore="1"/>
-                </textElement>
-                <text><![CDATA[Sale Amount]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="308" y="2" width="92" height="20" isRemoveLineWhenBlank="true" uuid="9768db30-600f-44f1-91bd-840f164ebc72"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-                    <paragraph spacingBefore="1"/>
-                </textElement>
-                <text><![CDATA[Paid Amount]]></text>
-            </staticText>
-        </band>
-    </columnHeader>
-    <detail>
-        <band height="20">
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="207" y="0" width="92" height="13" isPrintWhenDetailOverflows="true" uuid="72ed6ce2-4d7f-4eac-aa81-ae38367c684f"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" size="10"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{saleAmountAsString}]]></textFieldExpression>
-            </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="409" y="0" width="93" height="13" isPrintWhenDetailOverflows="true" uuid="363bbc9c-e749-44cf-a8a7-2dac564dbe83"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" size="10"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{currentBalanceAsString}]]></textFieldExpression>
-            </textField>
-            <textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
-                <reportElement x="15" y="0" width="76" height="13" isPrintWhenDetailOverflows="true" uuid="114b051d-fbd9-4a5b-a395-c7842fca46d4"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" size="10"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
-            </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="99" y="0" width="102" height="13" isPrintWhenDetailOverflows="true" uuid="e5c2bbf7-75d3-42fc-b72e-64b39cf8d286"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" size="10"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{purchaseAmountAsString}=="0"?null:$F{purchaseAmountAsString}]]></textFieldExpression>
-            </textField>
-            <textField isStretchWithOverflow="true" isBlankWhenNull="true">
-                <reportElement x="308" y="0" width="92" height="13" isPrintWhenDetailOverflows="true" uuid="461785ff-7799-47e9-83c4-2cafb22fc3ae"/>
-                <textElement verticalAlignment="Middle">
-                    <font fontName="DejaVu Serif" size="10"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{paidAmountAsString}]]></textFieldExpression>
-            </textField>
-            <line>
-                <reportElement x="0" y="16" width="555" height="1" forecolor="#B1B1B1" uuid="e7c1aedc-1674-453d-ae98-88e3387f946f"/>
-            </line>
-        </band>
-    </detail>
-    <columnFooter>
-        <band/>
-    </columnFooter>
-    <pageFooter>
-        <band height="17">
-            <textField>
-                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" uuid="950be27c-a493-4f83-8094-f652676e8a75"/>
-                <textElement textAlignment="Right">
-                    <font fontName="DejaVu Serif"/>
-                </textElement>
-                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
-            </textField>
-            <textField evaluationTime="Report">
-                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" uuid="22fa83d8-c7d1-4e9b-af67-dd3819478018"/>
-                <textElement>
-                    <font fontName="DejaVu Serif"/>
-                </textElement>
-                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
-            </textField>
-        </band>
-    </pageFooter>
-    <summary>
-        <band/>
-    </summary>
+	<property name="ireport.zoom" value="1.7524694974069641"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="supplierName" class="java.lang.String"/>
+	<field name="paidAmountAsString" class="java.lang.String"/>
+	<field name="date" class="java.util.Date"/>
+	<field name="purchaseAmountAsString" class="java.lang.String"/>
+	<field name="currentBalanceAsString" class="java.lang.String"/>
+	<field name="saleAmountAsString" class="java.lang.String"/>
+	<field name="particular" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="74">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-25" width="595" height="97" forecolor="#FF0000" backcolor="#006699" uuid="0e5f9261-c3b3-4874-a283-f24801512281"/>
+				<ellipse>
+					<reportElement x="35" y="17" width="50" height="45" forecolor="#FEFEFE" backcolor="#006699" uuid="f8550c96-9f2e-4db5-b8e1-93a667e2cfc7"/>
+				</ellipse>
+				<staticText>
+					<reportElement x="45" y="32" width="33" height="20" forecolor="#FEFEFE" uuid="f41a509d-5b3e-426f-8970-bcd7cbef3645"/>
+					<textElement>
+						<font size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[JMK]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="80" width="595" height="1" uuid="45c67e7f-3e8f-4794-b04e-d23d64916cf3"/>
+					<graphicElement>
+						<pen lineStyle="Double" lineColor="#FEFEFE"/>
+					</graphicElement>
+				</line>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="410" y="65" width="169" height="13" forecolor="#FEFEFE" uuid="7cc7d67e-4536-4b9f-b163-b4d40d39f92c"/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="98" y="25" width="456" height="35" forecolor="#FEFEFE" uuid="68fa4a84-cbb4-4b8b-a4c1-34781bd33d7f"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{supplierName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24">
+			<staticText>
+				<reportElement x="15" y="2" width="76" height="20" isRemoveLineWhenBlank="true" uuid="95e5ed23-04d7-4c90-a2a8-0b34c1c9a42a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph spacingBefore="1"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="2" width="102" height="20" isRemoveLineWhenBlank="true" uuid="f92af4c7-78cd-476b-9de9-e04aba430ceb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph spacingBefore="1"/>
+				</textElement>
+				<text><![CDATA[Purchase Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="2" width="94" height="20" isRemoveLineWhenBlank="true" uuid="242a3b06-1ce4-4eb5-9bb5-89cec8bf47f9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph spacingBefore="1"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="2" width="92" height="20" isRemoveLineWhenBlank="true" uuid="aaa07eec-a769-41ad-a60d-aa41614c304b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph spacingBefore="1"/>
+				</textElement>
+				<text><![CDATA[Sale Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="2" width="92" height="20" isRemoveLineWhenBlank="true" uuid="9768db30-600f-44f1-91bd-840f164ebc72"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<paragraph spacingBefore="1"/>
+				</textElement>
+				<text><![CDATA[Paid Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Immediate">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="207" y="0" width="92" height="13" isPrintWhenDetailOverflows="true" uuid="72ed6ce2-4d7f-4eac-aa81-ae38367c684f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saleAmountAsString}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="409" y="0" width="93" height="13" isPrintWhenDetailOverflows="true" uuid="363bbc9c-e749-44cf-a8a7-2dac564dbe83"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{currentBalanceAsString}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="15" y="0" width="76" height="13" isPrintWhenDetailOverflows="true" uuid="114b051d-fbd9-4a5b-a395-c7842fca46d4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="99" y="0" width="102" height="13" isPrintWhenDetailOverflows="true" uuid="e5c2bbf7-75d3-42fc-b72e-64b39cf8d286"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchaseAmountAsString}=="0"?null:$F{purchaseAmountAsString}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="308" y="0" width="92" height="13" isPrintWhenDetailOverflows="true" uuid="461785ff-7799-47e9-83c4-2cafb22fc3ae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paidAmountAsString}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="16" width="555" height="1" forecolor="#B1B1B1" uuid="e7c1aedc-1674-453d-ae98-88e3387f946f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" uuid="950be27c-a493-4f83-8094-f652676e8a75"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" uuid="22fa83d8-c7d1-4e9b-af67-dd3819478018"/>
+				<textElement>
+					<font fontName="DejaVu Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
 </jasperReport>

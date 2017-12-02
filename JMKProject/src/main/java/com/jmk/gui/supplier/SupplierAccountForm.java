@@ -253,6 +253,7 @@ public class SupplierAccountForm extends javax.swing.JDialog {
 jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/011-refresh-button.png"))); // NOI18N
 jLabel2.setText("Show All");
 jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     public void mouseClicked(java.awt.event.MouseEvent evt) {
         jLabel2MouseClicked(evt);
@@ -262,6 +263,7 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/008-magnifier.png"))); // NOI18N
     jLabel8.setText("Seach");
     jLabel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+    jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             jLabel8MouseClicked(evt);
@@ -271,6 +273,7 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/009-printer.png"))); // NOI18N
     jLabel9.setText("Print");
     jLabel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+    jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             jLabel9MouseClicked(evt);
@@ -280,6 +283,7 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/012-draw.png"))); // NOI18N
     jLabel10.setText("Edit");
     jLabel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+    jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             jLabel10MouseClicked(evt);
@@ -289,6 +293,7 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
     jLabel11.setText("Close");
     jLabel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+    jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             jLabel11MouseClicked(evt);
@@ -477,6 +482,7 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("supplierName", supplier.getName() + " : " + supplier.getAddress1());
 
+            
             JasperDesign jasperDesign = null;
             if (ArrivalType.ARRIVAL_TYPE_SELF_PURCHASE.equalsIgnoreCase(supplier.getArrivalType())) {
                 jasperDesign = JRXmlLoader.load(getClass().getResourceAsStream("/jasper/supplier_account_self_purchase.jrxml"));
@@ -487,11 +493,13 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             }
 
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-
+            
+            
             JasperPrint jasperPrint = JasperFillManager.fillReport(
                     jasperReport, parameters, beanCollectionDataSource);
-
+            
             JRViewer jRViewer = new JRViewer(jasperPrint);
+            
             PrintDialogUtil pdu = new PrintDialogUtil(this, true, jRViewer);
 
         } catch (JRException ex) {
