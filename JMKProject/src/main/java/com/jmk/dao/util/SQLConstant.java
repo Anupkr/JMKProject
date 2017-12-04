@@ -72,4 +72,6 @@ public class SQLConstant {
 
     public static final String SQL_UPDATE_SUP_ACCOUNT = "update supplier_account set date=?, purchase_ammount=?, sale_amount=?, paid_amount=?, current_balance=? where id=?";
 
+    public static final String SQL_SELECT_USER_BY_USER_NAME = "select user_name,password from user where user_name=?";
+
 }

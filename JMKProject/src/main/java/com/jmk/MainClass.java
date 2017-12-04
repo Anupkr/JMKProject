@@ -29,7 +29,9 @@ public class MainClass {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 
             java.awt.EventQueue.invokeLater(() -> {
-                GUIHome dialog = new GUIHome();
+
+                GUILogin dialog = MainClass.getBean(GUILogin.class);
+
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

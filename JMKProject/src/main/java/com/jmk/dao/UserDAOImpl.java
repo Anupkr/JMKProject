@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import com.jmk.beans.User;
 import com.jmk.dao.util.SQLConstant;
+import java.sql.ResultSet;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
@@ -52,4 +54,14 @@ public class UserDAOImpl implements UserDAO {
 
     }
 
+    @Override
+    public User getUser(String user_name) {
+
+        return jdbcTemplate.queryForObject(SQLConstant.SQL_SELECT_USER_BY_USER_NAME, (ResultSet rs, int rowNum) -> {
+            User user = new User();
+            user.setUserName(rs.getString(1));
+            user.setPassword(rs.getString(2));
+            return user;
+        }, user_name);
+    }
 }
