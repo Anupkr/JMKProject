@@ -3,7 +3,6 @@ package com.jmk;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.jmk.gui.GUIHome;
 import javax.swing.UIManager;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -21,9 +20,9 @@ public class MainClass {
     }
 
     public static void main(String[] args) {
-        BasicConfigurator.configure();
-        Logger logger = Logger.getLogger(MainClass.class);
-        logger.info("Application started looger working");
+//        BasicConfigurator.configure();
+//        Logger logger = Logger.getLogger(MainClass.class);
+//        logger.info("Application started looger working");
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

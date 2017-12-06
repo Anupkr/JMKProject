@@ -229,7 +229,9 @@ public class GUILogin extends javax.swing.JFrame {
                         System.exit(0);
                     }
                 });
+                this.dispose();
                 dialog.setVisible(true);
+
             });
         } else {
             GUIUtils.showErrorMessage(rootPane, message);
