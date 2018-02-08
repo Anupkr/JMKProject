@@ -54,7 +54,8 @@ public class CustomerAccountForm extends javax.swing.JDialog {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -77,8 +78,10 @@ public class CustomerAccountForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -95,38 +98,38 @@ public class CustomerAccountForm extends javax.swing.JDialog {
 
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -137,38 +140,38 @@ public class CustomerAccountForm extends javax.swing.JDialog {
 
     dateChooserCombo2.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -181,6 +184,7 @@ jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
 jLabel4.setForeground(new java.awt.Color(255, 0, 0));
 jLabel4.setText("To");
 
+jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 jButton5.setText("Search");
 
 jSeparator1.setBackground(new java.awt.Color(254, 254, 254));
@@ -222,33 +226,42 @@ jPanel1Layout.setHorizontalGroup(
             .addGap(51, 51, 51))
     );
 
+    jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
+        new Object [][]
+        {
 
         },
-        new String [] {
+        new String []
+        {
             "Date", "ProductAmount", "SecMoney", "Coolie", "Gross Amount", "Debit", "Credit", "Transaction Type", "Current Balance", "Description"
         }
-    ) {
-        Class[] types = new Class [] {
+    )
+    {
+        Class[] types = new Class []
+        {
             java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
         };
-        boolean[] canEdit = new boolean [] {
+        boolean[] canEdit = new boolean []
+        {
             false, false, false, false, false, false, false, false, false, false
         };
 
-        public Class getColumnClass(int columnIndex) {
+        public Class getColumnClass(int columnIndex)
+        {
             return types [columnIndex];
         }
 
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        public boolean isCellEditable(int rowIndex, int columnIndex)
+        {
             return canEdit [columnIndex];
         }
     });
     jTable1.setFillsViewportHeight(true);
     jTable1.getTableHeader().setReorderingAllowed(false);
     jScrollPane1.setViewportView(jTable1);
-    if (jTable1.getColumnModel().getColumnCount() > 0) {
+    if (jTable1.getColumnModel().getColumnCount() > 0)
+    {
         jTable1.getColumnModel().getColumn(8).setResizable(false);
     }
 
@@ -260,8 +273,10 @@ jPanel1Layout.setHorizontalGroup(
     jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
     jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel5.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel5MouseClicked(evt);
         }
     });
@@ -274,8 +289,10 @@ jPanel1Layout.setHorizontalGroup(
     jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
     jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel7.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel7MouseClicked(evt);
         }
     });
@@ -288,8 +305,10 @@ jPanel1Layout.setHorizontalGroup(
     jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
     jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel9.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel9MouseClicked(evt);
         }
     });
@@ -302,8 +321,10 @@ jPanel1Layout.setHorizontalGroup(
     jLabel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
     jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-    jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel10.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel10MouseClicked(evt);
         }
     });

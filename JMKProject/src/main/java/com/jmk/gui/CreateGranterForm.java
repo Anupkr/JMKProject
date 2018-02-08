@@ -34,7 +34,8 @@ public class CreateGranterForm extends javax.swing.JDialog {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
@@ -49,7 +50,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txtIdNumber = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cmbIdType = new javax.swing.JComboBox<>();
+        cmbIdType = new javax.swing.JComboBox<String>();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -81,9 +82,12 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(30, 125, 0, 0);
         jPanel2.add(jLabel2, gridBagConstraints);
 
+        txtGranterName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtGranterName.setToolTipText("");
-        txtGranterName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtGranterName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txtGranterNameActionPerformed(evt);
             }
         });
@@ -109,6 +113,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 125, 0, 0);
         jPanel2.add(jLabel3, gridBagConstraints);
 
+        txtMobile1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -120,6 +125,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
         jPanel2.add(txtMobile1, gridBagConstraints);
 
+        txtMobile2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile2.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -154,6 +160,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 125, 0, 0);
         jPanel2.add(jLabel5, gridBagConstraints);
 
+        txtAddress.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -177,6 +184,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 125, 0, 0);
         jPanel2.add(jLabel6, gridBagConstraints);
 
+        txtIdNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdNumber.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -200,7 +208,8 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 125, 0, 0);
         jPanel2.add(jLabel7, gridBagConstraints);
 
-        cmbIdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADHAR", "DL", "PAN" }));
+        cmbIdType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmbIdType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADHAR", "DL", "PAN" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
@@ -212,9 +221,12 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
         jPanel2.add(cmbIdType, gridBagConstraints);
 
+        btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnSave.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnSaveActionPerformed(evt);
             }
         });
@@ -227,9 +239,12 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(13, 11, 73, 0);
         jPanel2.add(btnSave, gridBagConstraints);
 
+        btnReset.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset.setText("Reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnResetActionPerformed(evt);
             }
         });
@@ -268,6 +283,7 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 125, 0, 0);
         jPanel2.add(jLabel8, gridBagConstraints);
 
+        txtIdNumber1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdNumber1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -280,9 +296,12 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(7, 11, 0, 0);
         jPanel2.add(txtIdNumber1, gridBagConstraints);
 
+        btnReset1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset1.setText("Browse");
-        btnReset1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnReset1ActionPerformed(evt);
             }
         });
@@ -296,9 +315,12 @@ public class CreateGranterForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(6, 4, 0, 0);
         jPanel2.add(btnReset1, gridBagConstraints);
 
+        btnReset2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset2.setText("Close");
-        btnReset2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnReset2ActionPerformed(evt);
             }
         });

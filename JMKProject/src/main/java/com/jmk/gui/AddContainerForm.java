@@ -44,7 +44,8 @@ public class AddContainerForm extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
@@ -65,6 +66,7 @@ public class AddContainerForm extends javax.swing.JDialog {
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Container Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -76,8 +78,11 @@ public class AddContainerForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(94, 30, 0, 0);
         jPanel2.add(jLabel2, gridBagConstraints);
 
-        txtContainerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtContainerName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtContainerName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txtContainerNameActionPerformed(evt);
             }
         });
@@ -91,9 +96,12 @@ public class AddContainerForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(94, 12, 0, 41);
         jPanel2.add(txtContainerName, gridBagConstraints);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton1ActionPerformed(evt);
             }
         });
@@ -106,9 +114,12 @@ public class AddContainerForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(12, 90, 114, 0);
         jPanel2.add(jButton1, gridBagConstraints);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Close");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton2ActionPerformed(evt);
             }
         });
@@ -121,6 +132,7 @@ public class AddContainerForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(12, 18, 114, 0);
         jPanel2.add(jButton2, gridBagConstraints);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Security Money");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -130,6 +142,8 @@ public class AddContainerForm extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 30, 0, 0);
         jPanel2.add(jLabel3, gridBagConstraints);
+
+        txtSecurityMoney.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
