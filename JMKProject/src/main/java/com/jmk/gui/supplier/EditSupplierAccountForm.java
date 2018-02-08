@@ -72,7 +72,8 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
@@ -106,8 +107,10 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -130,29 +133,37 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(234, 234, 234), 1, true));
 
         jPanel2.setBackground(new java.awt.Color(254, 254, 254));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Supplier Information"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Supplier Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         txtAddress.setEditable(false);
+        txtAddress.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(212, 2, 2));
         txtAddress.setFocusable(false);
 
         txtMobile.setEditable(false);
+        txtMobile.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile.setForeground(new java.awt.Color(212, 2, 2));
         txtMobile.setFocusable(false);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Mobile");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Supplier Name");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Current Balance");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Address");
 
         txtCurrentBalance.setEditable(false);
+        txtCurrentBalance.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtCurrentBalance.setForeground(new java.awt.Color(212, 2, 2));
         txtCurrentBalance.setFocusable(false);
 
         txtSupplierName.setEditable(false);
+        txtSupplierName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtSupplierName.setForeground(new java.awt.Color(212, 2, 2));
         txtSupplierName.setFocusable(false);
 
@@ -202,67 +213,81 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
         );
 
         jPanel3.setBackground(new java.awt.Color(254, 254, 254));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Account Details"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit Account Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+
+        txtPaidAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        txtSaleAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         txtParticular.setColumns(20);
         txtParticular.setRows(5);
-        txtParticular.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        txtParticular.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 txtParticularKeyPressed(evt);
             }
         });
         jScrollPane2.setViewportView(txtParticular);
 
-        txtPurchaseAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtPurchaseAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtPurchaseAmount.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txtPurchaseAmountActionPerformed(evt);
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Paid Amount");
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Purchase Amount");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Sale Amount");
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Particular");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Date");
 
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -321,18 +346,24 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
             .addContainerGap(21, Short.MAX_VALUE))
     );
 
+    btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save.png"))); // NOI18N
     btnSave.setText("Save");
-    btnSave.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    btnSave.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             btnSaveActionPerformed(evt);
         }
     });
 
+    btnClose.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
     btnClose.setText("Close");
-    btnClose.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    btnClose.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             btnCloseActionPerformed(evt);
         }
     });
@@ -350,7 +381,7 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
                     .addGap(288, 288, 288)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(27, 27, 27))
     );
     jPanel4Layout.setVerticalGroup(
@@ -364,7 +395,7 @@ public class EditSupplierAccountForm extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(30, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     gridBagConstraints = new java.awt.GridBagConstraints();

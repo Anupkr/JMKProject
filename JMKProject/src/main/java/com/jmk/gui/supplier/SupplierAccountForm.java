@@ -112,7 +112,8 @@ public class SupplierAccountForm extends javax.swing.JDialog {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -141,8 +142,10 @@ public class SupplierAccountForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -164,38 +167,38 @@ public class SupplierAccountForm extends javax.swing.JDialog {
 
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -210,38 +213,38 @@ public class SupplierAccountForm extends javax.swing.JDialog {
 
     dateChooserCombo2.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
         new datechooser.view.appearance.ViewAppearance("custom",
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(0, 0, 255),
                 true,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(0, 0, 255),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.ButtonPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                 new java.awt.Color(128, 128, 128),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(0, 0, 255),
                 false,
                 true,
                 new datechooser.view.appearance.swing.LabelPainter()),
-            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Ubuntu Light", java.awt.Font.PLAIN, 15),
-                new java.awt.Color(76, 76, 76),
+            new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                new java.awt.Color(0, 0, 0),
                 new java.awt.Color(255, 0, 0),
                 false,
                 false,
@@ -250,52 +253,67 @@ public class SupplierAccountForm extends javax.swing.JDialog {
             false,
             true)));
 
+jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/011-refresh-button.png"))); // NOI18N
 jLabel2.setText("Show All");
 jLabel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-    public void mouseClicked(java.awt.event.MouseEvent evt) {
+jLabel2.addMouseListener(new java.awt.event.MouseAdapter()
+{
+    public void mouseClicked(java.awt.event.MouseEvent evt)
+    {
         jLabel2MouseClicked(evt);
     }
     });
 
+    jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/008-magnifier.png"))); // NOI18N
     jLabel8.setText("Seach");
     jLabel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel8.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel8MouseClicked(evt);
         }
     });
 
+    jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/009-printer.png"))); // NOI18N
     jLabel9.setText("Print");
     jLabel9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel9.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel9MouseClicked(evt);
         }
     });
 
+    jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/012-draw.png"))); // NOI18N
     jLabel10.setText("Edit");
     jLabel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel10.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel10MouseClicked(evt);
         }
     });
 
+    jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
     jLabel11.setText("Close");
     jLabel11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
+    jLabel11.addMouseListener(new java.awt.event.MouseAdapter()
+    {
+        public void mouseClicked(java.awt.event.MouseEvent evt)
+        {
             jLabel11MouseClicked(evt);
         }
     });
@@ -365,27 +383,34 @@ jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             .addContainerGap())
     );
 
-    jTable1.setBorder(null);
+    jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jTable1.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
+        new Object [][]
+        {
 
         },
-        new String [] {
+        new String []
+        {
             "TID", "Date", "PurchaseAmount", "SaleAmount", "PaidAmount", "Profit/Loss", "Particular", "Balance"
         }
-    ) {
-        Class[] types = new Class [] {
+    )
+    {
+        Class[] types = new Class []
+        {
             java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
         };
-        boolean[] canEdit = new boolean [] {
+        boolean[] canEdit = new boolean []
+        {
             false, false, false, false, false, false, false, false
         };
 
-        public Class getColumnClass(int columnIndex) {
+        public Class getColumnClass(int columnIndex)
+        {
             return types [columnIndex];
         }
 
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        public boolean isCellEditable(int rowIndex, int columnIndex)
+        {
             return canEdit [columnIndex];
         }
     });

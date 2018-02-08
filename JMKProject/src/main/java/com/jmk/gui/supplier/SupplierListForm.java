@@ -68,7 +68,8 @@ public class SupplierListForm extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
@@ -88,8 +89,10 @@ public class SupplierListForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -100,13 +103,17 @@ public class SupplierListForm extends javax.swing.JDialog {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setToolTipText("Enter Customer Name,Address or Mobile number");
         jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextField1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
                 jTextField1KeyReleased(evt);
             }
         });
@@ -144,6 +151,7 @@ public class SupplierListForm extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel1, gridBagConstraints);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Search Supplier");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -154,26 +162,34 @@ public class SupplierListForm extends javax.swing.JDialog {
         jPanel1.add(jLabel2, gridBagConstraints);
 
         jTable1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+            new Object [][]
+            {
 
             },
-            new String [] {
+            new String []
+            {
                 "ID", "Name", "Address1", "Address2", "Mobile2", "Mobile2", "Arrival Type", "Balance", "ID Type", "ID Number"
             }
-        ) {
-            Class[] types = new Class [] {
+        )
+        {
+            Class[] types = new Class []
+            {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean []
+            {
                 false, false, false, false, false, false, false, true, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
+            public Class getColumnClass(int columnIndex)
+            {
                 return types [columnIndex];
             }
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
+            public boolean isCellEditable(int rowIndex, int columnIndex)
+            {
                 return canEdit [columnIndex];
             }
         });
@@ -183,12 +199,15 @@ public class SupplierListForm extends javax.swing.JDialog {
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/012-draw.png"))); // NOI18N
         jLabel5.setText("Edit");
         jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel5MouseClicked(evt);
             }
         });
@@ -200,12 +219,15 @@ public class SupplierListForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(12, 163, 0, 0);
         jPanel2.add(jLabel5, gridBagConstraints);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/account-balance.png"))); // NOI18N
         jLabel6.setText("Show Account");
         jLabel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel6MouseClicked(evt);
             }
         });
@@ -217,12 +239,15 @@ public class SupplierListForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
         jPanel2.add(jLabel6, gridBagConstraints);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/009-printer.png"))); // NOI18N
         jLabel7.setText("Print All");
         jLabel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel7MouseClicked(evt);
             }
         });
@@ -234,12 +259,15 @@ public class SupplierListForm extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
         jPanel2.add(jLabel7, gridBagConstraints);
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
         jLabel10.setText("Close");
         jLabel10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 jLabel10MouseClicked(evt);
             }
         });

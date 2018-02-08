@@ -68,7 +68,8 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
@@ -100,8 +101,8 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
         btnClose = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        cmbSupplierName = new javax.swing.JComboBox<>();
-        cmbArrivalType = new javax.swing.JComboBox<>();
+        cmbSupplierName = new javax.swing.JComboBox<String>();
+        cmbArrivalType = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
 
@@ -110,8 +111,10 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
         setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -137,55 +140,61 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(203, 203, 203), 1, true));
 
         txtAddress.setEditable(false);
+        txtAddress.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(212, 2, 2));
         txtAddress.setFocusable(false);
 
         txtMobile.setEditable(false);
+        txtMobile.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile.setForeground(new java.awt.Color(212, 2, 2));
         txtMobile.setFocusable(false);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Mobile");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Date");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Supplier Name");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Current Balance");
 
         dateChooserCombo1.setCurrentView(new datechooser.view.appearance.AppearancesList("Bordered",
             new datechooser.view.appearance.ViewAppearance("custom",
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     true,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(0, 0, 255),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.ButtonPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
                     new java.awt.Color(128, 128, 128),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(0, 0, 255),
                     false,
                     true,
                     new datechooser.view.appearance.swing.LabelPainter()),
-                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("DejaVu Sans", java.awt.Font.PLAIN, 15),
-                    new java.awt.Color(76, 76, 76),
+                new datechooser.view.appearance.swing.SwingCellAppearance(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 11),
+                    new java.awt.Color(0, 0, 0),
                     new java.awt.Color(255, 0, 0),
                     false,
                     false,
@@ -194,13 +203,16 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
                 false,
                 true)));
 
+    jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel5.setText("Address");
 
     txtCurrentBalance.setEditable(false);
+    txtCurrentBalance.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     txtCurrentBalance.setForeground(new java.awt.Color(212, 2, 2));
     txtCurrentBalance.setFocusable(false);
 
     txtSupplierName.setEditable(false);
+    txtSupplierName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     txtSupplierName.setForeground(new java.awt.Color(212, 2, 2));
     txtSupplierName.setFocusable(false);
 
@@ -258,29 +270,45 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
     jPanel3.setBackground(new java.awt.Color(254, 254, 254));
     jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(232, 223, 223), 1, true));
 
+    jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel11.setText("Profit/Loss");
+
+    txtProfitLoss.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+    txtPaidAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+    txtSaleAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
     txtParticular.setColumns(20);
     txtParticular.setRows(5);
-    txtParticular.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyPressed(java.awt.event.KeyEvent evt) {
+    txtParticular.addKeyListener(new java.awt.event.KeyAdapter()
+    {
+        public void keyPressed(java.awt.event.KeyEvent evt)
+        {
             txtParticularKeyPressed(evt);
         }
     });
     jScrollPane2.setViewportView(txtParticular);
 
-    txtPurchaseAmount.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    txtPurchaseAmount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    txtPurchaseAmount.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             txtPurchaseAmountActionPerformed(evt);
         }
     });
 
+    jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel10.setText("Paid Amount");
 
+    jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel14.setText("Purchase Amount");
 
+    jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel9.setText("Sale Amount");
 
+    jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel12.setText("Particular");
 
     javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -304,7 +332,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
             .addComponent(jLabel12)
             .addGap(61, 61, 61)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(19, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel3Layout.setVerticalGroup(
         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,20 +366,26 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
             .addContainerGap())
     );
 
+    btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/010-database.png"))); // NOI18N
     btnSave.setText("Save");
     btnSave.setBorder(null);
-    btnSave.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    btnSave.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             btnSaveActionPerformed(evt);
         }
     });
 
+    btnClose.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
     btnClose.setText("Close");
     btnClose.setBorder(null);
-    btnClose.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    btnClose.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             btnCloseActionPerformed(evt);
         }
     });
@@ -359,31 +393,43 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
     jPanel1.setBackground(new java.awt.Color(254, 254, 254));
     jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(226, 226, 226), 1, true));
 
+    jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel3.setText("Supplier");
 
-    cmbSupplierName.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    cmbSupplierName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+    cmbSupplierName.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             cmbSupplierNameActionPerformed(evt);
         }
     });
-    cmbSupplierName.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyTyped(java.awt.event.KeyEvent evt) {
+    cmbSupplierName.addKeyListener(new java.awt.event.KeyAdapter()
+    {
+        public void keyTyped(java.awt.event.KeyEvent evt)
+        {
             cmbSupplierNameKeyTyped(evt);
         }
     });
 
+    cmbArrivalType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     cmbArrivalType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ArrivalType.ARRIVAL_TYPE_SELF_PURCHASE, ArrivalType.ARRIVAL_TYPE_PARTY_STOCK }));
-    cmbArrivalType.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+    cmbArrivalType.addItemListener(new java.awt.event.ItemListener()
+    {
+        public void itemStateChanged(java.awt.event.ItemEvent evt)
+        {
             cmbArrivalTypeItemStateChanged(evt);
         }
     });
-    cmbArrivalType.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    cmbArrivalType.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             cmbArrivalTypeActionPerformed(evt);
         }
     });
 
+    jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     jLabel2.setText("Arrival Type");
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -413,11 +459,14 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
             .addContainerGap())
     );
 
+    btnReset.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
     btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
     btnReset.setText("Reset");
     btnReset.setBorder(null);
-    btnReset.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
+    btnReset.addActionListener(new java.awt.event.ActionListener()
+    {
+        public void actionPerformed(java.awt.event.ActionEvent evt)
+        {
             btnResetActionPerformed(evt);
         }
     });
@@ -457,7 +506,7 @@ public class ArrivalEntryForm extends javax.swing.JDialog {
                 .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(48, Short.MAX_VALUE))
+            .addContainerGap(60, Short.MAX_VALUE))
     );
 
     gridBagConstraints = new java.awt.GridBagConstraints();

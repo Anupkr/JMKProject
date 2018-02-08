@@ -50,7 +50,8 @@ public class EditSupplierForm extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -72,7 +73,7 @@ public class EditSupplierForm extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         txtEmailId = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        cmbIdType1 = new javax.swing.JComboBox<>();
+        cmbIdType1 = new javax.swing.JComboBox<String>();
         txtArrivalType = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -81,8 +82,10 @@ public class EditSupplierForm extends javax.swing.JDialog {
         setModal(true);
         setUndecorated(true);
         setType(java.awt.Window.Type.UTILITY);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -95,9 +98,12 @@ public class EditSupplierForm extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Supplier Name");
 
+        txtSupplierName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtSupplierName.setToolTipText("");
-        txtSupplierName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtSupplierName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txtSupplierNameActionPerformed(evt);
             }
         });
@@ -106,8 +112,10 @@ public class EditSupplierForm extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Mobile No.1");
 
+        txtMobile1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile1.setToolTipText("");
 
+        txtMobile2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile2.setToolTipText("");
 
         jLabel4.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
@@ -118,38 +126,49 @@ public class EditSupplierForm extends javax.swing.JDialog {
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("Address1");
 
+        txtAddress1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress1.setToolTipText("");
 
         jLabel6.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setText("ID Number");
 
+        txtIdNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdNumber.setToolTipText("");
 
         jLabel7.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("ID Type");
 
+        btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save.png"))); // NOI18N
         btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnSave.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnSaveActionPerformed(evt);
             }
         });
 
+        btnReset.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
         btnReset.setText("Reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnResetActionPerformed(evt);
             }
         });
 
+        btnReset2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close_red.png"))); // NOI18N
         btnReset2.setText("Close");
-        btnReset2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnReset2ActionPerformed(evt);
             }
         });
@@ -158,25 +177,31 @@ public class EditSupplierForm extends javax.swing.JDialog {
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("Address2");
 
+        txtAddress2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress2.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("EmailId");
 
+        txtEmailId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtEmailId.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("Arrival Type");
 
-        cmbIdType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADHAR", "DL", "PAN" }));
-        cmbIdType1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmbIdType1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmbIdType1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADHAR", "DL", "PAN" }));
+        cmbIdType1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 cmbIdType1ActionPerformed(evt);
             }
         });
 
+        txtArrivalType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtArrivalType.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("DejaVu Serif", 1, 36)); // NOI18N
@@ -195,25 +220,24 @@ public class EditSupplierForm extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(jLabel2)
-                                .addGap(40, 40, 40)
-                                .addComponent(txtSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(32, 32, 32)
+                                .addComponent(txtSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel3)
-                                .addGap(52, 52, 52)
-                                .addComponent(txtMobile1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel7)
-                                .addGap(80, 80, 80)
-                                .addComponent(cmbIdType1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel5)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel5))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jLabel7)))
                                 .addGap(72, 72, 72)
-                                .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbIdType1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(22, 22, 22)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel4)
@@ -232,14 +256,17 @@ public class EditSupplierForm extends javax.swing.JDialog {
                         .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(btnReset2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel9)
-                        .addGap(85, 85, 85)
-                        .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)))
+                        .addGap(4, 4, 4))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtMobile1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(85, 85, 85)
+                                .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -249,14 +276,15 @@ public class EditSupplierForm extends javax.swing.JDialog {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSupplierName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtArrivalType, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(6, 6, 6)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,9 +313,10 @@ public class EditSupplierForm extends javax.swing.JDialog {
                         .addGap(6, 6, 6)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbIdType1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbIdType1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)

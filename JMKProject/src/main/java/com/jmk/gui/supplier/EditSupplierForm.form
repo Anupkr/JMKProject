@@ -58,32 +58,34 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                  <Component id="txtSupplierName" min="-2" pref="197" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="52" pref="52" max="-2" attributes="0"/>
-                                  <Component id="txtMobile1" min="-2" pref="197" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                                  <Component id="cmbIdType1" min="-2" pref="199" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="txtSupplierName" min="-2" pref="202" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="72" pref="72" max="-2" attributes="0"/>
-                                  <Component id="txtAddress1" min="-2" pref="201" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cmbIdType1" min="-2" pref="199" max="-2" attributes="0"/>
+                                      <Component id="txtAddress1" min="-2" pref="201" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -106,15 +108,20 @@
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                           <Component id="btnReset2" min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="85" pref="85" max="-2" attributes="0"/>
-                          <Component id="txtEmailId" min="-2" pref="201" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" pref="653" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="txtMobile1" alignment="1" min="-2" pref="202" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="85" pref="85" max="-2" attributes="0"/>
+                                  <Component id="txtEmailId" min="-2" pref="201" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="39" max="32767" attributes="0"/>
@@ -128,17 +135,19 @@
                   <Component id="jLabel1" min="-2" pref="65" max="-2" attributes="0"/>
                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel11" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel11" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="txtSupplierName" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="txtSupplierName" min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="txtArrivalType" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="50" max="-2" attributes="0"/>
@@ -175,10 +184,12 @@
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="cmbIdType1" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel6" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="cmbIdType1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnSave" min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="btnReset" min="-2" pref="50" max="-2" attributes="0"/>
@@ -209,6 +220,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtSupplierName">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
@@ -228,11 +242,17 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtMobile1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMobile2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -260,6 +280,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtAddress1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -276,6 +299,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtIdNumber">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -292,6 +318,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnSave">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/save.png"/>
             </Property>
@@ -303,6 +332,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnReset">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/005-reset.png"/>
             </Property>
@@ -314,6 +346,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnReset2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/icons/close_red.png"/>
             </Property>
@@ -336,6 +371,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtAddress2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -352,6 +390,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmailId">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
@@ -368,6 +409,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbIdType1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
                 <StringItem index="0" value="ADHAR"/>
@@ -385,6 +429,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtArrivalType">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="1"/>
+            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>

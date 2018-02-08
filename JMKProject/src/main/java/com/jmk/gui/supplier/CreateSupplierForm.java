@@ -42,7 +42,8 @@ public class CreateSupplierForm extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
@@ -58,7 +59,7 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         txtIdNumber = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cmbArrivalType = new javax.swing.JComboBox<>();
+        cmbArrivalType = new javax.swing.JComboBox<String>();
         btnSave = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
         btnReset2 = new javax.swing.JButton();
@@ -67,11 +68,11 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         txtEmailId = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        cmbIdType1 = new javax.swing.JComboBox<>();
+        cmbIdType1 = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
         txtOpeningBalance = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        cmbBalanceType = new javax.swing.JComboBox<>();
+        cmbBalanceType = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Create Supplier ");
@@ -101,9 +102,12 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Supplier Name");
 
+        txtSupplierName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtSupplierName.setToolTipText("");
-        txtSupplierName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtSupplierName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txtSupplierNameActionPerformed(evt);
             }
         });
@@ -112,8 +116,10 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("Mobile No.1");
 
+        txtMobile1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile1.setToolTipText("");
 
+        txtMobile2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtMobile2.setToolTipText("");
 
         jLabel4.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
@@ -124,45 +130,59 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("Address1");
 
+        txtAddress1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress1.setToolTipText("");
 
         jLabel6.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setText("ID Number");
 
+        txtIdNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtIdNumber.setToolTipText("");
 
         jLabel7.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("ID Type");
 
-        cmbArrivalType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Party Stock", "Self Purchase" }));
-        cmbArrivalType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmbArrivalType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmbArrivalType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Party Stock", "Self Purchase" }));
+        cmbArrivalType.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 cmbArrivalTypeActionPerformed(evt);
             }
         });
 
+        btnSave.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/010-database.png"))); // NOI18N
         btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnSave.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnSaveActionPerformed(evt);
             }
         });
 
+        btnReset.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/005-reset.png"))); // NOI18N
         btnReset.setText("Reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnResetActionPerformed(evt);
             }
         });
 
+        btnReset2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnReset2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/006-error.png"))); // NOI18N
         btnReset2.setText("Close");
-        btnReset2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReset2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnReset2ActionPerformed(evt);
             }
         });
@@ -171,21 +191,26 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel10.setForeground(new java.awt.Color(255, 0, 0));
         jLabel10.setText("Address2");
 
+        txtAddress2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtAddress2.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("EmailId");
 
+        txtEmailId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtEmailId.setToolTipText("");
 
         jLabel11.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("Arrival Type");
 
-        cmbIdType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADHAR", "DL", "PAN" }));
-        cmbIdType1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmbIdType1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmbIdType1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ADHAR", "DL", "PAN" }));
+        cmbIdType1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 cmbIdType1ActionPerformed(evt);
             }
         });
@@ -194,15 +219,19 @@ public class CreateSupplierForm extends javax.swing.JDialog {
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setText("Oppending Balance");
 
+        txtOpeningBalance.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtOpeningBalance.setToolTipText("");
 
         jLabel12.setFont(new java.awt.Font("Liberation Serif", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("Balance Type");
 
-        cmbBalanceType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CREDIT", "DEBIT" }));
-        cmbBalanceType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        cmbBalanceType.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmbBalanceType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CREDIT", "DEBIT" }));
+        cmbBalanceType.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 cmbBalanceTypeActionPerformed(evt);
             }
         });
@@ -254,11 +283,10 @@ public class CreateSupplierForm extends javax.swing.JDialog {
                                 .addComponent(txtMobile2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtIdNumber)
-                                        .addComponent(cmbBalanceType, 0, 244, Short.MAX_VALUE)))))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtIdNumber)
+                                    .addComponent(cmbBalanceType, 0, 244, Short.MAX_VALUE)
+                                    .addComponent(txtAddress2))))))
                 .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
@@ -325,11 +353,12 @@ public class CreateSupplierForm extends javax.swing.JDialog {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         String supplierName = txtSupplierName.getText();
-        if (!Pattern.matches("[a-zA-Z][a-zA-Z0-9]{2,}", supplierName)) {
+        JOptionPane.showMessageDialog(rootPane, supplierName);
+        if (!Pattern.matches("[a-zA-Z ][a-zA-Z0-9 ]{1,}", supplierName)) {
             JOptionPane.showMessageDialog(rootPane, "Valid name required,please enter valid supplier name", "Required", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
         String mobile1 = txtMobile1.getText();
         String mobile2 = txtMobile2.getText();
         String address1 = txtAddress1.getText();
